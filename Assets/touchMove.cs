@@ -11,14 +11,30 @@ public class touchMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void HandleTouch(Vector3 vector3)
     {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPos.z = 0;
-            transform.position = touchPos;
-        }
+            vector3.z = 0;
+            transform.position = vector3;
     }
+
+    void Update () {
+        // Handle native touch events
+        foreach (Touch touch in Input.touches) {
+            this.HandleTouch(Camera.main.ScreenToWorldPoint(touch.position));
+        }
+
+        // Simulate touch events from mouse events
+        if (Input.touchCount == 0) {
+            if (Input.GetMouseButtonDown(0) ) {
+                HandleTouch(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
+            // if (Input.GetMouseButton(0) ) {
+            //     HandleTouch(10, Camera.main.ScreenToWorldPoint(Input.mousePosition), TouchPhase.Moved);
+            // }
+            // if (Input.GetMouseButtonUp(0) ) {
+            //     HandleTouch(10, Camera.main.ScreenToWorldPoint(Input.mousePosition), TouchPhase.Ended);
+            // }
+        }
+}
+
 }
