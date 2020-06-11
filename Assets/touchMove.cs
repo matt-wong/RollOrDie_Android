@@ -18,6 +18,7 @@ public class touchMove : MonoBehaviour
     }
 
     void Update () {
+
         // Handle native touch events
         foreach (Touch touch in Input.touches) {
             this.HandleTouch(Camera.main.ScreenToWorldPoint(touch.position));
@@ -36,5 +37,9 @@ public class touchMove : MonoBehaviour
             // }
         }
 }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+    }
 
 }
