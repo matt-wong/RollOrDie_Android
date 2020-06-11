@@ -2,19 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class touchMove : MonoBehaviour
+public class playerScript : MonoBehaviour
 {
+
+public int value = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        this.value = Random.Range(1,7);
         
+        TextMesh tm = GetComponentInChildren<TextMesh>();
+        this.value = Random.Range(1,7);
+        tm.text = this.value.ToString();
     }
 
     // Update is called once per frame
     void HandleTouch(Vector3 vector3)
     {
-            vector3.z = 0;
-            transform.position = vector3;
+            // vector3.z = 0;
+            // transform.position = vector3;
+
+    if (vector3.x > 0f){
+        transform.position  = new Vector3(transform.position.x + 1, transform.position.y, 0);
+    }else{
+        transform.position  = new Vector3(transform.position.x - 1, transform.position.y, 0);
+    }
+    Roll();
+    }
+
+    void Roll(){
+        this.value = Random.Range(1,7);
     }
 
     void Update () {
@@ -36,10 +54,10 @@ public class touchMove : MonoBehaviour
             //     HandleTouch(10, Camera.main.ScreenToWorldPoint(Input.mousePosition), TouchPhase.Ended);
             // }
         }
+
+        TextMesh tm = GetComponentInChildren<TextMesh>();
+        tm.text = this.value.ToString();
+
 }
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-    }
 
 }
