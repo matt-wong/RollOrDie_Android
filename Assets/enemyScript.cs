@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class enemyScript : MonoBehaviour
 {
 
-    const float SPEED = 3.5f;
+    public float speed = 3.5f;
 
     int value = 0;
     public bool move = true;
@@ -26,7 +26,7 @@ public class enemyScript : MonoBehaviour
     {
         Vector3 newPos= transform.position;
         newPos.z = 0;
-        newPos.y -= SPEED * Time.deltaTime;
+        newPos.y -= speed * Time.deltaTime;
         transform.position = newPos;
     }
     void OnTriggerEnter2D(Collider2D col)

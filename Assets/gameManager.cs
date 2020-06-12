@@ -9,6 +9,7 @@ public class gameManager
 {
 
     public int Points;
+    public int HighScore;
     private bool myGameOver;
 
     private static gameManager instance = null;
@@ -27,6 +28,9 @@ public class gameManager
 
     public void IncreasePoints(int value){
         this.Points += value;
+        if (Points > HighScore){
+            HighScore = Points;
+        }
     }
 
     internal void Restart()

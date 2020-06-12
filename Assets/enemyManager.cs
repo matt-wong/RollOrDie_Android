@@ -6,14 +6,15 @@ using UnityEngine;
 
 public class enemyManager : MonoBehaviour
 {
-    const float SPAWN_RATE = 2.5f; //Seconds
+    float spawnRate = 2.5f; //Seconds
+    int rowsSpawned = 0;
+    float untilNextSpawn;
 
-float untilNextSpawn = SPAWN_RATE;
 public GameObject myPrefab;
     // Start is called before the first frame update
     void Start()
     {
-
+ untilNextSpawn = spawnRate;
     }
 
     // Update is called once per frame
@@ -21,8 +22,10 @@ public GameObject myPrefab;
     {
         untilNextSpawn -= Time.deltaTime;
         if (untilNextSpawn < 0f){
-            untilNextSpawn = SPAWN_RATE;
+            spawnRate -= 0.1f;
+            untilNextSpawn = spawnRate;
             this.SpawnEnemyWave();
+            rowsSpawned += 1;
         }
     }
 
@@ -31,8 +34,15 @@ public GameObject myPrefab;
 
 
         for(int i = -5; i < 5; i++){
-        Instantiate(myPrefab, new Vector3(i, 8, 0), Quaternion.identity);
+        GameObject newEnemy = Instantiate(myPrefab, new Vector3(i, 8, 0), Quaternion.identity);
+            enemyScript enemyScript1 = newEnemy.GetComponentInChildren<enemyScript>(); 
+            enemyScript1.speed = SpeedFromRowIndex(this.rowsSpawned);
         }
 
+    }
+
+    private float SpeedFromRowIndex(int rowsSpawned)
+    {
+        return 0.5f * rowsSpawned + 2.5f;
     }
 }

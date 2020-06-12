@@ -28,7 +28,7 @@ private Rigidbody2D rb;
     }else if (vector3.x < (Screen.width * 1/3)){ // Left thrid of Screen
         transform.position  = new Vector3(transform.position.x - 1, transform.position.y, 0);
     }else{
-        rb.AddForce(new Vector2(0f, 500f));
+        rb.AddForce(new Vector2(0f, 250));
         this.value = 0; //Die if hit while rolling
     }
     
