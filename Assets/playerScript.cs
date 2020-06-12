@@ -28,17 +28,13 @@ private Rigidbody2D rb;
     }else if (vector3.x < (Screen.width * 1/3)){ // Left thrid of Screen
         transform.position  = new Vector3(transform.position.x - 1, transform.position.y, 0);
     }else{
-        rb.AddForce(new Vector2(0f, 200f));
+        rb.AddForce(new Vector2(0f, 500f));
         this.value = 0; //Die if hit while rolling
-        Invoke("Roll", 0.5f);//this will happen after 1 seconds
     }
     
     }
 
-    void Roll()
-    {
-        this.value = Random.Range(1, 7);
-    }
+
 
     void Update () {
 
@@ -67,4 +63,10 @@ private Rigidbody2D rb;
 
 }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Floor"){
+            this.value = Random.Range(1, 7);
+        }
+    }
 }

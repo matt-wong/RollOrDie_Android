@@ -36,7 +36,6 @@ public class enemyScript : MonoBehaviour
         {
             if (!col.gameObject.GetComponent(typeof(playerScript)).Equals(null))
             {
-                Debug.Log("PLAYER GET");
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
                 if (playerHitScript.value > this.value)
