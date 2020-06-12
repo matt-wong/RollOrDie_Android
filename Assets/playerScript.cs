@@ -20,14 +20,13 @@ public int value = 0;
     // Update is called once per frame
     void HandleTouch(Vector3 vector3)
     {
-            // vector3.z = 0;
-            // transform.position = vector3;
 
     if (vector3.x > 0f){
         transform.position  = new Vector3(transform.position.x + 1, transform.position.y, 0);
     }else{
         transform.position  = new Vector3(transform.position.x - 1, transform.position.y, 0);
     }
+    
     Roll();
     }
 
@@ -39,7 +38,9 @@ public int value = 0;
 
         // Handle native touch events
         foreach (Touch touch in Input.touches) {
+            if (touch.phase == TouchPhase.Began){
             this.HandleTouch(Camera.main.ScreenToWorldPoint(touch.position));
+            }
         }
 
         // Simulate touch events from mouse events

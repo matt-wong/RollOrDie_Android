@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class enemyManager : MonoBehaviour
 {
-    const int MAX_ENEMIES = 25; 
-    const float SPAWN_RATE = 1.5f; //Seconds
+    const float SPAWN_RATE = 2.5f; //Seconds
 
 float untilNextSpawn = SPAWN_RATE;
 public GameObject myPrefab;
@@ -29,8 +28,10 @@ public GameObject myPrefab;
 
     private void SpawnEnemyWave()
     {
+
+
         for(int i = -5; i < 5; i++){
-        Instantiate(myPrefab, new Vector3(i, 0, 0), Quaternion.identity);
+        Instantiate(myPrefab, new Vector3(i, 8, 0), Quaternion.identity);
         }
 
     }
