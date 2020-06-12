@@ -6,7 +6,7 @@ public class playerScript : MonoBehaviour
 {
 
 public int value = 0;
-
+private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,26 +15,29 @@ public int value = 0;
         TextMesh tm = GetComponentInChildren<TextMesh>();
         this.value = Random.Range(1,7);
         tm.text = this.value.ToString();
+
+        rb = GetComponentInChildren<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void HandleTouch(Vector3 vector3)
     {
 
-Debug.Log("VECTOR X" + vector3.x.ToString());
-
     if (vector3.x > (Screen.width * 2/3)){ //Right Third of Screen
         transform.position  = new Vector3(transform.position.x + 1, transform.position.y, 0);
     }else if (vector3.x < (Screen.width * 1/3)){ // Left thrid of Screen
         transform.position  = new Vector3(transform.position.x - 1, transform.position.y, 0);
     }else{
-        Roll();
+        rb.AddForce(new Vector2(0f, 200f));
+        this.value = 0; //Die if hit while rolling
+        Invoke("Roll", 0.5f);//this will happen after 1 seconds
     }
     
     }
 
-    void Roll(){
-        this.value = Random.Range(1,7);
+    void Roll()
+    {
+        this.value = Random.Range(1, 7);
     }
 
     void Update () {
