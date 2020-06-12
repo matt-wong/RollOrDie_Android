@@ -21,13 +21,16 @@ public int value = 0;
     void HandleTouch(Vector3 vector3)
     {
 
-    if (vector3.x > 0f){
+Debug.Log("VECTOR X" + vector3.x.ToString());
+
+    if (vector3.x > (Screen.width * 2/3)){ //Right Third of Screen
         transform.position  = new Vector3(transform.position.x + 1, transform.position.y, 0);
-    }else{
+    }else if (vector3.x < (Screen.width * 1/3)){ // Left thrid of Screen
         transform.position  = new Vector3(transform.position.x - 1, transform.position.y, 0);
+    }else{
+        Roll();
     }
     
-    Roll();
     }
 
     void Roll(){
@@ -39,14 +42,14 @@ public int value = 0;
         // Handle native touch events
         foreach (Touch touch in Input.touches) {
             if (touch.phase == TouchPhase.Began){
-            this.HandleTouch(Camera.main.ScreenToWorldPoint(touch.position));
+            this.HandleTouch(touch.position);
             }
         }
 
         // Simulate touch events from mouse events
         if (Input.touchCount == 0) {
             if (Input.GetMouseButtonDown(0) ) {
-                HandleTouch(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                HandleTouch(Input.mousePosition);
             }
             // if (Input.GetMouseButton(0) ) {
             //     HandleTouch(10, Camera.main.ScreenToWorldPoint(Input.mousePosition), TouchPhase.Moved);
