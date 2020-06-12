@@ -29,17 +29,22 @@ public class gameManager
         this.Points += value;
     }
 
+    internal void Restart()
+    {
+        GameOver = false;
+        Points = 0;
+        SceneManager.LoadScene("scene");
+    }
+
     public bool GameOver
     {
         get{
             return myGameOver;
         }
-        
+
         set
         {
             myGameOver = value;
-            this.Points = 0;
-            SceneManager.LoadScene("scene");
         }
 
     }

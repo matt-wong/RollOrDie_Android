@@ -43,7 +43,6 @@ public class enemyScript : MonoBehaviour
                 {
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.value -= 1;
-                    Debug.Log("dfdas");
                     gm.IncreasePoints(1);
                     Destroy(gameObject);
                 }
