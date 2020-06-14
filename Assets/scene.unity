@@ -392,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345443645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.42, y: -6.71, z: 0}
+  m_LocalPosition: {x: -4.4, y: -7.23, z: 0}
   m_LocalScale: {x: 3.5439212, y: 1, z: 1}
   m_Children:
   - {fileID: 1902475750}
@@ -976,7 +976,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Fart
 --- !u!222 &1089688009
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1280,7 +1280,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Poo
 --- !u!222 &1538866099
 CanvasRenderer:
   m_ObjectHideFlags: 0

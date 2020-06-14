@@ -35,7 +35,7 @@ public class HudScript : MonoBehaviour
     void Update()
     {
         myPointKeeper.text = "Points: " + gm.Points.ToString();
-        myHSKeeper.text = "Points: " + gm.HighScore.ToString();
+        myHSKeeper.text = "High Score: " + gm.HighScore.ToString();
         if (gm.GameOver){
             myRestartButton.gameObject.SetActive(true);
         }
