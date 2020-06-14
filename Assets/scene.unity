@@ -392,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345443645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.38, y: -9.73, z: 0}
+  m_LocalPosition: {x: -4.42, y: -6.71, z: 0}
   m_LocalScale: {x: 3.5439212, y: 1, z: 1}
   m_Children:
   - {fileID: 1902475750}
@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 1089688009}
   - component: {fileID: 1089688008}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: highscoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1224,7 +1224,7 @@ GameObject:
   - component: {fileID: 1538866099}
   - component: {fileID: 1538866098}
   m_Layer: 5
-  m_Name: Text
+  m_Name: scoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

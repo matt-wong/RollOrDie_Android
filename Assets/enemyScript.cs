@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 public class enemyScript : MonoBehaviour
 {
 
-    public float speed = 3.5f;
-
+    public float speed = 0f;
     int value = 0;
-    public bool move = true;
     gameManager gm;
 
     // Start is called before the first frame update
