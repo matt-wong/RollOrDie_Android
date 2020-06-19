@@ -24,9 +24,9 @@ private Rigidbody2D rb;
     {
 
     if (vector3.x > (Screen.width * 2/3)){ //Right Third of Screen
-        transform.position  = new Vector3(transform.position.x + 1, transform.position.y, 0);
+        transform.position  = new Vector3(System.Math.Min(transform.position.x + 1, 3), transform.position.y, 0);
     }else if (vector3.x < (Screen.width * 1/3)){ // Left thrid of Screen
-        transform.position  = new Vector3(transform.position.x - 1, transform.position.y, 0);
+        transform.position  = new Vector3(System.Math.Max(transform.position.x - 1, -4), transform.position.y, 0);
     }else{
         rb.AddForce(new Vector2(0f, 250));
         this.value = 0; //Die if hit while rolling

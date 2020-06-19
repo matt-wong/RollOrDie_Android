@@ -34,7 +34,7 @@ public GameObject myPrefab;
 
         myQueuedEnemies.Clear();
 
-        for (int i = -5; i < 5; i++)
+        for (int i = -4; i < 4; i++)
         {
             GameObject newEnemy = Instantiate(myPrefab, new Vector3(i, 7, 0), Quaternion.identity);
             enemyScript enemyScript1 = newEnemy.GetComponentInChildren<enemyScript>();
@@ -63,13 +63,12 @@ public GameObject myPrefab;
                 rowsSpawned += 1;
             }
             lastSpawnTime = Time.fixedTime;
-            Debug.Log("Wave  it! : " + lastSpawnTime.ToString());
         }
 
     }
 
     private float SpeedFromRowIndex(int rowsSpawned)
     {
-        return 0.5f * rowsSpawned + 2.5f;
+        return 0.25f * rowsSpawned + 3.5f;
     }
 }
