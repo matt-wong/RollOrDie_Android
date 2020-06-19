@@ -27,17 +27,27 @@ public class playerScript : MonoBehaviour
 
         if (vector3.x > (Screen.width * 2 / 3))
         { //Right Third of Screen
-            transform.position = new Vector3(System.Math.Min(transform.position.x + 1, 3), transform.position.y, 0);
+            moveRight();
         }
         else if (vector3.x < (Screen.width * 1 / 3))
         { // Left thrid of Screen
-            transform.position = new Vector3(System.Math.Max(transform.position.x - 1, -4), transform.position.y, 0);
+            moveLeft();
         }
         else
         {
             Roll();
         }
 
+    }
+
+    void moveRight()
+    {
+        transform.position = new Vector3(System.Math.Min(transform.position.x + 1, 3.5f), transform.position.y, 0);
+    }
+
+    void moveLeft()
+    {
+        transform.position = new Vector3(System.Math.Max(transform.position.x - 1, -3.5f), transform.position.y, 0);
     }
 
     void Roll()
@@ -70,11 +80,11 @@ public class playerScript : MonoBehaviour
         //Arrow controls for computers
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            transform.position = new Vector3(System.Math.Max(transform.position.x - 1, -4), transform.position.y, 0);
+            moveLeft();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            transform.position = new Vector3(System.Math.Min(transform.position.x + 1, 3), transform.position.y, 0);
+            moveRight();
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
