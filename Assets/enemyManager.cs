@@ -48,6 +48,15 @@ public GameObject myPrefab;
         foreach (enemyScript es in myQueuedEnemies){
             es.speed = SpeedFromRowIndex(this.rowsSpawned);
         }
+
+        //Keep track of the easiest enemy to beat so we can rig the players dice rolls to win sshhhhh...
+        gameManager.Instance.weakestEnemyHP = Int16.MaxValue;
+        foreach (enemyScript es in myQueuedEnemies)
+        {
+            Debug.Log(es.value);
+            gameManager.Instance.weakestEnemyHP = System.Math.Min(gameManager.Instance.weakestEnemyHP, es.value);
+
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -8,6 +8,7 @@ public class HudScript : MonoBehaviour
 
     Text myPointKeeper;
     Text myHSKeeper;
+    Text myDebugData;
     Button myRestartButton;
     gameManager gm;
 
@@ -21,6 +22,8 @@ public class HudScript : MonoBehaviour
                 myHSKeeper = uit;
             }else if(uit.name == "scoreText"){
                 myPointKeeper = uit;
+            }else if(uit.name == "debugData"){
+                myDebugData = uit;
             }
         }
 
@@ -36,8 +39,10 @@ public class HudScript : MonoBehaviour
     {
         myPointKeeper.text = "Points: " + gm.Points.ToString();
         myHSKeeper.text = "High Score: " + gm.HighScore.ToString();
+        myDebugData.text = "Lowest Enemy:" + gm.weakestEnemyHP;
         if (gm.GameOver){
             myRestartButton.gameObject.SetActive(true);
         }
+
     }
 }

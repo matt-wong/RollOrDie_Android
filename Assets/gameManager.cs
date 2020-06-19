@@ -11,6 +11,7 @@ public class gameManager
     public int Points;
     public int HighScore;
     private bool myGameOver;
+    public int weakestEnemyHP; 
 
     private static gameManager instance = null;
 

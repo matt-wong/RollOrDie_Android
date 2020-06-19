@@ -7,14 +7,17 @@ public class enemyScript : MonoBehaviour
 {
 
     public float speed = 0f;
-    int value = 0;
+    public int value = 0;
     gameManager gm;
+
+    void Awake(){
+        this.value = Random.Range(1,7);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         TextMesh tm = GetComponentInChildren<TextMesh>();
-        this.value = Random.Range(1,7);
         tm.text = this.value.ToString();
         gm = gameManager.Instance;
     }
