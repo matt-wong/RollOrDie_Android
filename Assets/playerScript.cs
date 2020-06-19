@@ -6,6 +6,8 @@ public class playerScript : MonoBehaviour
 {
 
 public int value = 0;
+public bool invincible = false;
+
 private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()

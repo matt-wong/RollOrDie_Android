@@ -57,7 +57,6 @@ public GameObject myPrefab;
             //It's been 0.5 secs since the last enemy touched the despawner; 
             if (Time.fixedTime - lastSpawnTime > 0.5f || lastSpawnTime == 0)
             {
-                Debug.Log("Wave  it2!");
                 SendWave();
                 this.QueueEnemyWave();
                 rowsSpawned += 1;

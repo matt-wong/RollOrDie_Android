@@ -43,7 +43,7 @@ public class enemyScript : MonoBehaviour
                     gm.IncreasePoints(1);
                     Destroy(gameObject);
                 }
-                else
+                else if(!playerHitScript.invincible)
                 {
                     Destroy(col.gameObject);
                     gm.GameOver = true;
