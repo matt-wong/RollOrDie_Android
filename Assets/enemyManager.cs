@@ -34,7 +34,7 @@ public GameObject myPrefab;
 
         myQueuedEnemies.Clear();
 
-        for (int i = -4; i < 4; i++)
+        for (float i = -3.5f; i < 4; i++)
         {
             GameObject newEnemy = Instantiate(myPrefab, new Vector3(i, 7, 0), Quaternion.identity);
             enemyScript enemyScript1 = newEnemy.GetComponentInChildren<enemyScript>();
@@ -53,8 +53,7 @@ public GameObject myPrefab;
         gameManager.Instance.weakestEnemyHP = Int16.MaxValue;
         foreach (enemyScript es in myQueuedEnemies)
         {
-            Debug.Log(es.value);
-            gameManager.Instance.weakestEnemyHP = System.Math.Min(gameManager.Instance.weakestEnemyHP, es.value);
+            gameManager.Instance.weakestEnemyHP = System.Math.Min(gameManager.Instance.weakestEnemyHP, es.currFace.Value);
 
         }
     }

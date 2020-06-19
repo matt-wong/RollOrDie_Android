@@ -65,12 +65,6 @@ public class playerScript : MonoBehaviour
             {
                 HandleTouch(Input.mousePosition);
             }
-            // if (Input.GetMouseButton(0) ) {
-            //     HandleTouch(10, Camera.main.ScreenToWorldPoint(Input.mousePosition), TouchPhase.Moved);
-            // }
-            // if (Input.GetMouseButtonUp(0) ) {
-            //     HandleTouch(10, Camera.main.ScreenToWorldPoint(Input.mousePosition), TouchPhase.Ended);
-            // }
         }
 
         //Arrow controls for computers

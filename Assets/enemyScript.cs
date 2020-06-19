@@ -7,18 +7,34 @@ public class enemyScript : MonoBehaviour
 {
 
     public float speed = 0f;
-    public int value = 0;
+    public DiceFace currFace;
     gameManager gm;
+    DiceFace[] faces;
+
+    public Sprite[] faceSprites;
 
     void Awake(){
-        this.value = Random.Range(1,7);
+        this.faces = new DiceFace[6];
+        this.faces[0] = new DiceFace(1, faceSprites[0]);
+        this.faces[1] = new DiceFace(2, faceSprites[1]);
+        this.faces[2] = new DiceFace(3, faceSprites[2]);
+        this.faces[3] = new DiceFace(4, faceSprites[3]);
+        this.faces[4] = new DiceFace(5, faceSprites[4]);
+        this.faces[5] = new DiceFace(6, faceSprites[5]);
+
+        this.currFace = this.faces[Random.Range(0,6)];
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        TextMesh tm = GetComponentInChildren<TextMesh>();
-        tm.text = this.value.ToString();
+        // TextMesh tm = GetComponentInChildren<TextMesh>();
+        // tm.text = this.currFace.Value.ToString();
+        
+        SpriteRenderer spr = GetComponent<SpriteRenderer>();
+        Debug.Log(spr);
+        spr.sprite = this.currFace.sprite;
+
         gm = gameManager.Instance;
     }
 
@@ -39,7 +55,7 @@ public class enemyScript : MonoBehaviour
             {
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
-                if (playerHitScript.value > this.value)
+                if (playerHitScript.value > this.currFace.Value)
                 {
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.value -= 1;
