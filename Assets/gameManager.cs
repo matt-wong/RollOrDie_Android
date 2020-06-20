@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,6 +28,7 @@ public class gameManager
             if (gameManager.instance == null)
             {
                 gameManager.instance = new gameManager();
+                gameManager.instance.Load();
             }
             return gameManager.instance;
         }
@@ -54,7 +57,32 @@ public class gameManager
         set
         {
             myGameOver = value;
+            if (myGameOver){
+                Save();
+            }
         }
 
+    }
+
+    public void Save()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+
+        bf.Serialize(file, HighScore);
+        file.Close();
+    }
+    public void Load()
+    {
+        if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
+            int highscoreLoad = (int)bf.Deserialize(file);
+            file.Close();
+
+            HighScore = highscoreLoad;
+
+        }
     }
 }

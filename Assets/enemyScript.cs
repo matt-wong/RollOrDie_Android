@@ -28,11 +28,7 @@ public class enemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // TextMesh tm = GetComponentInChildren<TextMesh>();
-        // tm.text = this.currFace.Value.ToString();
-        
         SpriteRenderer spr = GetComponent<SpriteRenderer>();
-        Debug.Log(spr);
         spr.sprite = this.currFace.sprite;
 
         gm = gameManager.Instance;
