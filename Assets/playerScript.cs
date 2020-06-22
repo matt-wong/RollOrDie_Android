@@ -8,6 +8,7 @@ public class playerScript : MonoBehaviour
     public int value = 0;
     public bool invincible = false;
     private bool gotLosingRoll = false;
+    private float lastRollTime;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
@@ -52,7 +53,9 @@ public class playerScript : MonoBehaviour
 
     void Roll()
     {
+        rb.freezeRotation = false;
         rb.AddForce(new Vector2(0f, 250));
+        rb.AddTorque(75);
         this.value = 0; //Die if hit while rolling
     }
 
@@ -98,8 +101,11 @@ public class playerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Floor")
+        if (col.tag == "Floor" && (Time.fixedTime - lastRollTime > 0.25f || lastRollTime == 0))
         {
+            lastRollTime = Time.fixedTime;
+            rb.freezeRotation = true;
+            rb.rotation = 0;
 
             //Don't allow player to roll losing roll twice in a row
             int lowerRange = 1;

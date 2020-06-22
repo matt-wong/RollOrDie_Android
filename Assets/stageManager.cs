@@ -33,10 +33,15 @@ public class stageManager : MonoBehaviour
         }
     }
 
+    private void Update(){
+        //stageText.rectTransform.localScale = new Vector3(stageText.rectTransform.localScale.x + 1, stageText.rectTransform.localScale.y + 1, 0);;
+    }
+
     private void HandleStageChange(int stageNumber)
     {
 
         stageText.text = "Stage " + (stageNumber + 1);
+        stageText.rectTransform.localScale = new Vector3(1,1,1);
         Camera.main.backgroundColor = this.Stages[stageNumber].BgColor;
         if (this.Stages.Count > stageNumber + 1){
             this.NextStage = this.Stages[stageNumber + 1];
