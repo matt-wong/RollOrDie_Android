@@ -23,7 +23,6 @@ public class stageManager : MonoBehaviour
         this.Stages.Add(new Stage{StartingRow = 15, BgColor = new Color(0.0f, 0.52f, 0.0f)});
 
         this.NextStage = this.Stages[0];
-
         CheckForStageIncrease(0);
     }
 
@@ -43,6 +42,10 @@ public class stageManager : MonoBehaviour
         if (stageText.color.a > 0){
             stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, stageText.color.a - (Time.deltaTime * 0.75f)); 
         }
+
+        if (Camera.main.backgroundColor != this.CurrentStage.BgColor){
+            Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, this.CurrentStage.BgColor, Time.deltaTime);
+        }
     }
 
     private void HandleStageChange(int stageNumber)
@@ -51,10 +54,10 @@ public class stageManager : MonoBehaviour
         stageText.text = "Stage " + (stageNumber + 1);
         stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
         stageText.rectTransform.localScale = new Vector3(1,1,1);
-        Camera.main.backgroundColor = this.Stages[stageNumber].BgColor;
         if (this.Stages.Count > stageNumber + 1){
             this.NextStage = this.Stages[stageNumber + 1];
         }
+        this.CurrentStage = this.Stages[stageNumber];
     }
 
 }
