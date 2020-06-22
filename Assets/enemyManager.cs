@@ -10,6 +10,8 @@ public class enemyManager : MonoBehaviour
     int rowsSpawned = 0;
     float untilNextSpawn;
     float lastSpawnTime = 0;
+    stageManager stageManager;
+
 
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
 
@@ -21,6 +23,9 @@ public GameObject myPrefab;
         this.QueueEnemyWave();
         this.SendWave();
         this.QueueEnemyWave();
+
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+        this.stageManager = canvas.GetComponent<stageManager>();
     }
 
     // Update is called once per frame
@@ -62,12 +67,17 @@ public GameObject myPrefab;
     {
         if (col.tag == "Enemy")
         {
-            //It's been 0.5 secs since the last enemy touched the despawner; 
-            if (Time.fixedTime - lastSpawnTime > 0.5f || lastSpawnTime == 0)
+            //It's been 0.25 secs since the last enemy touched the despawner.
+            // We check this so that multiple enemies in the same row don't trigger the new row.
+            if (Time.fixedTime - lastSpawnTime > 0.25f || lastSpawnTime == 0)
             {
                 SendWave();
                 this.QueueEnemyWave();
                 rowsSpawned += 1;
+                if (rowsSpawned == 3){
+                    stageManager.HandleStageChange(1);
+                    
+                }
             }
             lastSpawnTime = Time.fixedTime;
         }

@@ -15,12 +15,10 @@ public class enemyScript : MonoBehaviour
 
     void Awake(){
         this.faces = new DiceFace[6];
-        this.faces[0] = new DiceFace(1, faceSprites[0]);
-        this.faces[1] = new DiceFace(2, faceSprites[1]);
-        this.faces[2] = new DiceFace(3, faceSprites[2]);
-        this.faces[3] = new DiceFace(4, faceSprites[3]);
-        this.faces[4] = new DiceFace(5, faceSprites[4]);
-        this.faces[5] = new DiceFace(6, faceSprites[5]);
+        for (int i = 0; i < 6; i++)
+        {
+            this.faces[i] = new DiceFace(i + 1, faceSprites[i]);
+        }
 
         this.currFace = this.faces[Random.Range(0,6)];
     }

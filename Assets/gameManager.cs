@@ -14,7 +14,7 @@ public class gameManager
     public int HighScore;
     private bool myGameOver;
     public int weakestEnemyHP;
-    public int stageNumber = 0;
+    public int StageNumber = 0;
 
     //0 (0 - 20 points) - No items, playter rigged to never roll losing value twice in a row.
     //1 - (20 -X points) - Add dots items to make every row winnable.
@@ -39,12 +39,14 @@ public class gameManager
         if (Points > HighScore){
             HighScore = Points;
         }
+
     }
 
     internal void Restart()
     {
         GameOver = false;
         Points = 0;
+        StageNumber = 0;
         SceneManager.LoadScene("scene");
     }
 
