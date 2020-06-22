@@ -31,6 +31,11 @@ public class stageManager : MonoBehaviour
         if (NextStage.StartingRow == rowNumber){
             this.HandleStageChange(Stages.IndexOf(NextStage));
         }
+        else if (NextStage.StartingRow - rowNumber < 4 && NextStage.StartingRow - rowNumber > 0)
+        {
+            stageText.text = "Next Stage in " + (NextStage.StartingRow - rowNumber) + "...";
+            stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
+        }
     }
 
     private void Update(){
