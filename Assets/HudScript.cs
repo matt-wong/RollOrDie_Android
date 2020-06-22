@@ -15,17 +15,10 @@ public class HudScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Text[] UItexts = GetComponentsInChildren<Text>();
-
-        foreach (Text uit in UItexts){
-            if (uit.name == "highscoreText"){
-                myHSKeeper = uit;
-            }else if(uit.name == "scoreText"){
-                myPointKeeper = uit;
-            }else if(uit.name == "debugData"){
-                myDebugData = uit;
-            }
-        }
+     
+        this.myHSKeeper = transform.Find("highscoreText").GetComponent<Text>();
+        this.myPointKeeper = transform.Find("scoreText").GetComponent<Text>();
+        this.myDebugData = transform.Find("debugData").GetComponent<Text>();
 
         myRestartButton = GetComponentInChildren<Button>();
         myRestartButton.gameObject.SetActive(false);
