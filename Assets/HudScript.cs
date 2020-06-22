@@ -9,7 +9,7 @@ public class HudScript : MonoBehaviour
     Text myPointKeeper;
     Text myHSKeeper;
     Text myDebugData;
-    Button myRestartButton;
+    Transform myRestartPanel;
     gameManager gm;
 
     // Start is called before the first frame update
@@ -20,8 +20,8 @@ public class HudScript : MonoBehaviour
         this.myPointKeeper = transform.Find("scoreText").GetComponent<Text>();
         this.myDebugData = transform.Find("debugData").GetComponent<Text>();
 
-        myRestartButton = GetComponentInChildren<Button>();
-        myRestartButton.gameObject.SetActive(false);
+        myRestartPanel = transform.Find("RestartPanel").GetComponent<Transform>();
+        myRestartPanel.gameObject.SetActive(false);
 
         gm = gameManager.Instance;
     }
@@ -34,7 +34,7 @@ public class HudScript : MonoBehaviour
         myHSKeeper.text = "High Score: " + gm.HighScore.ToString();
         myDebugData.text = "Lowest Enemy:" + gm.weakestEnemyHP;
         if (gm.GameOver){
-            myRestartButton.gameObject.SetActive(true);
+            myRestartPanel.gameObject.SetActive(true);
         }
 
     }

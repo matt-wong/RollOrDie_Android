@@ -65,7 +65,7 @@ public GameObject myPrefab;
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Enemy")
+        if (col.tag == "Enemy" && !gameManager.Instance.GameOver)
         {
             //It's been 0.25 secs since the last enemy touched the despawner.
             // We check this so that multiple enemies in the same row don't trigger the new row.
