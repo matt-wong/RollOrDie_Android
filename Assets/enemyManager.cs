@@ -74,10 +74,7 @@ public GameObject myPrefab;
                 SendWave();
                 this.QueueEnemyWave();
                 rowsSpawned += 1;
-                if (rowsSpawned == 3){
-                    stageManager.HandleStageChange(1);
-                    
-                }
+                stageManager.CheckForStageIncrease(rowsSpawned);
             }
             lastSpawnTime = Time.fixedTime;
         }

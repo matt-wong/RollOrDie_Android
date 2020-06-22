@@ -5,28 +5,33 @@ using UnityEngine;
 public class stageManager : MonoBehaviour
 {
 
-    int myStage = 0; 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    Stage CurrentStage;
+    Stage NextStage;
+    public int CurrentRow = 0;
+    public List<Stage> Stages;
+
+    void Start(){
+        this.Stages = new List<Stage>();
+        this.Stages.Add(new Stage{StartingRow = 3, BgColor = new Color(0.63f, 0.52f, 0.7f)});
+        this.Stages.Add(new Stage{StartingRow = 5, BgColor = new Color(0.8f, 0.04f, 0.7f)});
+        this.Stages.Add(new Stage{StartingRow = 7, BgColor = new Color(0.0f, 0.52f, 0.0f)});
+
+        this.NextStage = this.Stages[0];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (gameManager.Instance.StageNumber != myStage)
-        {
-            HandleStageChange(gameManager.Instance.StageNumber);
-            myStage = gameManager.Instance.StageNumber;
+    public void CheckForStageIncrease(int rowNumber){
+        if (NextStage.StartingRow == rowNumber){
+            this.HandleStageChange(Stages.IndexOf(NextStage));
         }
     }
 
-        public void HandleStageChange(int stageNumber)
+    private void HandleStageChange(int stageNumber)
     {
         Debug.Log("Stage " + stageNumber);
-
-        Camera.main.backgroundColor = new Color(162f/256f, 137f/256f, 179f/256f);
+        Camera.main.backgroundColor = this.Stages[stageNumber].BgColor;
+        if (this.Stages.Count > stageNumber + 1){
+            this.NextStage = this.Stages[stageNumber + 1];
+        }
     }
 
 }
