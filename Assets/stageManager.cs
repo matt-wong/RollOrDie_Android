@@ -34,13 +34,17 @@ public class stageManager : MonoBehaviour
     }
 
     private void Update(){
-        //stageText.rectTransform.localScale = new Vector3(stageText.rectTransform.localScale.x + 1, stageText.rectTransform.localScale.y + 1, 0);;
+        //Fade Stage # text away over time.
+        if (stageText.color.a > 0){
+            stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, stageText.color.a - (Time.deltaTime * 0.75f)); 
+        }
     }
 
     private void HandleStageChange(int stageNumber)
     {
 
         stageText.text = "Stage " + (stageNumber + 1);
+        stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
         stageText.rectTransform.localScale = new Vector3(1,1,1);
         Camera.main.backgroundColor = this.Stages[stageNumber].BgColor;
         if (this.Stages.Count > stageNumber + 1){
