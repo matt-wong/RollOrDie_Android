@@ -40,7 +40,7 @@ public class stageManager : MonoBehaviour
     private void Update(){
         //Fade Stage # text away over time.
         if (stageText.color.a > 0){
-            stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, stageText.color.a - (Time.deltaTime * 0.75f)); 
+            stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, stageText.color.a - (Time.deltaTime * 0.5f)); 
         }
 
         if (Camera.main.backgroundColor != this.CurrentStage.BgColor){

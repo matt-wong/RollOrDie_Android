@@ -11,6 +11,7 @@ public class enemyManager : MonoBehaviour
     float untilNextSpawn;
     float lastSpawnTime = 0;
     stageManager stageManager;
+    itemManager itemManager;
 
 
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
@@ -26,6 +27,7 @@ public GameObject myPrefab;
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         this.stageManager = canvas.GetComponent<stageManager>();
+        this.itemManager = FindObjectOfType<itemManager>();
     }
 
     // Update is called once per frame
@@ -75,6 +77,7 @@ public GameObject myPrefab;
                 this.QueueEnemyWave();
                 rowsSpawned += 1;
                 stageManager.CheckForStageIncrease(rowsSpawned);
+                itemManager.SpawnItemsForRow(rowsSpawned);
             }
             lastSpawnTime = Time.fixedTime;
         }
