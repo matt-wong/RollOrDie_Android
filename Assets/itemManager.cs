@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum itemType{
     weight = 0,
-    wrap = 1,
-    clear = 2,
-    live = 3,
-    beam = 4
+    heart = 1,
+    // wrap = 3,
+    // clear = 4,
+    // beam = 4
 }
 
 public class itemManager : MonoBehaviour
@@ -21,6 +21,7 @@ public class itemManager : MonoBehaviour
         ItemOccurences = new List<ItemOccurence>();
 
         ItemOccurences.Add(new ItemOccurence { iType = itemType.weight, rowIndex = 10, fadeTime = -1f });
+        //ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(11,20), fadeTime = -1f });
     }
 
     public void SpawnItemsForRow(int rowNumber){
@@ -28,7 +29,7 @@ public class itemManager : MonoBehaviour
 
         if(itemsToSpawn.Count > 0){
             foreach (ItemOccurence item in itemsToSpawn){
-                GameObject newItem = Instantiate(PrefabbedItems[(int) item.iType], new Vector3(Random.Range(-3.5f, 3.5f), -4, 0), Quaternion.identity);
+                GameObject newItem = Instantiate(PrefabbedItems[(int) item.iType], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
             }
         }
     }

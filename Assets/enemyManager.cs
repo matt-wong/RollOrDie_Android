@@ -86,6 +86,7 @@ public GameObject myPrefab;
 
     private float SpeedFromRowIndex(int rowsSpawned)
     {
-        return 0.25f * rowsSpawned + 3.5f;
+        //Linear relation until keep speed at row 20
+        return  0.25f * Math.Min(rowsSpawned, 20) + 3.5f;
     }
 }
