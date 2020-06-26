@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7727199586390884267}
   - component: {fileID: 1518712082062889959}
   - component: {fileID: 1518712082062889956}
-  - component: {fileID: 1518712082062889957}
   m_Layer: 0
   m_Name: WeightItem 1
   m_TagString: Untagged
@@ -122,6 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90c6971b4ed50dc4ab1e70235d8faf30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CenterY: -3.5
+  Amplitude: 1
+  MinX: -3.5
+  MaxX: 3.5
+  horizSpeed: 1
 --- !u!50 &1518712082062889959
 Rigidbody2D:
   serializedVersion: 4
@@ -159,20 +163,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.2799999
---- !u!114 &1518712082062889957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5199622947597898789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee7ebe77f634954fadbd7a2722bfb33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CenterY: -3.5
-  Amplitude: 1
-  MinX: -3.5
-  MaxX: 3.5
-  horizSpeed: 1

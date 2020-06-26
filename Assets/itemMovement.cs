@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class itemMovement : MonoBehaviour
+public abstract class itemMovement : MonoBehaviour
 {
     public float CenterY = -3.5f;
     public float Amplitude = 1f;
@@ -34,6 +34,8 @@ public class itemMovement : MonoBehaviour
         // transform.position = new Vector3(transform.position.x + x, Mathf.Sin(Time.time) + MinY, transform.position.z);
     }
 
+    protected abstract void TouchedPlayer(Collider2D col);
+
     protected void OnTriggerEnter2D(Collider2D col)
     {
 
@@ -41,6 +43,9 @@ public class itemMovement : MonoBehaviour
         {
             lastBump = Time.time;
             horizSpeed = horizSpeed * -1;
+        }
+        else if(col.tag == "Player"){
+            this.TouchedPlayer(col);
         }
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class weightItem : MonoBehaviour
+public class weightItem : itemMovement
 //Item for increase mass of player dice. This should make the rolling take less time
 {
     public override bool Equals(object other)
@@ -20,16 +20,11 @@ public class weightItem : MonoBehaviour
         return base.ToString();
     }
 
-
-    void OnTriggerEnter2D(Collider2D col)
+    protected override void TouchedPlayer(Collider2D col)
     {
-        
-        if (col.tag == "Player" && !gameManager.Instance.GameOver)
-        {
-            Debug.Log(col);
-            Rigidbody2D playerRB = col.gameObject.GetComponent<Rigidbody2D>();
-            playerRB.mass += 0.3f;
-            Destroy(gameObject);
-        }
+        Rigidbody2D playerRB = col.gameObject.GetComponent<Rigidbody2D>();
+        playerRB.mass += 0.3f;
+        Destroy(gameObject);
     }
+
 }
