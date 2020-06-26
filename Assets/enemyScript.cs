@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class enemyScript : MonoBehaviour
+public class enemyScript : fallingObject
 {
 
-    public float speed = 0f;
     public DiceFace currFace;
-    gameManager gm;
     DiceFace[] faces;
 
     public Sprite[] faceSprites;
@@ -21,25 +19,10 @@ public class enemyScript : MonoBehaviour
         }
 
         this.currFace = this.faces[Random.Range(0,6)];
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SpriteRenderer spr = GetComponent<SpriteRenderer>();
+                SpriteRenderer spr = GetComponent<SpriteRenderer>();
         spr.sprite = this.currFace.sprite;
-
-        gm = gameManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 newPos= transform.position;
-        newPos.z = 0;
-        newPos.y -= speed * Time.deltaTime;
-        transform.position = newPos;
-    }
     void OnTriggerEnter2D(Collider2D col)
     {
 

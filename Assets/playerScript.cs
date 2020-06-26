@@ -96,6 +96,12 @@ public class playerScript : MonoBehaviour
         {
             Roll();
         }
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+
+            this.invincible = !this.invincible;
+            Debug.Log("Player is Invincible: " + this.invincible);
+        }
 
         TextMesh tm = GetComponentInChildren<TextMesh>();
         tm.text = this.value.ToString();

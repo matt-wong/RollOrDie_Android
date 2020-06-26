@@ -13,10 +13,13 @@ public class enemyManager : MonoBehaviour
     stageManager stageManager;
     itemManager itemManager;
 
+    const int OBSTACLE_START_ROW = 10;
 
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
+    List<obstacleScript> myQueuedObstacles = new List<obstacleScript>();
 
-public GameObject myPrefab;
+    public GameObject myEnemyPrefab;
+    public GameObject myObsPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,10 +46,18 @@ public GameObject myPrefab;
 
         for (float i = -3.5f; i < 4; i++)
         {
-            GameObject newEnemy = Instantiate(myPrefab, new Vector3(i, 7, 0), Quaternion.identity);
+            GameObject newEnemy = Instantiate(myEnemyPrefab, new Vector3(i, 7, 0), Quaternion.identity);
             enemyScript enemyScript1 = newEnemy.GetComponentInChildren<enemyScript>();
             enemyScript1.speed = 0f;
             myQueuedEnemies.Add(enemyScript1);
+        }
+
+        if (rowsSpawned >= OBSTACLE_START_ROW){
+                float obsX = UnityEngine.Random.Range(-4,4) + 0.5f;
+
+                GameObject newObstacle = Instantiate(myObsPrefab, new Vector3( obsX, UnityEngine.Random.Range(8f,19f), 0), Quaternion.identity);
+                obstacleScript obsScript = newObstacle.GetComponentInChildren<obstacleScript>();
+                myQueuedObstacles.Add(obsScript);
         }
 
     }
@@ -54,6 +65,10 @@ public GameObject myPrefab;
     private void SendWave(){
         foreach (enemyScript es in myQueuedEnemies){
             es.speed = SpeedFromRowIndex(this.rowsSpawned);
+        }
+
+        foreach (obstacleScript os in myQueuedObstacles){
+            os.speed = SpeedFromRowIndex(this.rowsSpawned);
         }
 
         //Keep track of the easiest enemy to beat so we can rig the players dice rolls to win sshhhhh...
