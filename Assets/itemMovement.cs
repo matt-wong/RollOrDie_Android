@@ -13,11 +13,13 @@ public abstract class itemMovement : MonoBehaviour
     //private Rigidbody2D rb;
 
     private float lastBump = 0f;
+    private float myStartingTime = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
          //this.rb = GetComponent<Rigidbody2D>();
+        myStartingTime = Time.time;
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public abstract class itemMovement : MonoBehaviour
 
          Vector3 newPos= transform.position;
         newPos.z = 0;
-        newPos.y = Amplitude*Mathf.Sin(Time.time) + CenterY;
+        newPos.y = Amplitude*Mathf.Cos(Time.time - myStartingTime) + CenterY;
         newPos.x += horizSpeed * Time.deltaTime;
         transform.position = newPos;
 

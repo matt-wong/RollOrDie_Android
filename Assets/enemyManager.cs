@@ -13,7 +13,7 @@ public class enemyManager : MonoBehaviour
     stageManager stageManager;
     itemManager itemManager;
 
-    const int OBSTACLE_START_ROW = 10;
+    const int OBSTACLE_START_ROW = 20;
 
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
     List<obstacleScript> myQueuedObstacles = new List<obstacleScript>();
@@ -52,7 +52,7 @@ public class enemyManager : MonoBehaviour
             myQueuedEnemies.Add(enemyScript1);
         }
 
-        if (rowsSpawned >= OBSTACLE_START_ROW){
+        if (rowsSpawned >= OBSTACLE_START_ROW - 1){
                 float obsX = UnityEngine.Random.Range(-4,4) + 0.5f;
 
                 GameObject newObstacle = Instantiate(myObsPrefab, new Vector3( obsX, UnityEngine.Random.Range(8f,19f), 0), Quaternion.identity);

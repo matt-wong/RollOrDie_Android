@@ -17,10 +17,12 @@ public class stageManager : MonoBehaviour
         this.stageText = transform.Find("CenterText").GetComponent<Text>();
 
         this.Stages = new List<Stage>();
-        this.Stages.Add(new Stage{StartingRow = 0, BgColor = new Color(0.1f, 0.51f, 0.7f)});
-        this.Stages.Add(new Stage{StartingRow = 5, BgColor = new Color(0.63f, 0.52f, 0.7f)});
-        this.Stages.Add(new Stage{StartingRow = 10, BgColor = new Color(0.8f, 0.04f, 0.7f)});
-        this.Stages.Add(new Stage{StartingRow = 15, BgColor = new Color(0.0f, 0.52f, 0.0f)});
+        this.Stages.Add(new Stage{StartingRow = 0, BgColor = new Color(0.1f, 0.51f, 0.7f)}); //Normal
+        this.Stages.Add(new Stage{StartingRow = 5, BgColor = new Color(0.63f, 0.52f, 0.7f)}); //Faster
+        this.Stages.Add(new Stage{StartingRow = 10, BgColor = new Color(0.8f, 0.04f, 0.7f)}); //Item / Faster
+        this.Stages.Add(new Stage{StartingRow = 15, BgColor = new Color(0.0f, 0.52f, 0.0f)}); //Faster
+        this.Stages.Add(new Stage{StartingRow = 20, BgColor = new Color(0.92f, 0.757f, 0.29f)}); //1 Obstacle / row 
+
 
         this.NextStage = this.Stages[0];
         CheckForStageIncrease(0);
