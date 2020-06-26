@@ -28,7 +28,7 @@ public class weightItem : MonoBehaviour
         {
             Debug.Log(col);
             Rigidbody2D playerRB = col.gameObject.GetComponent<Rigidbody2D>();
-            playerRB.mass += 0.25f;
+            playerRB.mass += 0.3f;
             Destroy(gameObject);
         }
     }

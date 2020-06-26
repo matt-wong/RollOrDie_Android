@@ -55,7 +55,10 @@ public class playerScript : MonoBehaviour
     {
         rb.freezeRotation = false;
         rb.AddForce(new Vector2(0f, 250));
-        rb.AddTorque(75);
+        if (rb.mass < 1.1){
+            rb.AddTorque(75);
+            //Only spin when at original Mass (1)
+        }
         this.value = 0; //Die if hit while rolling
     }
 
