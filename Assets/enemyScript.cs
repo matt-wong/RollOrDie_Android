@@ -38,6 +38,9 @@ public class enemyScript : fallingObject
                     playerHitScript.value -= 1;
                     gm.IncreasePoints(1);
                     Destroy(gameObject);
+                    Animator  ani =  Camera.main.GetComponent<Animator>();
+                   
+                    ani.Play("CameraShake");
                 }
                 else if(!playerHitScript.invincible)
                 {

@@ -116,6 +116,9 @@ public class playerScript : MonoBehaviour
             rb.freezeRotation = true;
             rb.rotation = 0;
 
+            Animator ani = Camera.main.GetComponent<Animator>();
+            ani.Play("CameraShake");
+
             //Don't allow player to roll losing roll twice in a row
             int lowerRange = 1;
             if (gotLosingRoll)
