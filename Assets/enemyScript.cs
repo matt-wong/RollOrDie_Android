@@ -34,13 +34,19 @@ public class enemyScript : fallingObject
 
                 if (playerHitScript.value > this.currFace.Value)
                 {
+                    Animator ani = Camera.main.GetComponent<Animator>();
+                    ani.Play("CameraShake");
+
+                    ParticleSystem ps = GameObject.FindObjectOfType<ParticleSystem>();
+                    ps.transform.position = this.transform.position;
+                    ps.Play();
+
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.value -= 1;
                     gm.IncreasePoints(1);
                     Destroy(gameObject);
-                    Animator  ani =  Camera.main.GetComponent<Animator>();
-                   
-                    ani.Play("CameraShake");
+
+
                 }
                 else if(!playerHitScript.invincible)
                 {
