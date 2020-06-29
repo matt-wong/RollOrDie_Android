@@ -19,7 +19,7 @@ public class enemyScript : fallingObject
         }
 
         this.currFace = this.faces[Random.Range(0,6)];
-                SpriteRenderer spr = GetComponent<SpriteRenderer>();
+        SpriteRenderer spr = GetComponent<SpriteRenderer>();
         spr.sprite = this.currFace.sprite;
     }
 
@@ -38,11 +38,11 @@ public class enemyScript : fallingObject
                     ani.Play("CameraShake");
 
                     ParticleSystem ps = GameObject.FindObjectOfType<ParticleSystem>();
-                    ps.transform.position = this.transform.position;
+                    ps.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
                     ps.Play();
 
                     //Decrease the players HP so they cannot stay still all day
-                    playerHitScript.value -= 1;
+                    playerHitScript.DecrementValue();
                     gm.IncreasePoints(1);
                     Destroy(gameObject);
 

@@ -1397,7 +1397,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886714234}
   serializedVersion: 6
-  lengthInSec: 0.5
+  lengthInSec: 0.25
   simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
@@ -1405,7 +1405,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -2017,7 +2017,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 80
+    angle: 85
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -2103,7 +2103,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -2325,8 +2325,66 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_BurstCount: 0
-    m_Bursts: []
+    m_BurstCount: 1
+    m_Bursts:
+    - serializedVersion: 2
+      time: 0.2
+      countCurve:
+        serializedVersion: 2
+        minMaxState: 0
+        scalar: 30
+        minScalar: 30
+        maxCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        minCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      cycleCount: 1
+      repeatInterval: 0.01
+      probability: 1
   SizeModule:
     enabled: 0
     curve:
@@ -6002,7 +6060,7 @@ Transform:
   m_GameObject: {fileID: 886714234}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.65276784, y: -0.260999, z: 0.08984375}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -6199,7 +6257,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4056c040ae1d7c146a8b74061ac75e9f, type: 3}
-  m_Color: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 0.57254905}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6238,6 +6296,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   invincible: 0
+  faceSprites:
+  - {fileID: 21300000, guid: 2802b661d458a3741921878f941bef6b, type: 3}
+  - {fileID: 21300000, guid: 63b11596e209af24dab4c8ce92df02d7, type: 3}
+  - {fileID: 21300000, guid: 78b7bc602c838a6489e7883c159d8ab4, type: 3}
+  - {fileID: 21300000, guid: 6bae27e8edc78764aaf1291a43ab4387, type: 3}
+  - {fileID: 21300000, guid: ca7097a36d4fdd24e8e899deb2f0e349, type: 3}
+  - {fileID: 21300000, guid: 5f1d299313103124190b51a2c4c23242, type: 3}
 --- !u!61 &1303648719
 BoxCollider2D:
   m_ObjectHideFlags: 0

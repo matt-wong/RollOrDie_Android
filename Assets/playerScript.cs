@@ -10,16 +10,29 @@ public class playerScript : MonoBehaviour
     private bool gotLosingRoll = false;
     private float lastRollTime;
 
+    DiceFace[] faces;
+    private DiceFace currFace;
+    public Sprite[] faceSprites;
+    
+    private SpriteRenderer spriteRend;
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-
         TextMesh tm = GetComponentInChildren<TextMesh>();
-        this.value = Random.Range(1, 7);
-        tm.text = this.value.ToString();
 
         rb = GetComponentInChildren<Rigidbody2D>();
+
+        this.faces = new DiceFace[6];
+        for (int i = 0; i < 6; i++)
+        {
+            this.faces[i] = new DiceFace(i + 1, faceSprites[i]);
+        }
+
+        this.currFace = this.faces[Random.Range(0,6)];
+        this.value = currFace.Value;
+        spriteRend = GetComponent<SpriteRenderer>();
+        spriteRend.sprite = this.currFace.sprite;
     }
 
     // Update is called once per frame
@@ -103,9 +116,11 @@ public class playerScript : MonoBehaviour
             Debug.Log("Player is Invincible: " + this.invincible);
         }
 
-        TextMesh tm = GetComponentInChildren<TextMesh>();
-        tm.text = this.value.ToString();
+    }
 
+    public void DecrementValue(){
+        this.value -= 1;
+        this.spriteRend.sprite = faceSprites[this.value - 1];
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -133,6 +148,9 @@ public class playerScript : MonoBehaviour
                 //take note that we gave them a losing roll
                 gotLosingRoll = true;
             }
+
+            this.currFace = faces[this.value - 1];
+            this.spriteRend.sprite = this.currFace.sprite;
         }
     }
 }
