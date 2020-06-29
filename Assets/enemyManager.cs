@@ -13,7 +13,9 @@ public class enemyManager : MonoBehaviour
     stageManager stageManager;
     itemManager itemManager;
 
-    const int OBSTACLE_START_ROW = 20;
+    const int OBSTACLE_START_ROW_1 = 20;
+    const int OBSTACLE_START_ROW_2 = 30;
+    const int OBSTACLE_START_ROW_3 = 40;
 
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
     List<obstacleScript> myQueuedObstacles = new List<obstacleScript>();
@@ -52,14 +54,30 @@ public class enemyManager : MonoBehaviour
             myQueuedEnemies.Add(enemyScript1);
         }
 
-        if (rowsSpawned >= OBSTACLE_START_ROW - 1){
-                float obsX = UnityEngine.Random.Range(-4,4) + 0.5f;
-
-                GameObject newObstacle = Instantiate(myObsPrefab, new Vector3( obsX, UnityEngine.Random.Range(8f,19f), 0), Quaternion.identity);
-                obstacleScript obsScript = newObstacle.GetComponentInChildren<obstacleScript>();
-                myQueuedObstacles.Add(obsScript);
+        if (rowsSpawned >= OBSTACLE_START_ROW_3 - 1)
+        {
+            spawnObstacle(3);
+        }
+        else if (rowsSpawned >= OBSTACLE_START_ROW_2 - 1)
+        {
+            spawnObstacle(2);
+        }
+        else if (rowsSpawned >= OBSTACLE_START_ROW_1 - 1)
+        {
+            spawnObstacle(1);
         }
 
+    }
+
+    private void spawnObstacle(int numOfObstacles){
+
+        for (int i = 0; i < numOfObstacles; i++){
+            float obsX = UnityEngine.Random.Range(-4, 4) + 0.5f;
+
+            GameObject newObstacle = Instantiate(myObsPrefab, new Vector3(obsX, UnityEngine.Random.Range(8f, 19f), 0), Quaternion.identity);
+            obstacleScript obsScript = newObstacle.GetComponentInChildren<obstacleScript>();
+            myQueuedObstacles.Add(obsScript);
+        }
     }
 
     private void SendWave(){
