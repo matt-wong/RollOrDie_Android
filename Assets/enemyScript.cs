@@ -37,9 +37,17 @@ public class enemyScript : fallingObject
                     Animator ani = Camera.main.GetComponent<Animator>();
                     ani.Play("CameraShake");
 
-                    ParticleSystem ps = GameObject.FindObjectOfType<ParticleSystem>();
-                    ps.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
-                    ps.Play();
+                    ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
+                    foreach (ParticleSystem ps in partSyses)
+                    {
+                        if (ps.tag == "EnemyDeathParticles")
+                        {
+                            ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
+                            ps.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
+                            ps.Play();
+                        }
+                    }
+
 
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.DecrementValue();

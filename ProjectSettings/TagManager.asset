@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - Canvas
   - Bumper
+  - EnemyDeathParticles
   layers:
   - Default
   - TransparentFX
