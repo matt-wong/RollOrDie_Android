@@ -10,11 +10,22 @@ public class stageManager : MonoBehaviour
     Stage NextStage;
     public int CurrentRow = 0;
     public List<Stage> Stages;
+    private List<ParticleSystem> bgParticleSystems;
     Text stageText;
 
     void Start(){
-        
+
         this.stageText = transform.Find("CenterText").GetComponent<Text>();
+
+        bgParticleSystems = new List<ParticleSystem>();
+        ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
+        foreach (ParticleSystem ps in partSyses)
+        {
+            if (ps.tag != "EnemyDeathParticles") //CHANGE TO USE NEW TAG!
+            {
+                bgParticleSystems.Add(ps);
+            }
+        }
 
         this.Stages = new List<Stage>();
         this.Stages.Add(new Stage{StartingRow = 0, BgColor = new Color(0.1f, 0.51f, 0.7f)}); //Normal
@@ -24,7 +35,6 @@ public class stageManager : MonoBehaviour
         this.Stages.Add(new Stage{StartingRow = 20, BgColor = new Color(0.990566f, 0.9401606f, 0.7429245f)}); //1 Obstacle / row 
         this.Stages.Add(new Stage{StartingRow = 30, BgColor = new Color(1f, 0.7101392f, 0.2783019f)}); //2 Obstacle / row 
         this.Stages.Add(new Stage{StartingRow = 40, BgColor = new Color(0.4576807f, 0.8018868f, 0.6362651f)}); //3 Obstacle / row 
-
 
         this.NextStage = this.Stages[0];
         CheckForStageIncrease(0);
@@ -49,6 +59,9 @@ public class stageManager : MonoBehaviour
 
         if (Camera.main.backgroundColor != this.CurrentStage.BgColor){
             Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, this.CurrentStage.BgColor, Time.deltaTime);
+            foreach(ParticleSystem ps in this.bgParticleSystems){
+                ps.startColor = Color.Lerp(Camera.main.backgroundColor, this.CurrentStage.BgColor, Time.deltaTime);
+            }
         }
     }
 
