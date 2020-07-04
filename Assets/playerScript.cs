@@ -7,6 +7,7 @@ public class playerScript : MonoBehaviour
 
     public int value = 0;
     public bool invincible = false;
+    public int ExtraLives = 0;
     private bool gotLosingRoll = false;
     private float lastRollTime;
 

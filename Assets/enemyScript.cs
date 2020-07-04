@@ -34,7 +34,35 @@ public class enemyScript : fallingObject
 
                 if (playerHitScript.value > this.currFace.Value)
                 {
-                    Animator ani = Camera.main.GetComponent<Animator>();
+                    GetKilled(playerHitScript);
+                    //Decrease the players HP so they cannot stay still all day
+                    playerHitScript.DecrementValue();
+                }
+
+
+                else if (playerHitScript.ExtraLives > 0)
+                {
+                    //Player collected a heart make this enemy die now
+                    playerHitScript.ExtraLives -= 1;
+                    GetKilled(playerHitScript);
+                }
+
+                else if (!playerHitScript.invincible)
+                {
+                    Destroy(col.gameObject);
+                    gm.GameOver = true;
+                }
+            }
+        }
+        else if(col.tag == "EnemyManager"){
+            //End of the page, die now
+            Destroy(gameObject);
+        }
+    }
+
+    private void GetKilled(playerScript playerHitScript)
+    {
+                            Animator ani = Camera.main.GetComponent<Animator>();
                     ani.Play("CameraShake");
 
                     ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
@@ -48,25 +76,8 @@ public class enemyScript : fallingObject
                         }
                     }
 
-
-                    //Decrease the players HP so they cannot stay still all day
-                    playerHitScript.DecrementValue();
                     gm.IncreasePoints(1);
                     Destroy(gameObject);
-
-
-                }
-                else if(!playerHitScript.invincible)
-                {
-                    Destroy(col.gameObject);
-                    gm.GameOver = true;
-                }
-            }
-        }
-        else if(col.tag == "EnemyManager"){
-            //End of the page, die now
-            Destroy(gameObject);
-        }
     }
 
 }

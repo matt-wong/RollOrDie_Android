@@ -9,6 +9,7 @@ public class HudScript : MonoBehaviour
     Text myPointKeeper;
     Text myHSKeeper;
     Text myDebugData;
+    playerScript myPlayer;
     Transform myRestartPanel;
     gameManager gm;
 
@@ -19,6 +20,7 @@ public class HudScript : MonoBehaviour
         this.myHSKeeper = transform.Find("highscoreText").GetComponent<Text>();
         this.myPointKeeper = transform.Find("scoreText").GetComponent<Text>();
         this.myDebugData = transform.Find("debugData").GetComponent<Text>();
+        this.myPlayer = GameObject.FindObjectOfType<playerScript>();
 
         myRestartPanel = transform.Find("RestartPanel").GetComponent<Transform>();
         myRestartPanel.gameObject.SetActive(false);
@@ -32,7 +34,7 @@ public class HudScript : MonoBehaviour
     {
         myPointKeeper.text = "Points: " + gm.Points.ToString();
         myHSKeeper.text = "High Score: " + gm.HighScore.ToString();
-        myDebugData.text = "Lowest Enemy:" + gm.weakestEnemyHP;
+        myDebugData.text = "Player Lives:" + myPlayer.ExtraLives;
         if (gm.GameOver){
             myRestartPanel.gameObject.SetActive(true);
         }

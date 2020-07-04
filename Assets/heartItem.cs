@@ -23,6 +23,7 @@ public class heartItem : itemMovement
     protected override void TouchedPlayer(Collider2D col)
     {
         playerScript playerScr = col.gameObject.GetComponent<playerScript>();
+        playerScr.ExtraLives += 1;
         Destroy(gameObject);
     }
 
