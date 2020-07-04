@@ -16,6 +16,8 @@ public class playerScript : MonoBehaviour
     
     private SpriteRenderer spriteRend;
     private Rigidbody2D rb;
+    public GameObject dustMaker;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,12 +129,18 @@ public class playerScript : MonoBehaviour
     {
         if (col.tag == "Floor" && (Time.fixedTime - lastRollTime > 0.25f || lastRollTime == 0))
         {
+
             lastRollTime = Time.fixedTime;
+
+            //Effects
             rb.freezeRotation = true;
             rb.rotation = 0;
 
             Animator ani = Camera.main.GetComponent<Animator>();
             ani.Play("CameraShake");
+
+            GameObject dust = Instantiate<GameObject>(dustMaker, new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z) , Quaternion.identity);
+            Destroy(dust, 2); //get rid of the dust in 2 seconds
 
             //Don't allow player to roll losing roll twice in a row
             int lowerRange = 1;

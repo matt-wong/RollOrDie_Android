@@ -15699,6 +15699,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6bae27e8edc78764aaf1291a43ab4387, type: 3}
   - {fileID: 21300000, guid: ca7097a36d4fdd24e8e899deb2f0e349, type: 3}
   - {fileID: 21300000, guid: 5f1d299313103124190b51a2c4c23242, type: 3}
+  dustMaker: {fileID: 2708434438818367328, guid: 1e5259a3a03cbfb40b05ce4186741acf,
+    type: 3}
 --- !u!61 &1303648719
 BoxCollider2D:
   m_ObjectHideFlags: 0
