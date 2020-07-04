@@ -15779,6 +15779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabbedItems:
   - {fileID: 5199622947597898789, guid: 7171710051bdc72498ff3bc24d820c9a, type: 3}
+  - {fileID: 835890486710198743, guid: 0f482912a2372714887086b141cb27b0, type: 3}
 --- !u!4 &1509014792
 Transform:
   m_ObjectHideFlags: 0
