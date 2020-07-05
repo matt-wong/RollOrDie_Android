@@ -20,10 +20,10 @@ public class itemManager : MonoBehaviour
     {
         ItemOccurences = new List<ItemOccurence>();
 
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.weight, rowIndex = 10, fadeTime = -1f });
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(11,20), fadeTime = -1f });
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(20,40), fadeTime = -1f });
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(40,60), fadeTime = -1f });
+        ItemOccurences.Add(new ItemOccurence { iType = itemType.weight, rowIndex = 10});
+        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(11,20)});
+        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(20,40)});
+        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(40,60)});
     }
 
     public void SpawnItemsForRow(int rowNumber){

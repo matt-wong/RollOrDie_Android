@@ -14,6 +14,7 @@ public abstract class itemMovement : MonoBehaviour
 
     private float lastBump = 0f;
     private float myStartingTime = 0f;
+    public float timeToLive = -1f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +33,11 @@ public abstract class itemMovement : MonoBehaviour
         newPos.x += horizSpeed * Time.deltaTime;
         transform.position = newPos;
 
-        // float x = horizSpeed * Time.deltaTime;
-        // transform.position = new Vector3(transform.position.x + x, Mathf.Sin(Time.time) + MinY, transform.position.z);
+        if (this.timeToLive > 0f && Time.time - myStartingTime > this.timeToLive)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     protected abstract void TouchedPlayer(Collider2D col);

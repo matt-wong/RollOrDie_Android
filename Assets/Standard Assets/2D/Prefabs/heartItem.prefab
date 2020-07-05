@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 835890486710198747}
   - component: {fileID: 835890486710198749}
   - component: {fileID: 835890486710198748}
+  - component: {fileID: 114189989981217168}
   m_Layer: 0
   m_Name: heartItem
   m_TagString: Untagged
@@ -119,6 +120,7 @@ MonoBehaviour:
   MinX: -3.5
   MaxX: 3.5
   horizSpeed: 1
+  timeToLive: 5
 --- !u!60 &835890486710198749
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -182,3 +184,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &114189989981217168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835890486710198743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8396226, g: 0.77906674, b: 0.1504984, a: 0.6117647}
+  m_EffectDistance: {x: 5, y: 5}
+  m_UseGraphicAlpha: 1
