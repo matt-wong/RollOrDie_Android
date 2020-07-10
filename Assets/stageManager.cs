@@ -28,13 +28,13 @@ public class stageManager : MonoBehaviour
         }
 
         this.Stages = new List<Stage>();
-        this.Stages.Add(new Stage{StartingRow = 0, BgColor = new Color(0.1f, 0.51f, 0.7f)}); //Normal
-        this.Stages.Add(new Stage{StartingRow = 5, BgColor = new Color(0.63f, 0.52f, 0.7f)}); //Faster
-        this.Stages.Add(new Stage{StartingRow = 10, BgColor = new Color(0.8f, 0.04f, 0.7f)}); //Item / Faster
-        this.Stages.Add(new Stage{StartingRow = 15, BgColor = new Color(0.0f, 0.52f, 0.0f)}); //Faster
-        this.Stages.Add(new Stage{StartingRow = 20, BgColor = new Color(0.990566f, 0.9401606f, 0.7429245f)}); //1 Obstacle / row 
-        this.Stages.Add(new Stage{StartingRow = 30, BgColor = new Color(1f, 0.7101392f, 0.2783019f)}); //2 Obstacle / row 
-        this.Stages.Add(new Stage{StartingRow = 40, BgColor = new Color(0.4576807f, 0.8018868f, 0.6362651f)}); //3 Obstacle / row 
+        this.Stages.Add(new Stage{StartingRow = 0, BgColor = new Color(0.1f, 0.51f, 0.7f)}); //Normal - Blue
+        this.Stages.Add(new Stage{StartingRow = 5, BgColor = new Color(0.63f, 0.52f, 0.7f)}); //Faster - Purple
+        this.Stages.Add(new Stage{StartingRow = 10, BgColor = new Color(0.735849f, 0.5614098f, 0.5614098f)}); //Item / Faster - Red
+        this.Stages.Add(new Stage{StartingRow = 15, BgColor = new Color(0.8867924f, 0.6830572f, 0.4601281f)}); //Faster - Orange
+        this.Stages.Add(new Stage{StartingRow = 20, BgColor = new Color(0.904955f, 0.9245283f, 0.5145959f)}); //1 Obstacle / row - Yellow 
+        this.Stages.Add(new Stage{StartingRow = 30, BgColor = new Color(0.5388716f, 0.8679245f, 0.5322179f)}); //2 Obstacle / row -Green
+        this.Stages.Add(new Stage{StartingRow = 40, BgColor = new Color(0.1f, 0.51f, 0.7f)}); //3 Obstacle / row -Blue but something else?
 
         this.NextStage = this.Stages[0];
         CheckForStageIncrease(0);
