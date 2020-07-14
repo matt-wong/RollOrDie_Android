@@ -6,8 +6,7 @@ public enum itemType{
     weight = 0,
     heart = 1,
     // wrap = 3,
-    // clear = 4,
-    // beam = 4
+    // clear = 4
 }
 
 public class itemManager : MonoBehaviour

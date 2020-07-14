@@ -120,7 +120,9 @@ MonoBehaviour:
   MinX: -3.5
   MaxX: 3.5
   horizSpeed: 1
-  timeToLive: 5
+  timeToLive: 10
+  fadeTime: 5
+  fadeAnimationName: heartFlicker
 --- !u!60 &835890486710198749
 PolygonCollider2D:
   m_ObjectHideFlags: 0

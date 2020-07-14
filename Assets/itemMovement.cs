@@ -15,11 +15,16 @@ public abstract class itemMovement : MonoBehaviour
     private float lastBump = 0f;
     private float myStartingTime = 0f;
     public float timeToLive = -1f;
+    public float fadeTime = 5f;
+    public string fadeAnimationName;
+    private bool isFading = false;
+
+    private Animator myAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-         //this.rb = GetComponent<Rigidbody2D>();
+        this.myAnimator = GetComponent<Animator>();
         myStartingTime = Time.time;
     }
 
@@ -37,7 +42,15 @@ public abstract class itemMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        else if (this.timeToLive > 0f && Time.time - myStartingTime > (this.timeToLive - this.fadeTime)){
+            if (!this.isFading)
+            {
+                {
+                    this.myAnimator.Play(this.fadeAnimationName);
+                    this.isFading = true;
+                }
+            }
+        }
     }
 
     protected abstract void TouchedPlayer(Collider2D col);
