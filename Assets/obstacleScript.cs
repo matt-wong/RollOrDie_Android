@@ -15,8 +15,14 @@ public class obstacleScript : fallingObject
             {
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
-            
-                if(!playerHitScript.invincible)
+                if (playerHitScript.ExtraLives > 0)
+                {
+                    //Player collected a heart make this enemy die now
+                    playerHitScript.ExtraLives -= 1;
+                    GetKilled();
+                }
+
+                else if (!playerHitScript.invincible)
                 {
                     Destroy(col.gameObject);
                     gm.GameOver = true;
@@ -27,6 +33,14 @@ public class obstacleScript : fallingObject
             //End of the page, die now
             Destroy(gameObject);
         }
+    }
+
+    private void GetKilled()
+    {
+        Animator ani = Camera.main.GetComponent<Animator>();
+        ani.Play("CameraShake");
+
+        Destroy(gameObject);
     }
 
 }

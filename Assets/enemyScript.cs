@@ -34,7 +34,7 @@ public class enemyScript : fallingObject
 
                 if (playerHitScript.value > this.currFace.Value)
                 {
-                    GetKilled(playerHitScript);
+                    GetKilled();
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.DecrementValue();
                 }
@@ -44,7 +44,7 @@ public class enemyScript : fallingObject
                 {
                     //Player collected a heart make this enemy die now
                     playerHitScript.ExtraLives -= 1;
-                    GetKilled(playerHitScript);
+                    GetKilled();
                 }
 
                 else if (!playerHitScript.invincible)
@@ -60,7 +60,7 @@ public class enemyScript : fallingObject
         }
     }
 
-    private void GetKilled(playerScript playerHitScript)
+    private void GetKilled()
     {
                             Animator ani = Camera.main.GetComponent<Animator>();
                     ani.Play("CameraShake");

@@ -10,6 +10,7 @@ public class playerScript : MonoBehaviour
     public int ExtraLives = 0;
     private bool gotLosingRoll = false;
     private float lastRollTime;
+    private bool canWrap = true;
 
     DiceFace[] faces;
     private DiceFace currFace;
@@ -59,12 +60,23 @@ public class playerScript : MonoBehaviour
 
     void moveRight()
     {
-        transform.position = new Vector3(System.Math.Min(transform.position.x + 1, 3.5f), transform.position.y, 0);
+        if (canWrap && transform.position.x > 3.4f){
+            transform.position = new Vector3(-3.5f, transform.position.y, 0);
+        }else{
+            transform.position = new Vector3(System.Math.Min(transform.position.x + 1, 3.5f), transform.position.y, 0); 
+        }
     }
 
     void moveLeft()
     {
-        transform.position = new Vector3(System.Math.Max(transform.position.x - 1, -3.5f), transform.position.y, 0);
+        if (canWrap && transform.position.x < -3.4f)
+        {
+            transform.position = new Vector3(3.5f, transform.position.y, 0);
+        }
+        else
+        {
+            transform.position = new Vector3(System.Math.Max(transform.position.x - 1, -3.5f), transform.position.y, 0);
+        }
     }
 
     void Roll()
@@ -111,6 +123,7 @@ public class playerScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Roll();
+            Debug.Log("Roll Sound.");
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -132,7 +145,7 @@ public class playerScript : MonoBehaviour
         {
 
             lastRollTime = Time.fixedTime;
-
+            Debug.Log("Floor Sound.");
             //Effects
             rb.freezeRotation = true;
             rb.rotation = 0;
