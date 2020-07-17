@@ -131,7 +131,15 @@ public class playerScript : MonoBehaviour
             this.invincible = !this.invincible;
             Debug.Log("Player is Invincible: " + this.invincible);
         }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (Time.timeScale == 0f){
+                Time.timeScale = 1f;
+            }else{
+                Time.timeScale = 0f;
+            }
 
+        }
     }
 
     public void DecrementValue(){
