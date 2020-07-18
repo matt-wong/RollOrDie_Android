@@ -12,6 +12,7 @@ public class HudScript : MonoBehaviour
     Text myHighScoreText;
     playerScript myPlayer;
     Transform myRestartPanel;
+    Transform myPausePanel;
     gameManager gm;
 
     // Start is called before the first frame update
@@ -28,6 +29,8 @@ public class HudScript : MonoBehaviour
         this.myHighScoreText = myRestartPanel.Find("HighScoreText").GetComponent<Text>();
         myRestartPanel.gameObject.SetActive(false);
 
+        myPausePanel = transform.Find("PausePanel").GetComponent<Transform>();
+
         gm = gameManager.Instance;
     }
 
@@ -41,6 +44,20 @@ public class HudScript : MonoBehaviour
             myRestartPanel.gameObject.SetActive(true);
             myFinalScoreText.text = "Points: " + gm.Points.ToString();
             myHighScoreText.text = "High Score: " + gm.HighScore.ToString();
+        }
+
+    }
+
+    public void PauseGame(){
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1f;
+            myPausePanel.gameObject.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            myPausePanel.gameObject.SetActive(true);
         }
 
     }

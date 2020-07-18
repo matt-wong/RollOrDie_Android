@@ -44,6 +44,11 @@ public class playerScript : MonoBehaviour
     void HandleTouch(Vector3 vector3)
     {
 
+        if (vector3.y > Screen.height * 0.75){
+            Debug.Log("Doesn't count");
+            return;
+        }
+
         if (vector3.x > (Screen.width * 2 / 3))
         { //Right Third of Screen
             moveRight();
