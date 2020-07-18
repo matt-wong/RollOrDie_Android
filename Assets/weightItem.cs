@@ -23,6 +23,8 @@ public class weightItem : itemMovement
     protected override void TouchedPlayer(Collider2D col)
     {
         Rigidbody2D playerRB = col.gameObject.GetComponent<Rigidbody2D>();
+        playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
+        playerHitScript.HasExtraWeight = true;
         playerRB.mass += 0.3f;
         Destroy(gameObject);
     }

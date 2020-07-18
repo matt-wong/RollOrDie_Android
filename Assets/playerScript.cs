@@ -8,9 +8,10 @@ public class playerScript : MonoBehaviour
     public int value = 0;
     public bool invincible = false;
     public int ExtraLives = 0;
+    public bool HasExtraWeight = false;
     private bool gotLosingRoll = false;
     private float lastRollTime;
-    private bool canWrap = true;
+    private bool canWrap = false;
 
     DiceFace[] faces;
     private DiceFace currFace;
