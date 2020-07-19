@@ -8,9 +8,10 @@ public class playerScript : MonoBehaviour
     public int value = 0;
     public bool invincible = false;
     public int ExtraLives = 0;
+    public bool HasExtraWeight = false;
     private bool gotLosingRoll = false;
     private float lastRollTime;
-    private bool canWrap = true;
+    private bool canWrap = false;
 
     DiceFace[] faces;
     private DiceFace currFace;
@@ -42,6 +43,14 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void HandleTouch(Vector3 vector3)
     {
+        if (gameManager.Instance.IsPaused == true){
+            return;
+        }
+
+        //Only bottom 3/4 of screen is for movement, since the pause is up there
+        if (vector3.y > Screen.height * 0.75){
+            return;
+        }
 
         if (vector3.x > (Screen.width * 2 / 3))
         { //Right Third of Screen

@@ -12,6 +12,8 @@ public class gameManager
 
     public int Points;
     public int HighScore;
+    public bool IsPaused = false;
+
     private bool myGameOver;
     public int weakestEnemyHP;
 
@@ -47,6 +49,7 @@ public class gameManager
         Points = 0;
         SceneManager.LoadScene("scene");
     }
+
 
     public bool GameOver
     {

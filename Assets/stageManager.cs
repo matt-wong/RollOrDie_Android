@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +12,11 @@ public class stageManager : MonoBehaviour
     public int CurrentRow = 0;
     public List<Stage> Stages;
     private List<ParticleSystem> bgParticleSystems;
-    Text stageText;
+    TextMeshProUGUI stageText;
 
     void Start(){
 
-        this.stageText = transform.Find("CenterText").GetComponent<Text>();
+        this.stageText = transform.Find("CenterText").GetComponent<TextMeshProUGUI>();
 
         bgParticleSystems = new List<ParticleSystem>();
         ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
