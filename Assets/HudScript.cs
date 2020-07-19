@@ -49,15 +49,10 @@ public class HudScript : MonoBehaviour
     }
 
     public void PauseGame(){
-        if (Time.timeScale == 0)
-        {
-            Time.timeScale = 1f;
-            myPausePanel.gameObject.SetActive(false);
-        }
-        else
         {
             Time.timeScale = 0f;
             myPausePanel.gameObject.SetActive(true);
+            gameManager.Instance.IsPaused = true;
         }
 
     }

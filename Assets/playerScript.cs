@@ -43,9 +43,12 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void HandleTouch(Vector3 vector3)
     {
+        if (gameManager.Instance.IsPaused == true){
+            return;
+        }
 
+        //Only bottom 3/4 of screen is for movement, since the pause is up there
         if (vector3.y > Screen.height * 0.75){
-            Debug.Log("Doesn't count");
             return;
         }
 
