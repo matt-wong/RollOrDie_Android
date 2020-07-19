@@ -21,6 +21,7 @@ public class HudScript : MonoBehaviour
      
         this.myPointKeeper = transform.Find("scoreText").GetComponent<Text>();
         this.myDebugData = transform.Find("debugData").GetComponent<Text>();
+        myDebugData.text = "";
 
         this.myPlayer = GameObject.FindObjectOfType<playerScript>();
 
@@ -39,7 +40,7 @@ public class HudScript : MonoBehaviour
     void Update()
     {
         myPointKeeper.text = "Points: " + gm.Points.ToString();
-        myDebugData.text = "Player Lives:" + myPlayer.ExtraLives;
+        //myDebugData.text = "Player Lives:" + myPlayer.ExtraLives;
         if (gm.GameOver){
             myRestartPanel.gameObject.SetActive(true);
             myFinalScoreText.text = "Points: " + gm.Points.ToString();

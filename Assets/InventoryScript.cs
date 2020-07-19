@@ -11,6 +11,7 @@ public class InventoryScript : MonoBehaviour
     TextMeshProUGUI myAdditionalLivesText;
     Image myLivesIcon;
     Image myWeightIcon;
+    Image myWrapIcon;
     gameManager gm;
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class InventoryScript : MonoBehaviour
         this.myAdditionalLivesText = transform.Find("livesText").GetComponent<TextMeshProUGUI>();
         this.myLivesIcon = transform.Find("livesIcon").GetComponent<Image>();
         this.myWeightIcon = transform.Find("weightIcon").GetComponent<Image>();
+        this.myWrapIcon = transform.Find("wrapIcon").GetComponent<Image>();
         gm = gameManager.Instance;
     }
 
@@ -29,7 +31,7 @@ public class InventoryScript : MonoBehaviour
     {
         //Extra Lives
         if (myPlayer.ExtraLives == 0){
-            myLivesIcon.color = new Color(0f, 0f, 0f, 0f); //HIDE
+            myLivesIcon.color = new Color(0f, 0f, 0f, 0.33f); //Show only shadow (hint)
             myAdditionalLivesText.text = "";
         }else{
             myLivesIcon.color = Color.white; //Show
@@ -39,6 +41,11 @@ public class InventoryScript : MonoBehaviour
         //Got Weight Upgrade
         if (myPlayer.HasExtraWeight){
             myWeightIcon.color = Color.white; //Show (permanent)
+        }
+
+        //Got Wrap Upgrade
+        if (myPlayer.CanWrap){
+            myWrapIcon.color = Color.white; //Show (permanent)
         }
 
 

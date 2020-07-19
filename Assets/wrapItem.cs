@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Item for allowing wrapping of player dice. Making it easier to maneuver
 public class wrapItem : itemMovement
-//Item for increase mass of player dice. This should make the rolling take less time
 {
     public override bool Equals(object other)
     {
