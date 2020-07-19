@@ -2024,7 +2024,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.11480952, g: 0.14353663, b: 0.18867922, a: 0}
+  m_BackGroundColor: {r: 0.1, g: 0.51, b: 0.7, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -7520,7 +7520,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.5388716, g: 0.8679245, b: 0.53221786, a: 1}
+      maxColor: {r: 0.101960786, g: 0.50980395, b: 0.69803923, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -12399,7 +12399,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.735849, g: 0.53762555, b: 0.52758986, a: 1}
+      maxColor: {r: 0.101960786, g: 0.50980395, b: 0.69803923, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
