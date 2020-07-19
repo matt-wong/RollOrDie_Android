@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class enemyManager : MonoBehaviour
 {
-    float spawnRate = 2.5f; //Seconds
-    int rowsSpawned = 0;
-    float untilNextSpawn;
+    public int RowsSpawned = 0;
     float lastSpawnTime = 0;
     stageManager stageManager;
     itemManager itemManager;
@@ -25,7 +23,6 @@ public class enemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        untilNextSpawn = spawnRate;
         this.QueueEnemyWave();
         this.SendWave();
         this.QueueEnemyWave();
@@ -54,19 +51,30 @@ public class enemyManager : MonoBehaviour
             myQueuedEnemies.Add(enemyScript1);
         }
 
-        if (rowsSpawned >= OBSTACLE_START_ROW_3 - 1)
+        if (RowsSpawned >= OBSTACLE_START_ROW_3 - 1)
         {
             spawnObstacle(3);
         }
-        else if (rowsSpawned >= OBSTACLE_START_ROW_2 - 1)
+        else if (RowsSpawned >= OBSTACLE_START_ROW_2 - 1)
         {
             spawnObstacle(2);
         }
-        else if (rowsSpawned >= OBSTACLE_START_ROW_1 - 1)
+        else if (RowsSpawned >= OBSTACLE_START_ROW_1 - 1)
         {
             spawnObstacle(1);
         }
 
+    }
+
+    public void HandleAfterClear(){
+
+        this.QueueEnemyWave();
+        Invoke("SendAndQueue", 2);//this will happen after 2 seconds
+    }
+
+    private void SendAndQueue(){
+        this.SendWave();
+        this.QueueEnemyWave();
     }
 
     private void spawnObstacle(int numOfObstacles){
@@ -82,11 +90,11 @@ public class enemyManager : MonoBehaviour
 
     private void SendWave(){
         foreach (enemyScript es in myQueuedEnemies){
-            es.speed = SpeedFromRowIndex(this.rowsSpawned);
+            es.speed = SpeedFromRowIndex(this.RowsSpawned);
         }
 
         foreach (obstacleScript os in myQueuedObstacles){
-            os.speed = SpeedFromRowIndex(this.rowsSpawned);
+            os.speed = SpeedFromRowIndex(this.RowsSpawned);
         }
 
         //Keep track of the easiest enemy to beat so we can rig the players dice rolls to win sshhhhh...
@@ -108,9 +116,9 @@ public class enemyManager : MonoBehaviour
             {
                 SendWave();
                 this.QueueEnemyWave();
-                rowsSpawned += 1;
-                stageManager.CheckForStageIncrease(rowsSpawned);
-                itemManager.SpawnItemsForRow(rowsSpawned);
+                RowsSpawned += 1;
+                stageManager.CheckForStageIncrease(RowsSpawned);
+                itemManager.SpawnItemsForRow(RowsSpawned);
             }
             lastSpawnTime = Time.fixedTime;
         }

@@ -62,22 +62,22 @@ public class enemyScript : fallingObject
 
     private void GetKilled()
     {
-                            Animator ani = Camera.main.GetComponent<Animator>();
-                    ani.Play("CameraShake");
+        Animator ani = Camera.main.GetComponent<Animator>();
+        ani.Play("CameraShake");
 
-                    ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
-                    foreach (ParticleSystem ps in partSyses)
-                    {
-                        if (ps.tag == "EnemyDeathParticles")
-                        {
-                            ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
-                            ps.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
-                            ps.Play();
-                        }
-                    }
+        ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
+        foreach (ParticleSystem ps in partSyses)
+        {
+            if (ps.tag == "EnemyDeathParticles")
+            {
+                ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
+                ps.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
+                ps.Play();
+            }
+        }
 
-                    gm.IncreasePoints(1);
-                    Destroy(gameObject);
+        gm.IncreasePoints(1);
+        Destroy(gameObject);
     }
 
 }

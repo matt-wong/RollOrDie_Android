@@ -42,7 +42,7 @@ public class stageManager : MonoBehaviour
     }
 
     public void CheckForStageIncrease(int rowNumber){
-        if (NextStage.StartingRow == rowNumber){
+        if (NextStage.StartingRow <= rowNumber){
             this.HandleStageChange(Stages.IndexOf(NextStage));
         }
         else if (NextStage.StartingRow - rowNumber < 4 && NextStage.StartingRow - rowNumber > 0)
