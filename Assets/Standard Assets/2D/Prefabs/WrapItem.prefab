@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1805613972633027657}
   - component: {fileID: 1805613972633027658}
   - component: {fileID: 1805613972633027660}
-  - component: {fileID: 4186824587227656131}
   - component: {fileID: 4915007489142883215}
   - component: {fileID: 4915007489142883212}
+  - component: {fileID: 114125639665374014}
   m_Layer: 0
   m_Name: WrapItem
   m_TagString: Untagged
@@ -109,26 +109,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &4186824587227656131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805613972633027661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c6971b4ed50dc4ab1e70235d8faf30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CenterY: -3.5
-  Amplitude: 1
-  MinX: -3.5
-  MaxX: 3.5
-  horizSpeed: 1
-  timeToLive: -1
-  fadeTime: 5
-  fadeAnimationName: 
 --- !u!50 &4915007489142883215
 Rigidbody2D:
   serializedVersion: 4
@@ -166,3 +146,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.2799999
+--- !u!114 &114125639665374014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805613972633027661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386e3dd2c7d1f964bbf840e06ba9cd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CenterY: -3.5
+  Amplitude: 1
+  MinX: -3.5
+  MaxX: 3.5
+  horizSpeed: 1
+  timeToLive: -1
+  fadeTime: 5
+  fadeAnimationName: 

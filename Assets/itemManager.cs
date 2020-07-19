@@ -5,7 +5,7 @@ using UnityEngine;
 public enum itemType{
     weight = 0,
     heart = 1,
-    // wrap = 3,
+    wrap = 2,
     // clear = 4
 }
 
@@ -20,6 +20,7 @@ public class itemManager : MonoBehaviour
         ItemOccurences = new List<ItemOccurence>();
 
         ItemOccurences.Add(new ItemOccurence { iType = itemType.weight, rowIndex = 10});
+        ItemOccurences.Add(new ItemOccurence { iType = itemType.wrap, rowIndex = 20});
         ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(11,20)});
         ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(20,40)});
         ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(40,60)});

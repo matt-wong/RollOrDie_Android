@@ -11,7 +11,7 @@ public class playerScript : MonoBehaviour
     public bool HasExtraWeight = false;
     private bool gotLosingRoll = false;
     private float lastRollTime;
-    private bool canWrap = false;
+    public bool CanWrap = false;
 
     DiceFace[] faces;
     private DiceFace currFace;
@@ -69,7 +69,7 @@ public class playerScript : MonoBehaviour
 
     void moveRight()
     {
-        if (canWrap && transform.position.x > 3.4f){
+        if (CanWrap && transform.position.x > 3.4f){
             transform.position = new Vector3(-3.5f, transform.position.y, 0);
         }else{
             transform.position = new Vector3(System.Math.Min(transform.position.x + 1, 3.5f), transform.position.y, 0); 
@@ -78,7 +78,7 @@ public class playerScript : MonoBehaviour
 
     void moveLeft()
     {
-        if (canWrap && transform.position.x < -3.4f)
+        if (CanWrap && transform.position.x < -3.4f)
         {
             transform.position = new Vector3(3.5f, transform.position.y, 0);
         }
@@ -132,7 +132,7 @@ public class playerScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Roll();
-            Debug.Log("Roll Sound.");
+            //Debug.Log("Roll Sound.");
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -162,7 +162,7 @@ public class playerScript : MonoBehaviour
         {
 
             lastRollTime = Time.fixedTime;
-            Debug.Log("Floor Sound.");
+            //Debug.Log("Floor Sound.");
             //Effects
             rb.freezeRotation = true;
             rb.rotation = 0;
