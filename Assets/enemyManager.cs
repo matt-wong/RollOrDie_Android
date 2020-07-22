@@ -8,6 +8,7 @@ public class enemyManager : MonoBehaviour
 {
     public int RowsSpawned = 0;
     float lastSpawnTime = 0;
+    public bool waitForClearReset = false;
     stageManager stageManager;
     itemManager itemManager;
 
@@ -67,7 +68,11 @@ public class enemyManager : MonoBehaviour
     }
 
     public void HandleAfterClear(){
-
+        if (this.waitForClearReset == true){
+            //A clear reset is happening, don't bother re-spawning stuff.
+            return;
+        }
+        this.waitForClearReset = true;
         this.QueueEnemyWave();
         Invoke("SendAndQueue", 2);//this will happen after 2 seconds
     }
@@ -75,6 +80,7 @@ public class enemyManager : MonoBehaviour
     private void SendAndQueue(){
         this.SendWave();
         this.QueueEnemyWave();
+        this.waitForClearReset = false;
     }
 
     private void spawnObstacle(int numOfObstacles){

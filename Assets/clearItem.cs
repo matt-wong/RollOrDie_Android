@@ -33,6 +33,13 @@ public class clearItem : itemMovement
 
         Animator ani = Camera.main.GetComponent<Animator>();
         ani.Play("CameraShake");
+        gameManager.Instance.Points += 2;
+        myEnemyManager.RowsSpawned += 2;
+
+        if (myEnemyManager.waitForClearReset){
+            Destroy(gameObject);
+            return;
+        }
 
         enemyScript[] enemies = GameObject.FindObjectsOfType<enemyScript>();
         foreach (enemyScript es in enemies)
@@ -46,10 +53,9 @@ public class clearItem : itemMovement
             Destroy(os.gameObject);
         }
 
-        gameManager.Instance.Points += 2;
-        myEnemyManager.RowsSpawned += 2;
         myEnemyManager.HandleAfterClear();
         Destroy(gameObject);
+
     }
 
 }
