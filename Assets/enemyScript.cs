@@ -13,7 +13,6 @@ public class enemyScript : fallingObject
 
     public Sprite[] faceSprites;
     public ParticleSystem DeathParticles;
-    public ParticleSystem HeartParticles;
 
     public event System.Action DiedAction;
 
@@ -52,10 +51,10 @@ public class enemyScript : fallingObject
                 {
 
                     //Player collected a heart make this enemy die now
-
-                    //Heart Effects to show user that they used a heart
-                    ParticleSystem ps = Instantiate(HeartParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, 40));
-                    ps.Play();
+                    var effects = GameObject.FindObjectOfType<EffectsMaker>();
+                    if (effects){
+                        effects.HeartEffect(this.transform.position);
+                    }
 
                     playerHitScript.ExtraLives -= 1;
                     GetKilled();

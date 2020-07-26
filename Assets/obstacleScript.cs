@@ -18,6 +18,10 @@ public class obstacleScript : fallingObject
                 if (playerHitScript.ExtraLives > 0)
                 {
                     //Player collected a heart make this enemy die now
+                    var effects = GameObject.FindObjectOfType<EffectsMaker>();
+                    if (effects){
+                        effects.HeartEffect(this.transform.position);
+                    }
                     playerHitScript.ExtraLives -= 1;
                     GetKilled();
                 }
