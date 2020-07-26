@@ -6,6 +6,7 @@ public class restart : MonoBehaviour
 {
     public void RestartAction(){
         gameManager.Instance.Restart();
+        gameManager.Instance.IsPaused = false;
         Time.timeScale = 1f;
     }
 
