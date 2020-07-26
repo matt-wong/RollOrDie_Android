@@ -69,8 +69,6 @@ public class enemyScript : fallingObject
         ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
         ps.Play();
 
-        Debug.Log(ps.shape.shapeType);
-
         gm.IncreasePoints(1);
         Destroy(gameObject);
     }

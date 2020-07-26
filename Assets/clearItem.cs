@@ -44,7 +44,10 @@ public class clearItem : itemMovement
         enemyScript[] enemies = GameObject.FindObjectsOfType<enemyScript>();
         foreach (enemyScript es in enemies)
         {
-            Destroy(es.gameObject);
+            Vector3 anglePos = es.transform.position - transform.position;
+            float angle = Mathf.Atan2(anglePos.y, anglePos.x) * Mathf.Rad2Deg;
+            Debug.Log(angle);
+            es.GetKilled(angle -90);
         }
 
         obstacleScript[] obstacles = GameObject.FindObjectsOfType<obstacleScript>();
