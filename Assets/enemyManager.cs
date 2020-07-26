@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class enemyManager : MonoBehaviour
 {
-    public int RowsSpawned = 0;
+
     float lastSpawnTime = 0;
     public bool waitForClearReset = false;
     stageManager stageManager;
@@ -53,15 +53,15 @@ public class enemyManager : MonoBehaviour
             myQueuedEnemies.Add(enemyScript1);
         }
 
-        if (RowsSpawned >= OBSTACLE_START_ROW_3 - 1)
+        if (gameManager.Instance.Points >= OBSTACLE_START_ROW_3 - 1)
         {
             spawnObstacle(3);
         }
-        else if (RowsSpawned >= OBSTACLE_START_ROW_2 - 1)
+        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_2 - 1)
         {
             spawnObstacle(2);
         }
-        else if (RowsSpawned >= OBSTACLE_START_ROW_1 - 1)
+        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_1 - 1)
         {
             spawnObstacle(1);
         }
@@ -98,13 +98,13 @@ public class enemyManager : MonoBehaviour
     private void SendWave(){
         this.myCurrentEnemies.Clear();
         foreach (enemyScript es in myQueuedEnemies){
-            es.speed = SpeedFromRowIndex(this.RowsSpawned);
+            es.speed = SpeedFromRowIndex(gameManager.Instance.Points);
             es.DiedAction += this.disableRow;
             myCurrentEnemies.Add(es);
         }
 
         foreach (obstacleScript os in myQueuedObstacles){
-            os.speed = SpeedFromRowIndex(this.RowsSpawned);
+            os.speed = SpeedFromRowIndex(gameManager.Instance.Points);
         }
 
         //Keep track of the easiest enemy to beat so we can rig the players dice rolls to win sshhhhh...
@@ -133,9 +133,9 @@ public class enemyManager : MonoBehaviour
             {
                 SendWave();
                 this.QueueEnemyWave();
-                RowsSpawned += 1;
-                stageManager.CheckForStageIncrease(RowsSpawned);
-                itemManager.SpawnItemsForRow(RowsSpawned);
+
+                stageManager.CheckForStageIncrease(gameManager.Instance.Points);
+                itemManager.SpawnItemsForRow(gameManager.Instance.Points);
             }
             lastSpawnTime = Time.fixedTime;
         }

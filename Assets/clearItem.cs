@@ -33,8 +33,7 @@ public class clearItem : itemMovement
         Animator ani = Camera.main.GetComponent<Animator>();
         ani.Play("CameraShake");
         gameManager.Instance.IncreasePoints(2);
-        myEnemyManager.RowsSpawned += 2;
-
+ 
         if (myEnemyManager.waitForClearReset){
             Destroy(gameObject);
             return;
