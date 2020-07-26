@@ -17,6 +17,7 @@ public class enemyManager : MonoBehaviour
     const int OBSTACLE_START_ROW_3 = 40;
 
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
+    List<enemyScript> myCurrentEnemies = new List<enemyScript>();
     List<obstacleScript> myQueuedObstacles = new List<obstacleScript>();
 
     public GameObject myEnemyPrefab;
@@ -95,8 +96,11 @@ public class enemyManager : MonoBehaviour
     }
 
     private void SendWave(){
+        this.myCurrentEnemies.Clear();
         foreach (enemyScript es in myQueuedEnemies){
             es.speed = SpeedFromRowIndex(this.RowsSpawned);
+            es.DiedAction += this.disableRow;
+            myCurrentEnemies.Add(es);
         }
 
         foreach (obstacleScript os in myQueuedObstacles){
@@ -109,6 +113,13 @@ public class enemyManager : MonoBehaviour
         {
             gameManager.Instance.weakestEnemyHP = System.Math.Min(gameManager.Instance.weakestEnemyHP, es.currFace.Value);
 
+        }
+    }
+
+    public void disableRow()
+    {
+        foreach (enemyScript es in myCurrentEnemies){
+            es.Disable();
         }
     }
 

@@ -1,16 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class enemyScript : fallingObject
 {
 
+    
     public DiceFace currFace;
     DiceFace[] faces;
 
     public Sprite[] faceSprites;
     public ParticleSystem DeathParticles;
+
+    public event System.Action DiedAction;
+
+    private bool myIsDisabled = false;
 
     void Awake(){
         this.faces = new DiceFace[6];
@@ -27,7 +33,7 @@ public class enemyScript : fallingObject
     void OnTriggerEnter2D(Collider2D col)
     {
 
-        if (col.tag == "Player")
+        if (col.tag == "Player" && !myIsDisabled)
         {
             if (!col.gameObject.GetComponent(typeof(playerScript)).Equals(null))
             {
@@ -69,8 +75,14 @@ public class enemyScript : fallingObject
         ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
         ps.Play();
 
+        DiedAction.Invoke();
+
         gm.IncreasePoints(1);
         Destroy(gameObject);
     }
 
+    internal void Disable()
+    {
+        myIsDisabled = true;
+    }
 }
