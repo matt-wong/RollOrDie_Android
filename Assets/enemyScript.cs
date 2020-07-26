@@ -61,7 +61,9 @@ public class enemyScript : fallingObject
                     gm.IncreasePoints(1);
                     GetKilled();
                 }
-
+                else if(playerHitScript.invincible){
+                    gm.IncreasePoints(1);
+                }
                 else if (!playerHitScript.invincible)
                 {
                     Destroy(col.gameObject);

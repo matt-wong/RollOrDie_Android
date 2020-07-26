@@ -1244,7 +1244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f9e3540a0730f47b634266af992214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RowsSpawned: 0
   waitForClearReset: 0
   myEnemyPrefab: {fileID: 1248729294345172868, guid: 6a7c185db6e0f574e97d5511e09606ed,
     type: 3}
@@ -3958,7 +3957,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.43633232
+      scalar: 0
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -8728,7 +8727,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -8838,7 +8837,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7853982
+      scalar: 0.43633232
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2

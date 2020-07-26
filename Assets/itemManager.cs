@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum itemType{
+public enum eItemType{
     weight = 0,
     heart = 1,
     wrap = 2,
@@ -19,19 +19,19 @@ public class itemManager : MonoBehaviour
     {
         ItemOccurences = new List<ItemOccurence>();
 
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.weight, rowIndex = 10});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.weight, rowIndex = 10});
 
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.wrap, rowIndex = 30});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.wrap, rowIndex = 30});
         
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(11,20)});
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(20,40)});
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(40,60)});
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.heart, rowIndex = Random.Range(60,80)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(11,20)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(20,40)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(40,60)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(60,80)});
 
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.clear, rowIndex = Random.Range(11,20)});
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.clear, rowIndex = Random.Range(20,40)});
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.clear, rowIndex = Random.Range(40,60)});
-        ItemOccurences.Add(new ItemOccurence { iType = itemType.clear, rowIndex = Random.Range(60,80)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(11,20)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(20,40)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(40,60)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(60,80)});
     }
 
     public void SpawnItemsForRow(int rowNumber){
@@ -45,26 +45,26 @@ public class itemManager : MonoBehaviour
     }
 
     //Quick debugging feature to spawn items whenever I want
-    public void SpawnItem(itemType itype){
+    public void SpawnItem(eItemType itype){
         GameObject newItem = Instantiate(PrefabbedItems[(int) itype], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
     }
 
     void Update(){
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            this.SpawnItem(itemType.clear);
+            this.SpawnItem(eItemType.clear);
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            this.SpawnItem(itemType.heart);
+            this.SpawnItem(eItemType.heart);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            this.SpawnItem(itemType.weight);
+            this.SpawnItem(eItemType.weight);
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
-            this.SpawnItem(itemType.wrap);
+            this.SpawnItem(eItemType.wrap);
         }
     }
 }

@@ -7,12 +7,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum eDifficulty{
+    easy, //Slower but no unlocks
+    regular
+}
+
+
 public class gameManager
 {
 
     public int Points;
     public int HighScore;
     public bool IsPaused = false;
+
+    public eDifficulty difficulty = eDifficulty.easy;
 
     private bool myGameOver;
     public int weakestEnemyHP;

@@ -1,4 +1,4 @@
 public class ItemOccurence{
-    public itemType iType;
+    public eItemType iType;
     public int rowIndex; 
 }

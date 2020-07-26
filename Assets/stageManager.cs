@@ -47,6 +47,7 @@ public class stageManager : MonoBehaviour
         }
         else if (NextStage.StartingRow - rowNumber < 4 && NextStage.StartingRow - rowNumber > 0)
         {
+            stageText.fontSize = 120;
             stageText.text = "Next Stage in " + (NextStage.StartingRow - rowNumber) + "...";
             stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
         }
@@ -69,7 +70,9 @@ public class stageManager : MonoBehaviour
     private void HandleStageChange(int stageNumber)
     {
 
+        stageText.fontSize = 150;
         stageText.text = "Stage " + (stageNumber + 1);
+        //Opacity full
         stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
         stageText.rectTransform.localScale = new Vector3(1,1,1);
         if (this.Stages.Count > stageNumber + 1){

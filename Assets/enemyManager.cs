@@ -99,6 +99,7 @@ public class enemyManager : MonoBehaviour
         this.myCurrentEnemies.Clear();
         foreach (enemyScript es in myQueuedEnemies){
             es.speed = SpeedFromRowIndex(gameManager.Instance.Points);
+            Debug.Log("SPEED" + es.speed);
             es.DiedAction += this.disableRow;
             myCurrentEnemies.Add(es);
         }
@@ -144,7 +145,16 @@ public class enemyManager : MonoBehaviour
 
     private float SpeedFromRowIndex(int rowsSpawned)
     {
-        //Linear relation until keep speed at row 20
-        return  0.25f * Math.Min(rowsSpawned, 20) + 3.5f;
+        if (gameManager.Instance.difficulty == eDifficulty.regular)
+        {
+            //Linear relation until keep speed at row 20
+            return 0.25f * Math.Min(rowsSpawned, 20) + 3.5f;
+        }
+        else //(gameManager.Instance.difficulty == eDifficulty.easy)
+        {
+            //Linear relation until keep speed at row 20
+            return 0.15f * Math.Min(rowsSpawned, 20) + 3.5f;
+        }
+
     }
 }
