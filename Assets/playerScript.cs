@@ -146,10 +146,6 @@ public class playerScript : MonoBehaviour
                 Time.timeScale = 0f;
             }
 
-        }else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            itemManager itemManager = FindObjectOfType<itemManager>();
-            itemManager.SpawnItem(itemType.clear);
         }
     }
 

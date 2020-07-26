@@ -48,4 +48,23 @@ public class itemManager : MonoBehaviour
     public void SpawnItem(itemType itype){
         GameObject newItem = Instantiate(PrefabbedItems[(int) itype], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
     }
+
+    void Update(){
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            this.SpawnItem(itemType.clear);
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            this.SpawnItem(itemType.heart);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            this.SpawnItem(itemType.weight);
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            this.SpawnItem(itemType.wrap);
+        }
+    }
 }
