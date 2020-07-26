@@ -54,7 +54,7 @@ public class playerScript : MonoBehaviour
 
         if (vector3.x > (Screen.width * 2 / 3))
         { //Right Third of Screen
-            moveRight();
+            Roll();
         }
         else if (vector3.x < (Screen.width * 1 / 3))
         { // Left thrid of Screen
@@ -62,7 +62,7 @@ public class playerScript : MonoBehaviour
         }
         else
         {
-            Roll();
+            moveRight();
         }
 
     }
