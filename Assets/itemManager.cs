@@ -43,4 +43,9 @@ public class itemManager : MonoBehaviour
             }
         }
     }
+
+    //Quick debugging feature to spawn items whenever I want
+    public void SpawnItem(itemType itype){
+        GameObject newItem = Instantiate(PrefabbedItems[(int) itype], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
+    }
 }

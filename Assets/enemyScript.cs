@@ -75,7 +75,9 @@ public class enemyScript : fallingObject
         ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
         ps.Play();
 
-        DiedAction.Invoke();
+        if (DiedAction != null){
+            DiedAction.Invoke();
+        }
 
         gm.IncreasePoints(1);
         Destroy(gameObject);
