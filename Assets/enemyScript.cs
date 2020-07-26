@@ -41,6 +41,7 @@ public class enemyScript : fallingObject
 
                 if (playerHitScript.value > this.currFace.Value)
                 {
+                    gm.IncreasePoints(1);
                     GetKilled();
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.DecrementValue();
@@ -57,6 +58,7 @@ public class enemyScript : fallingObject
                     }
 
                     playerHitScript.ExtraLives -= 1;
+                    gm.IncreasePoints(1);
                     GetKilled();
                 }
 
@@ -85,7 +87,6 @@ public class enemyScript : fallingObject
             DiedAction.Invoke();
         }
 
-        gm.IncreasePoints(1);
         Destroy(gameObject);
     }
 

@@ -29,11 +29,10 @@ public class clearItem : itemMovement
 
     protected override void TouchedPlayer(Collider2D col)
     {
-        //TODO: Some cool effects!
 
         Animator ani = Camera.main.GetComponent<Animator>();
         ani.Play("CameraShake");
-        gameManager.Instance.Points += 2;
+        gameManager.Instance.IncreasePoints(2);
         myEnemyManager.RowsSpawned += 2;
 
         if (myEnemyManager.waitForClearReset){
