@@ -24,10 +24,8 @@ public class playerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TextMesh tm = GetComponentInChildren<TextMesh>();
-
         rb = GetComponentInChildren<Rigidbody2D>();
-
+       
         this.faces = new DiceFace[6];
         for (int i = 0; i < 6; i++)
         {
