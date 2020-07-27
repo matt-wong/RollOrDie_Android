@@ -85,6 +85,7 @@ public class gameManager
     }
     public void Load()
     {
+        try{
         if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -95,5 +96,9 @@ public class gameManager
             HighScore = highscoreLoad;
 
         }
+        }catch(Exception e){
+            HighScore = 0;
+        }
+
     }
 }
