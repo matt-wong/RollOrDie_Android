@@ -6,8 +6,6 @@ public abstract class itemMovement : MonoBehaviour
 {
     public float CenterY = -3.5f;
     public float Amplitude = 1f;
-    public float MinX = -3.5f; //Check if the item is below this height -> flap up
-    public float MaxX = 3.5f; //Check if the item is below this height -> flap up
     
     public float horizSpeed = 1f;
     //private Rigidbody2D rb;

@@ -114,10 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b116cd0f4cf1a49a56f384057be794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CenterY: -3.5
+  CenterY: -3
   Amplitude: 1
-  MinX: -3.5
-  MaxX: 3.5
   horizSpeed: 1
   timeToLive: 10
   fadeTime: 5

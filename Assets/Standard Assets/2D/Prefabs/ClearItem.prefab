@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4916e0e97fd17479449bb1b0f3ef84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CenterY: -3.5
+  CenterY: -3
   Amplitude: 1
   MinX: -3.5
   MaxX: 3.5
