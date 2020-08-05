@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3570607414300638528}
   - component: {fileID: 7833467932217375363}
   - component: {fileID: 7833467932217375360}
-  - component: {fileID: 257065839038917618}
   - component: {fileID: 95319989271102320}
+  - component: {fileID: 257065839038917618}
   m_Layer: 0
   m_Name: ClearItem
   m_TagString: Untagged
@@ -147,26 +147,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.13542446}
   serializedVersion: 2
   m_Radius: 0.48370054
---- !u!114 &257065839038917618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570607414300638529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd4916e0e97fd17479449bb1b0f3ef84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CenterY: -3
-  Amplitude: 1
-  MinX: -3.5
-  MaxX: 3.5
-  horizSpeed: 1
-  timeToLive: -1
-  fadeTime: 5
-  fadeAnimationName: 
 --- !u!95 &95319989271102320
 Animator:
   serializedVersion: 3
@@ -186,3 +166,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &257065839038917618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570607414300638529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4916e0e97fd17479449bb1b0f3ef84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CenterY: -3
+  Amplitude: 1
+  horizSpeed: 1
+  timeToLive: 10
+  fadeTime: 5
+  fadeAnimationName: flicker

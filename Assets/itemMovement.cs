@@ -11,13 +11,13 @@ public abstract class itemMovement : MonoBehaviour
     //private Rigidbody2D rb;
 
     private float lastBump = 0f;
-    private float myStartingTime = 0f;
+    protected float myStartingTime = 0f;
     public float timeToLive = -1f;
     public float fadeTime = 5f;
     public string fadeAnimationName;
     private bool isFading = false;
 
-    private Animator myAnimator;
+    protected Animator myAnimator;
 
     // Start is called before the first frame update
     void Start()
