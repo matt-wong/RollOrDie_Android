@@ -15,6 +15,9 @@ public class enemyManager : MonoBehaviour
     const int OBSTACLE_START_ROW_1 = 20;
     const int OBSTACLE_START_ROW_2 = 30;
     const int OBSTACLE_START_ROW_3 = 40;
+    const int OBSTACLE_START_ROW_4 = 50;
+    const int OBSTACLE_START_ROW_5 = 60;
+    const int OBSTACLE_START_ROW_6 = 70;
 
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
     List<enemyScript> myCurrentEnemies = new List<enemyScript>();
@@ -53,7 +56,19 @@ public class enemyManager : MonoBehaviour
             myQueuedEnemies.Add(enemyScript1);
         }
 
-        if (gameManager.Instance.Points >= OBSTACLE_START_ROW_3 - 1)
+        if (gameManager.Instance.Points >= OBSTACLE_START_ROW_6 - 1)
+        {
+            spawnObstacle(6);
+        }
+        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_5 - 1)
+        {
+            spawnObstacle(5);
+        }
+        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_4 - 1)
+        {
+            spawnObstacle(4);
+        }
+        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_3 - 1)
         {
             spawnObstacle(3);
         }

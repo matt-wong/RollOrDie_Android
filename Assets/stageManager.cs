@@ -36,6 +36,10 @@ public class stageManager : MonoBehaviour
         this.Stages.Add(new Stage{StartingRow = 20, BgColor = new Color(0.904955f, 0.9245283f, 0.5145959f)}); //1 Obstacle / row - Yellow 
         this.Stages.Add(new Stage{StartingRow = 30, BgColor = new Color(0.5388716f, 0.8679245f, 0.5322179f)}); //2 Obstacle / row -Green
         this.Stages.Add(new Stage{StartingRow = 40, BgColor = new Color(0.1f, 0.51f, 0.7f)}); //3 Obstacle / row -Blue but something else?
+        this.Stages.Add(new Stage{StartingRow = 50, BgColor = new Color(0.63f, 0.52f, 0.7f)}); //4 Obstacles
+        this.Stages.Add(new Stage{StartingRow = 60, BgColor = new Color(0.735849f, 0.5614098f, 0.5614098f)}); // 5 Obstacles
+        this.Stages.Add(new Stage{StartingRow = 70, BgColor = new Color(0.8867924f, 0.6830572f, 0.4601281f)}); // 6 Obstacles
+        this.Stages.Add(new Stage{StartingRow = 80, BgColor = new Color(0.904955f, 0.9245283f, 0.5145959f)}); // 7 Obs
 
         this.NextStage = this.Stages[0];
         CheckForStageIncrease(0);
