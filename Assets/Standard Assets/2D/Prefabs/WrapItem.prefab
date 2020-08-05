@@ -158,10 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386e3dd2c7d1f964bbf840e06ba9cd6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CenterY: -3.5
+  CenterY: -3
   Amplitude: 1
-  MinX: -3.5
-  MaxX: 3.5
   horizSpeed: 1
   timeToLive: -1
   fadeTime: 5

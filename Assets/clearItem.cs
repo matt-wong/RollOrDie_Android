@@ -23,8 +23,10 @@ public class clearItem : itemMovement
         return base.ToString();
     }
 
-    void Start(){
+    void Start() {
         myEnemyManager = GameObject.FindObjectOfType<enemyManager>();
+        this.myAnimator = GetComponent<Animator>();
+        myStartingTime = Time.time;
     }
 
     protected override void TouchedPlayer(Collider2D col)
