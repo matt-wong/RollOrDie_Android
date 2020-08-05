@@ -42,6 +42,8 @@ public class stageManager : MonoBehaviour
     }
 
     public void CheckForStageIncrease(int rowNumber){
+        if (NextStage == null) return; //No more stages past this point
+
         if (NextStage.StartingRow <= rowNumber){
             this.HandleStageChange(Stages.IndexOf(NextStage));
         }
@@ -77,6 +79,8 @@ public class stageManager : MonoBehaviour
         stageText.rectTransform.localScale = new Vector3(1,1,1);
         if (this.Stages.Count > stageNumber + 1){
             this.NextStage = this.Stages[stageNumber + 1];
+        }else{
+            this.NextStage = null;
         }
         this.CurrentStage = this.Stages[stageNumber];
     }
