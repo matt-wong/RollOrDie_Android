@@ -114,7 +114,6 @@ public class enemyManager : MonoBehaviour
         this.myCurrentEnemies.Clear();
         foreach (enemyScript es in myQueuedEnemies){
             es.speed = SpeedFromRowIndex(gameManager.Instance.Points);
-            Debug.Log("SPEED" + es.speed);
             es.DiedAction += this.disableRow;
             myCurrentEnemies.Add(es);
         }

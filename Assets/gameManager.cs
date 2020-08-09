@@ -16,17 +16,16 @@ public enum eDifficulty{
 public class gameManager
 {
 
-    public int Points;
-    public int HighScore;
+    public int Points = 0;
+    public int HighScore = 0;
+
     public bool IsPaused = false;
 
     public eDifficulty difficulty = eDifficulty.easy;
 
     private bool myGameOver;
     public int weakestEnemyHP;
-
-    //0 (0 - 20 points) - No items, playter rigged to never roll losing value twice in a row.
-    //1 - (20 -X points) - Add dots items to make every row winnable.
+    private unlockableManager unlockableManager;
 
     private static gameManager instance = null;
 
@@ -37,6 +36,7 @@ public class gameManager
             if (gameManager.instance == null)
             {
                 gameManager.instance = new gameManager();
+                gameManager.instance.unlockableManager = GameObject.FindObjectOfType<unlockableManager>();
                 gameManager.instance.Load();
             }
             return gameManager.instance;
@@ -69,36 +69,68 @@ public class gameManager
         {
             myGameOver = value;
             if (myGameOver){
+                CheckUnlockables();
                 Save();
             }
         }
 
     }
 
+    private void CheckUnlockables()
+    {
+        UnlockData.SumScore += this.Points;
+        unlockableManager.MaybeUnlockNext(this.Points);
+    }
+
     public void Save()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
-
-        bf.Serialize(file, HighScore);
-        file.Close();
-    }
-    public void Load()
-    {
-        try{
-        if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
+        try
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
-            int highscoreLoad = (int)bf.Deserialize(file);
+            FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+
+            bf.Serialize(file, new saveFile(this.HighScore, UnlockData.SumScore, UnlockData.UnlockIndex));
             file.Close();
-
-            HighScore = highscoreLoad;
+        }
+        catch (Exception ex)
+        {
 
         }
-        }catch(Exception e){
+    }
+
+    public void Load()
+    {
+        try
+        {
+            if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
+                saveFile saveFile = (saveFile)bf.Deserialize(file);
+                file.Close();
+
+                HighScore = saveFile.Highscore;
+                UnlockData.SumScore = saveFile.cumulativeScore;
+                UnlockData.UnlockIndex = saveFile.UnlockIndex;
+
+                Debug.Log("Loaded...");
+                Debug.Log("HighScore " + HighScore.ToString());
+                Debug.Log("CumulativeScore " + UnlockData.SumScore.ToString());
+                Debug.Log("UnlockIndex " + UnlockData.UnlockIndex.ToString());
+
+
+            }
+        }catch (Exception e)
+        {
+            Debug.Log(e);
+
             HighScore = 0;
+            UnlockData.SumScore = 0;
+            UnlockData.UnlockIndex = 0;
+
         }
+
 
     }
+
 }
