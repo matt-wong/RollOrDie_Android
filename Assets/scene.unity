@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 20026422}
   - component: {fileID: 20026421}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Background fader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
