@@ -10,12 +10,10 @@ public class HudScript : MonoBehaviour
     Text myDebugData;
     Text myFinalScoreText;
     Text myHighScoreText;
-    Text myUnlockText;
     playerScript myPlayer;
     Transform myRestartPanel;
     Transform myPausePanel;
     Transform myPauseButton;
-
     gameManager gm;
 
     // Start is called before the first frame update
@@ -31,7 +29,6 @@ public class HudScript : MonoBehaviour
         myRestartPanel = transform.Find("RestartPanel").GetComponent<Transform>();
         this.myFinalScoreText = myRestartPanel.Find("FinalScoreText").GetComponent<Text>();
         this.myHighScoreText = myRestartPanel.Find("HighScoreText").GetComponent<Text>();
-        this.myUnlockText = myRestartPanel.Find("UnlockText").GetComponent<Text>();
         myRestartPanel.gameObject.SetActive(false);
 
         myPausePanel = transform.Find("PausePanel").GetComponent<Transform>();
@@ -51,7 +48,6 @@ public class HudScript : MonoBehaviour
             myPauseButton.gameObject.SetActive(false);
             myFinalScoreText.text = "Points: " + gm.Points.ToString();
             myHighScoreText.text = "High Score: " + gm.HighScore.ToString();
-            myUnlockText.text = UnlockData.Status;
         }
 
     }
