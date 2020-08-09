@@ -77,11 +77,16 @@ public class gameManager
 
     public void Save()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+        try{
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
 
-        bf.Serialize(file, HighScore);
-        file.Close();
+            bf.Serialize(file, HighScore);
+            file.Close();
+        }catch(Exception e){
+            Debug.Log(e);
+        }
+
     }
     public void Load()
     {
