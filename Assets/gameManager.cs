@@ -27,9 +27,6 @@ public class gameManager
     public int weakestEnemyHP;
     private unlockableManager unlockableManager;
 
-    //0 (0 - 20 points) - No items, playter rigged to never roll losing value twice in a row.
-    //1 - (20 -X points) - Add dots items to make every row winnable.
-
     private static gameManager instance = null;
 
     public static gameManager Instance
@@ -81,7 +78,7 @@ public class gameManager
 
     private void CheckUnlockables()
     {
-        unlockableManager.SumScore += this.Points;
+        UnlockData.SumScore += this.Points;
         unlockableManager.MaybeUnlockNext(this.Points);
     }
 
@@ -92,7 +89,7 @@ public class gameManager
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
 
-            bf.Serialize(file, new saveFile(this.HighScore, unlockableManager.SumScore, unlockableManager.UnlockIndex));
+            bf.Serialize(file, new saveFile(this.HighScore, UnlockData.SumScore, UnlockData.UnlockIndex));
             file.Close();
         }
         catch (Exception ex)
@@ -113,13 +110,13 @@ public class gameManager
                 file.Close();
 
                 HighScore = saveFile.Highscore;
-                unlockableManager.SumScore = saveFile.cumulativeScore;
-                unlockableManager.UnlockIndex = saveFile.UnlockIndex;
+                UnlockData.SumScore = saveFile.cumulativeScore;
+                UnlockData.UnlockIndex = saveFile.UnlockIndex;
 
                 Debug.Log("Loaded...");
                 Debug.Log("HighScore " + HighScore.ToString());
-                Debug.Log("CumulativeScore " + unlockableManager.SumScore.ToString());
-                Debug.Log("UnlockIndex " + unlockableManager.UnlockIndex.ToString());
+                Debug.Log("CumulativeScore " + UnlockData.SumScore.ToString());
+                Debug.Log("UnlockIndex " + UnlockData.UnlockIndex.ToString());
 
 
             }
@@ -128,8 +125,8 @@ public class gameManager
             Debug.Log(e);
 
             HighScore = 0;
-            unlockableManager.SumScore = 0;
-            unlockableManager.UnlockIndex = 0;
+            UnlockData.SumScore = 0;
+            UnlockData.UnlockIndex = 0;
 
         }
 
