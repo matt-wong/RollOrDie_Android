@@ -18,6 +18,7 @@ public class enemyScript : fallingObject
 
     private bool myIsDisabled = false;
 
+
     void Awake(){
         this.faces = new DiceFace[6];
         for (int i = 0; i < 6; i++)
@@ -28,6 +29,10 @@ public class enemyScript : fallingObject
         this.currFace = this.faces[Random.Range(0,6)];
         SpriteRenderer spr = GetComponent<SpriteRenderer>();
         spr.sprite = this.currFace.sprite;
+
+        Animator animator = GetComponent<Animator>();
+        animator.Play("DiceEnemy" + this.currFace.Value.ToString());
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
