@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class playerScript : MonoBehaviour
 {
 
-    public int value = 0;
+    private int myValue = 0;
     public bool invincible = false;
     public int ExtraLives = 0;
     public bool HasExtraWeight = false;
@@ -21,6 +22,17 @@ public class playerScript : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject dustMaker;
 
+    public event System.Action<int> NewValueAction;
+
+   public int Value
+   {
+       get { return myValue; }
+       set {
+            myValue = value;
+            NewValueAction.Invoke(value);
+       }
+   }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +44,8 @@ public class playerScript : MonoBehaviour
             this.faces[i] = new DiceFace(i + 1, faceSprites[i]);
         }
 
-        this.currFace = this.faces[Random.Range(0,6)];
-        this.value = currFace.Value;
+        this.currFace = this.faces[UnityEngine.Random.Range(0,6)];
+        this.myValue = currFace.Value;
         spriteRend = GetComponent<SpriteRenderer>();
         spriteRend.sprite = this.currFace.sprite;
     }
@@ -94,7 +106,7 @@ public class playerScript : MonoBehaviour
             rb.AddTorque(75);
             //Only spin when at original Mass (1)
         }
-        this.value = 0; //Die if hit while rolling
+        this.myValue = 0; //Die if hit while rolling
     }
 
     void Update()
@@ -150,8 +162,8 @@ public class playerScript : MonoBehaviour
     }
 
     public void DecrementValue(){
-        this.value -= 1;
-        this.spriteRend.sprite = faceSprites[this.value - 1];
+        this.Value -= 1;
+        this.spriteRend.sprite = faceSprites[this.myValue - 1];
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -178,15 +190,15 @@ public class playerScript : MonoBehaviour
                 lowerRange = gameManager.Instance.weakestEnemyHP + 1;
                 gotLosingRoll = false;
             }
-            this.value = Random.Range(lowerRange, 7);
+            this.Value = UnityEngine.Random.Range(lowerRange, 7);
 
-            if (this.value <= gameManager.Instance.weakestEnemyHP)
+            if (this.myValue <= gameManager.Instance.weakestEnemyHP)
             {
                 //take note that we gave them a losing roll
                 gotLosingRoll = true;
             }
 
-            this.currFace = faces[this.value - 1];
+            this.currFace = faces[this.myValue - 1];
             this.spriteRend.sprite = this.currFace.sprite;
         }
     }

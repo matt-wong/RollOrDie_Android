@@ -25,21 +25,38 @@ public class enemyManager : MonoBehaviour
 
     public GameObject myEnemyPrefab;
     public GameObject myObsPrefab;
+    public playerScript myPlayerScript;
+
     // Start is called before the first frame update
     void Start()
     {
-        this.QueueEnemyWave();
-        this.SendWave();
-        this.QueueEnemyWave();
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         this.stageManager = canvas.GetComponent<stageManager>();
         this.itemManager = FindObjectOfType<itemManager>();
+        this.myPlayerScript = FindObjectOfType<playerScript>();
+        this.myPlayerScript.NewValueAction += (value) => {this.UpdateEnemyColors(value);};
+
+        this.QueueEnemyWave();
+        this.SendWave();
+        this.QueueEnemyWave();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void UpdateEnemyColors(int value){
+        foreach (enemyScript es in myQueuedEnemies){
+            es.CheckColor(value);
+        }
+
+        foreach (enemyScript es in myCurrentEnemies){
+            es.CheckColor(value);
+        }
 
     }
 
@@ -52,6 +69,7 @@ public class enemyManager : MonoBehaviour
         {
             GameObject newEnemy = Instantiate(myEnemyPrefab, new Vector3(i, 7, 0), Quaternion.identity);
             enemyScript enemyScript1 = newEnemy.GetComponentInChildren<enemyScript>();
+            enemyScript1.CheckColor(myPlayerScript.Value);
             enemyScript1.speed = 0f;
             myQueuedEnemies.Add(enemyScript1);
         }
@@ -114,7 +132,6 @@ public class enemyManager : MonoBehaviour
         this.myCurrentEnemies.Clear();
         foreach (enemyScript es in myQueuedEnemies){
             es.speed = SpeedFromRowIndex(gameManager.Instance.Points);
-            Debug.Log("SPEED" + es.speed);
             es.DiedAction += this.disableRow;
             myCurrentEnemies.Add(es);
         }

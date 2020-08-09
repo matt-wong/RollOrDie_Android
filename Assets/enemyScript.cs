@@ -18,6 +18,7 @@ public class enemyScript : fallingObject
 
     private bool myIsDisabled = false;
 
+    private SpriteRenderer mySpriteRenderer;
 
     void Awake(){
         this.faces = new DiceFace[6];
@@ -27,8 +28,8 @@ public class enemyScript : fallingObject
         }
 
         this.currFace = this.faces[Random.Range(0,6)];
-        SpriteRenderer spr = GetComponent<SpriteRenderer>();
-        spr.sprite = this.currFace.sprite;
+        this.mySpriteRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRenderer.sprite = this.currFace.sprite;
 
         Animator animator = GetComponent<Animator>();
 
@@ -44,7 +45,7 @@ public class enemyScript : fallingObject
             {
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
-                if (playerHitScript.value > this.currFace.Value)
+                if (playerHitScript.Value > this.currFace.Value)
                 {
                     gm.IncreasePoints(1);
                     GetKilled();
@@ -79,6 +80,17 @@ public class enemyScript : fallingObject
         else if(col.tag == "EnemyManager"){
             //End of the page, die now
             Destroy(gameObject);
+        }
+    }
+
+    internal void CheckColor(int playerValue)
+    {
+        if (mySpriteRenderer == null){ return;}
+
+        if (this.currFace.Value >= playerValue){
+            this.mySpriteRenderer.color = new Color(1f,0.1f,0.2f); //Light Red
+        }else{
+            this.mySpriteRenderer.color = new Color(1f,1f,1f);
         }
     }
 
