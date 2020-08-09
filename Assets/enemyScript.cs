@@ -31,9 +31,9 @@ public class enemyScript : fallingObject
         spr.sprite = this.currFace.sprite;
 
         Animator animator = GetComponent<Animator>();
-        animator.Play("DiceEnemy" + this.currFace.Value.ToString());
 
-    }
+        animator.Play("DiceEnemy" + this.currFace.Value.ToString(), -1, Random.Range(0f, 1f));
+     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
