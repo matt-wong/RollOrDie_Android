@@ -20,7 +20,7 @@ public class gameManager
     public int HighScore;
     public bool IsPaused = false;
 
-    public eDifficulty difficulty = eDifficulty.easy;
+    public eDifficulty difficulty = eDifficulty.regular;
 
     private bool myGameOver;
     public int weakestEnemyHP;

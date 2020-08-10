@@ -1328,6 +1328,7 @@ MonoBehaviour:
     type: 3}
   myObsPrefab: {fileID: 4563240978839892961, guid: e6544b7b5cb88d4419df57e502da0122,
     type: 3}
+  myPlayerScript: {fileID: 0}
 --- !u!1 &364713924
 GameObject:
   m_ObjectHideFlags: 0
@@ -12497,18 +12498,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc320ab171ebd249b25b69fbcec5c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
+  IsVulnerable: 1
   invincible: 0
   ExtraLives: 0
   HasExtraWeight: 0
   CanWrap: 0
   faceSprites:
-  - {fileID: 21300000, guid: 2802b661d458a3741921878f941bef6b, type: 3}
-  - {fileID: 21300000, guid: 63b11596e209af24dab4c8ce92df02d7, type: 3}
-  - {fileID: 21300000, guid: 78b7bc602c838a6489e7883c159d8ab4, type: 3}
-  - {fileID: 21300000, guid: 6bae27e8edc78764aaf1291a43ab4387, type: 3}
-  - {fileID: 21300000, guid: ca7097a36d4fdd24e8e899deb2f0e349, type: 3}
-  - {fileID: 21300000, guid: 5f1d299313103124190b51a2c4c23242, type: 3}
+  - {fileID: 21300006, guid: 3db9966f6d983ed418fdb478f35d941d, type: 3}
+  - {fileID: 21300006, guid: 04003f4a1280eb54e9195f8286a6a33e, type: 3}
+  - {fileID: 21300002, guid: 0d86748617258834ca6eb16e73b23c21, type: 3}
+  - {fileID: 21300000, guid: 2aeb6381e1b051d45a3483b2d5ea0c30, type: 3}
+  - {fileID: 21300010, guid: 73a143475201af040a546374d077284c, type: 3}
+  - {fileID: 21300010, guid: 4be567b9d732e604985deee75fbe6902, type: 3}
   dustMaker: {fileID: 2708434438818367328, guid: 1e5259a3a03cbfb40b05ce4186741acf,
     type: 3}
 --- !u!61 &1303648719
