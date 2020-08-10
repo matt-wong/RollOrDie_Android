@@ -7,11 +7,14 @@ public class playerScript : MonoBehaviour
 {
 
     private int myValue = 0;
+
+    public bool IsVulnerable = true;
     public bool invincible = false;
     public int ExtraLives = 0;
     public bool HasExtraWeight = false;
     private bool gotLosingRoll = false;
     private float lastRollTime;
+
     public bool CanWrap = false;
 
     DiceFace[] faces;
@@ -106,7 +109,7 @@ public class playerScript : MonoBehaviour
             rb.AddTorque(75);
             //Only spin when at original Mass (1)
         }
-        this.myValue = 0; //Die if hit while rolling
+        IsVulnerable = true;
     }
 
     void Update()
@@ -170,7 +173,7 @@ public class playerScript : MonoBehaviour
     {
         if (col.tag == "Floor" && (Time.fixedTime - lastRollTime > 0.25f || lastRollTime == 0))
         {
-
+            this.IsVulnerable = false;
             lastRollTime = Time.fixedTime;
             //Debug.Log("Floor Sound.");
             //Effects
@@ -185,11 +188,17 @@ public class playerScript : MonoBehaviour
 
             //Don't allow player to roll losing roll twice in a row
             int lowerRange = 1;
+
             if (gotLosingRoll)
             {
                 lowerRange = gameManager.Instance.weakestEnemyHP + 1;
                 gotLosingRoll = false;
             }
+            else if (myValue <= 1){
+                Debug.Log("No double 1s");
+                lowerRange = 2;
+            }
+
             this.Value = UnityEngine.Random.Range(lowerRange, 7);
 
             if (this.myValue <= gameManager.Instance.weakestEnemyHP)

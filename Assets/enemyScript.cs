@@ -45,7 +45,7 @@ public class enemyScript : fallingObject
             {
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
-                if (playerHitScript.Value > this.currFace.Value)
+                if (playerHitScript.Value > this.currFace.Value && !playerHitScript.IsVulnerable)
                 {
                     gm.IncreasePoints(1);
                     GetKilled();
