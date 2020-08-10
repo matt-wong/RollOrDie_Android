@@ -14,6 +14,8 @@ public class stageManager : MonoBehaviour
     private List<ParticleSystem> bgParticleSystems;
     TextMeshProUGUI stageText;
 
+    public Sprite[] BlobSprites;
+
     void Start(){
 
         this.stageText = transform.Find("CenterText").GetComponent<TextMeshProUGUI>();
@@ -35,7 +37,7 @@ public class stageManager : MonoBehaviour
         this.Stages.Add(new Stage{StartingRow = 15, BgColor = new Color(0.8867924f, 0.6830572f, 0.4601281f)}); //Faster - Orange
         this.Stages.Add(new Stage{StartingRow = 20, BgColor = new Color(0.904955f, 0.9245283f, 0.5145959f)}); //1 Obstacle / row - Yellow 
         this.Stages.Add(new Stage{StartingRow = 30, BgColor = new Color(0.5388716f, 0.8679245f, 0.5322179f)}); //2 Obstacle / row -Green
-        this.Stages.Add(new Stage{StartingRow = 40, BgColor = new Color(0.1f, 0.51f, 0.7f)}); //3 Obstacle / row -Blue but something else?
+        this.Stages.Add(new Stage{StartingRow = 40, BgColor = new Color(0.1f, 0.51f, 0.7f)}); //3 Obstacle / row -New Blob Sprite
         this.Stages.Add(new Stage{StartingRow = 50, BgColor = new Color(0.63f, 0.52f, 0.7f)}); //4 Obstacles
         this.Stages.Add(new Stage{StartingRow = 60, BgColor = new Color(0.735849f, 0.5614098f, 0.5614098f)}); // 5 Obstacles
         this.Stages.Add(new Stage{StartingRow = 70, BgColor = new Color(0.8867924f, 0.6830572f, 0.4601281f)}); // 6 Obstacles
@@ -81,6 +83,20 @@ public class stageManager : MonoBehaviour
         //Opacity full
         stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
         stageText.rectTransform.localScale = new Vector3(1,1,1);
+
+        int bgSpriteIdx = 0;
+
+        if (stageNumber > 5)
+        { //Change the background sprites when past a certain stage.
+            bgSpriteIdx = 1;
+        }
+
+        foreach (ParticleSystem ps in this.bgParticleSystems)
+        {
+            ps.textureSheetAnimation.SetSprite(0, this.BlobSprites[bgSpriteIdx]);
+        }
+
+
         if (this.Stages.Count > stageNumber + 1){
             this.NextStage = this.Stages[stageNumber + 1];
         }else{
