@@ -177,7 +177,7 @@ public class enemyManager : MonoBehaviour
 
     private float SpeedFromRowIndex(int rowsSpawned)
     {
-        if (gameManager.Instance.difficulty == eDifficulty.regular)
+        if (gameManager.Instance.difficulty == eDifficulty.spicy)
         {
             //Linear relation until keep speed at row 20
             return 0.25f * Math.Min(rowsSpawned, 20) + 3.5f;

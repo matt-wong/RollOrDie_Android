@@ -29,6 +29,7 @@ public class HudScript : MonoBehaviour
         myRestartPanel = transform.Find("RestartPanel").GetComponent<Transform>();
         this.myFinalScoreText = myRestartPanel.Find("FinalScoreText").GetComponent<Text>();
         this.myHighScoreText = myRestartPanel.Find("HighScoreText").GetComponent<Text>();
+        Debug.Log("HIDE THIS");
         myRestartPanel.gameObject.SetActive(false);
 
         myPausePanel = transform.Find("PausePanel").GetComponent<Transform>();

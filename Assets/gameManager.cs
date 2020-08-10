@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum eDifficulty{
-    easy, //Slower but no unlocks
-    regular
+    regular, //Slower but no unlocks
+    spicy
 }
 
 
@@ -20,7 +20,7 @@ public class gameManager
     public int HighScore;
     public bool IsPaused = false;
 
-    public eDifficulty difficulty = eDifficulty.regular;
+    public eDifficulty difficulty = eDifficulty.spicy;
 
     private bool myGameOver;
     public int weakestEnemyHP;

@@ -10,16 +10,17 @@ public class mainMenuScript : MonoBehaviour
 
     private void PlayGame(eDifficulty difficulty){
         Debug.Log("PLAY GAME");
+        gameManager.Instance.GameOver = false;
         UnityEngine.SceneManagement.SceneManager.LoadScene(GAME_SCENE);
         gameManager.Instance.difficulty = difficulty;
     }
 
     public void PlayEasy(){
-        this.PlayGame(eDifficulty.easy);
+        this.PlayGame(eDifficulty.regular);
     }
 
     public void PlayRegular(){
-        this.PlayGame(eDifficulty.regular);
+        this.PlayGame(eDifficulty.spicy);
     }
 
     public void ChooseDifficulty(){
