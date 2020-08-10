@@ -442,7 +442,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -495,7 +495,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -548,8 +548,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 6.265732
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1537,7 +1537,10 @@ ParticleSystem:
     uvChannelMask: -1
     randomRow: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 4056c040ae1d7c146a8b74061ac75e9f, type: 3}
+    - sprite: {fileID: 21300000, guid: 1428f549243d0e1449cf13fb7eac5581, type: 3}
+    - sprite: {fileID: 21300002, guid: 1428f549243d0e1449cf13fb7eac5581, type: 3}
+    - sprite: {fileID: 21300004, guid: 1428f549243d0e1449cf13fb7eac5581, type: 3}
+    - sprite: {fileID: 21300006, guid: 1428f549243d0e1449cf13fb7eac5581, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
