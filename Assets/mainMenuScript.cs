@@ -10,7 +10,11 @@ public class mainMenuScript : MonoBehaviour
 
     private void PlayGame(eDifficulty difficulty){
         Debug.Log("PLAY GAME");
-        gameManager.Instance.GameOver = false;
+
+        gameManager.Instance.Restart();
+        gameManager.Instance.IsPaused = false;
+        Time.timeScale = 1f;
+
         UnityEngine.SceneManagement.SceneManager.LoadScene(GAME_SCENE);
         gameManager.Instance.difficulty = difficulty;
     }
