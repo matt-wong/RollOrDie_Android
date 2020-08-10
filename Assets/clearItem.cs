@@ -32,8 +32,6 @@ public class clearItem : itemMovement
     protected override void TouchedPlayer(Collider2D col)
     {
 
-        Animator ani = Camera.main.GetComponent<Animator>();
-        ani.Play("CameraShake");
         gameManager.Instance.IncreasePoints(2);
  
         if (myEnemyManager.waitForClearReset){
@@ -47,7 +45,7 @@ public class clearItem : itemMovement
             Vector3 anglePos = es.transform.position - transform.position;
             float angle = Mathf.Atan2(anglePos.y, anglePos.x) * Mathf.Rad2Deg;
             es.GetKilled(angle -90);
-        }
+        }            
 
         obstacleScript[] obstacles = GameObject.FindObjectsOfType<obstacleScript>();
         foreach (obstacleScript os in obstacles)
@@ -55,6 +53,9 @@ public class clearItem : itemMovement
             Destroy(os.gameObject);
         }
 
+        Animator ani = Camera.main.GetComponent<Animator>();
+        ani.Play("CameraZoom");
+        
         myEnemyManager.HandleAfterClear();
         Destroy(gameObject);
 

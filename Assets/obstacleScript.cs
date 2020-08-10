@@ -42,7 +42,11 @@ public class obstacleScript : fallingObject
     private void GetKilled()
     {
         Animator ani = Camera.main.GetComponent<Animator>();
-        ani.Play("CameraShake");
+
+        if (!ani.GetCurrentAnimatorStateInfo(0).IsName("CameraZoom"))
+        {
+            ani.Play("CameraShake");
+        }
 
         Destroy(gameObject);
     }

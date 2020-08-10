@@ -181,7 +181,9 @@ public class playerScript : MonoBehaviour
             rb.rotation = 0;
 
             Animator ani = Camera.main.GetComponent<Animator>();
-            ani.Play("CameraShake");
+            if (!ani.GetCurrentAnimatorStateInfo(0).IsName("CameraZoom")){
+                ani.Play("CameraShake");
+            }
 
             GameObject dust = Instantiate<GameObject>(dustMaker, new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z) , Quaternion.identity);
             Destroy(dust, 2); //get rid of the dust in 2 seconds

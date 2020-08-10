@@ -96,8 +96,13 @@ public class enemyScript : fallingObject
 
     public void GetKilled(float angle = 0f)
     {
+
         Animator ani = Camera.main.GetComponent<Animator>();
-        ani.Play("CameraShake");
+        if (!ani.GetCurrentAnimatorStateInfo(0).IsName("CameraZoom"))
+        {
+            ani.Play("CameraShake");
+        }
+
         ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, angle + 40));
         //ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
         
