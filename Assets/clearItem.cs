@@ -46,7 +46,6 @@ public class clearItem : itemMovement
         {
             Vector3 anglePos = es.transform.position - transform.position;
             float angle = Mathf.Atan2(anglePos.y, anglePos.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
             es.GetKilled(angle -90);
         }
 
