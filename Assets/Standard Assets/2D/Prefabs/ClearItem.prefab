@@ -141,7 +141,7 @@ MonoBehaviour:
   timeToLive: 10
   fadeTime: 5
   fadeAnimationName: flicker
-  DeathParticles: {fileID: 779355819246580964, guid: 89cb2059e3aed734ab5c8478b9602aa6,
+  DeathParticles: {fileID: 6910867282341490505, guid: 66c069302fa23544d93a0c22a51ea72d,
     type: 3}
 --- !u!58 &2173590556293015118
 CircleCollider2D:
