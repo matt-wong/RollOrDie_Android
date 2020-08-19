@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3570607414300638533}
   - component: {fileID: 3570607414300638534}
-  - component: {fileID: 3570607414300638528}
   - component: {fileID: 7833467932217375363}
-  - component: {fileID: 7833467932217375360}
   - component: {fileID: 95319989271102320}
   - component: {fileID: 257065839038917618}
+  - component: {fileID: 2173590556293015118}
   m_Layer: 0
   m_Name: ClearItem
   m_TagString: Untagged
@@ -84,32 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3570607414300638528
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570607414300638529}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0054190755, y: -0.06500371}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 1.24}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9674046, y: 1.1082429}
-  m_EdgeRadius: 0
 --- !u!50 &7833467932217375363
 Rigidbody2D:
   serializedVersion: 4
@@ -131,22 +104,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7833467932217375360
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570607414300638529}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.13542446}
-  serializedVersion: 2
-  m_Radius: 0.48370054
 --- !u!95 &95319989271102320
 Animator:
   serializedVersion: 3
@@ -184,3 +141,19 @@ MonoBehaviour:
   timeToLive: 10
   fadeTime: 5
   fadeAnimationName: flicker
+--- !u!58 &2173590556293015118
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570607414300638529}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.14586592}
+  serializedVersion: 2
+  m_Radius: 0.47983047
