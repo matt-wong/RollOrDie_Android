@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  DeathParticles: {fileID: 779355819246580964, guid: 89cb2059e3aed734ab5c8478b9602aa6,
+    type: 3}
 --- !u!58 &4563240978839892975
 CircleCollider2D:
   m_ObjectHideFlags: 0

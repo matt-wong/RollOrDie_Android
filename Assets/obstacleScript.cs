@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class obstacleScript : fallingObject
 {
 
+    public ParticleSystem DeathParticles;
+
     void OnTriggerEnter2D(Collider2D col)
     {
 
@@ -52,8 +54,16 @@ public class obstacleScript : fallingObject
         Destroy(gameObject);
     }
 
-    internal void GetKilled(float v)
+    internal void GetKilled(float angle)
     {
+        
+        ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, angle + 40));
+        //ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
+        
+        ParticleSystem.MainModule settings = ps.main;
+        settings.startColor = new ParticleSystem.MinMaxGradient(new Color(0.462f, 0.058f, 0.058f));
+
+        ps.Play();
        Destroy(gameObject);
     }
 }
