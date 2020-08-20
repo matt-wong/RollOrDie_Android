@@ -197,7 +197,6 @@ public class playerScript : MonoBehaviour
                 gotLosingRoll = false;
             }
             else if (myValue <= 1){
-                Debug.Log("No double 1s");
                 lowerRange = 2;
             }
 
