@@ -3,6 +3,6 @@ using UnityEngine;
 public class Stage{
     public int StartingRow;
     public float EnemySpeed;
-    public float numberOfObstacles;
+    public int numberOfObstacles;
     public Color BgColor;
 }

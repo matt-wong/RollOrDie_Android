@@ -27,6 +27,9 @@ public class enemyManager : MonoBehaviour
     public GameObject myObsPrefab;
     public playerScript myPlayerScript;
 
+    private int myObstaclesPerRow = 0;
+    private float myEnemySpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,7 @@ public class enemyManager : MonoBehaviour
         this.stageManager = canvas.GetComponent<stageManager>();
         if (this.stageManager){
             this.stageManager.NewStageAction += (value) => {this.AdjustToNewStage(value);};
+            myEnemySpeed = stageManager.GetFirstSpeed();
         }
 
         this.itemManager = FindObjectOfType<itemManager>();
@@ -44,6 +48,7 @@ public class enemyManager : MonoBehaviour
         this.QueueEnemyWave();
         this.SendWave();
         this.QueueEnemyWave();
+
 
     }
 
@@ -72,35 +77,16 @@ public class enemyManager : MonoBehaviour
             myQueuedEnemies.Add(enemyScript1);
         }
 
-        if (gameManager.Instance.Points >= OBSTACLE_START_ROW_6 - 1)
-        {
-            spawnObstacle(6);
-        }
-        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_5 - 1)
-        {
-            spawnObstacle(5);
-        }
-        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_4 - 1)
-        {
-            spawnObstacle(4);
-        }
-        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_3 - 1)
-        {
-            spawnObstacle(3);
-        }
-        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_2 - 1)
-        {
-            spawnObstacle(2);
-        }
-        else if (gameManager.Instance.Points >= OBSTACLE_START_ROW_1 - 1)
-        {
-            spawnObstacle(1);
-        }
+        spawnObstacle(myObstaclesPerRow);
 
     }
 
-    private void AdjustToNewStage(int stageNumber){
-        Debug.Log("Adjusting to Stage" + stageNumber);
+    private void AdjustToNewStage(Stage stage){
+        Debug.Log("Adjusting to NEW Stage at Row number: " + stage.StartingRow);
+        Debug.Log("Speed: " + stage.EnemySpeed);
+        Debug.Log("Number Of Obs: " + stage.numberOfObstacles);
+        this.myEnemySpeed = stage.EnemySpeed;
+        this.myObstaclesPerRow = stage.numberOfObstacles;
     }
 
     public void HandleAfterClear(){
@@ -133,13 +119,13 @@ public class enemyManager : MonoBehaviour
     private void SendWave(){
         this.myCurrentEnemies.Clear();
         foreach (enemyScript es in myQueuedEnemies){
-            es.speed = SpeedFromRowIndex(gameManager.Instance.Points);
+            es.speed = myEnemySpeed;
             es.DiedAction += this.disableRow;
             myCurrentEnemies.Add(es);
         }
 
         foreach (obstacleScript os in myQueuedObstacles){
-            os.speed = SpeedFromRowIndex(gameManager.Instance.Points);
+            os.speed = myEnemySpeed;
         }
 
         //Keep track of the easiest enemy to beat so we can rig the players dice rolls to win sshhhhh...
@@ -173,21 +159,6 @@ public class enemyManager : MonoBehaviour
                 itemManager.SpawnItemsForRow(gameManager.Instance.Points);
             }
             lastSpawnTime = Time.fixedTime;
-        }
-
-    }
-
-    private float SpeedFromRowIndex(int rowsSpawned)
-    {
-        if (gameManager.Instance.difficulty == eDifficulty.spicy)
-        {
-            //Linear relation until keep speed at row 20
-            return 0.25f * Math.Min(rowsSpawned, 20) + 3.5f;
-        }
-        else //(gameManager.Instance.difficulty == eDifficulty.easy)
-        {
-            //Linear relation until keep speed at row 20
-            return 0.15f * Math.Min(rowsSpawned, 20) + 3.5f;
         }
 
     }
