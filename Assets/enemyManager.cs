@@ -77,8 +77,6 @@ public class enemyManager : MonoBehaviour
             myQueuedEnemies.Add(enemyScript1);
         }
 
-        spawnObstacle(myObstaclesPerRow);
-
     }
 
     private void AdjustToNewStage(Stage stage){
@@ -117,8 +115,12 @@ public class enemyManager : MonoBehaviour
     }
 
     private void SendWave(){
+
+        spawnObstacle(myObstaclesPerRow);
+
         this.myCurrentEnemies.Clear();
-        foreach (enemyScript es in myQueuedEnemies){
+        foreach (enemyScript es in myQueuedEnemies)
+        {
             es.speed = myEnemySpeed;
             es.DiedAction += this.disableRow;
             myCurrentEnemies.Add(es);
