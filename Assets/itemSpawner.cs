@@ -8,6 +8,7 @@ public class itemSpawner : MonoBehaviour
 
     public eItemType itemType;
     public float TimeToSpawn = 2f;
+    private float timeLeft;
     private float initialXScale; 
     private float initialYScale; 
 
@@ -15,14 +16,19 @@ public class itemSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+     timeLeft = TimeToSpawn;   
+     initialXScale = transform.localScale.x;
+     initialYScale = transform.localScale.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        TimeToSpawn -= Time.deltaTime;
-        if (TimeToSpawn < 0){
+
+        transform.localScale = new Vector3(timeLeft / TimeToSpawn * initialXScale, timeLeft / TimeToSpawn * initialYScale) ;
+
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0){
             GameObject newItemSpawner = Instantiate(PrefabbedItems[(int) this.itemType], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

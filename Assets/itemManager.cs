@@ -20,7 +20,9 @@ public class itemManager : MonoBehaviour
     {
         ItemOccurences = new List<ItemOccurence>();
 
-        ItemOccurences.Add(new ItemOccurence { iType = eItemType.wrap, rowIndex = 10});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.weight, rowIndex = 10});
+
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.wrap, rowIndex = 30});
         
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(11,20)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(20,40)});
@@ -39,7 +41,7 @@ public class itemManager : MonoBehaviour
         if(itemsToSpawn.Count > 0){
             foreach (ItemOccurence item in itemsToSpawn){
                 //GameObject newItem = Instantiate(PrefabbedItems[(int) item.iType], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
-                GameObject newItemSpawner = Instantiate(this.ItemSpawner, new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
+                GameObject newItemSpawner = Instantiate(this.ItemSpawner, new Vector3(Random.Range(-3.5f, 3.5f), -2.5f, 0), Quaternion.identity);
                 newItemSpawner.GetComponent<itemSpawner>().itemType = item.iType;
 
                 ItemOccurences.Remove(item);
@@ -49,7 +51,7 @@ public class itemManager : MonoBehaviour
 
     //Quick debugging feature to spawn items whenever I want
     private void SpawnItem(eItemType itype){
-        GameObject newItem = Instantiate(PrefabbedItems[(int) itype], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
+        GameObject newItem = Instantiate(PrefabbedItems[(int) itype], new Vector3(Random.Range(-3.5f, 3.5f), -2.5f, 0), Quaternion.identity);
     }
 
     void Update(){
