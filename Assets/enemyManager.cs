@@ -33,6 +33,10 @@ public class enemyManager : MonoBehaviour
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         this.stageManager = canvas.GetComponent<stageManager>();
+        if (this.stageManager){
+            this.stageManager.NewStageAction += (value) => {this.AdjustToNewStage(value);};
+        }
+
         this.itemManager = FindObjectOfType<itemManager>();
         this.myPlayerScript = FindObjectOfType<playerScript>();
         this.myPlayerScript.NewValueAction += (value) => {this.UpdateEnemyColors(value);};
@@ -40,12 +44,6 @@ public class enemyManager : MonoBehaviour
         this.QueueEnemyWave();
         this.SendWave();
         this.QueueEnemyWave();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
@@ -99,6 +97,10 @@ public class enemyManager : MonoBehaviour
             spawnObstacle(1);
         }
 
+    }
+
+    private void AdjustToNewStage(int stageNumber){
+        Debug.Log("Adjusting to Stage" + stageNumber);
     }
 
     public void HandleAfterClear(){

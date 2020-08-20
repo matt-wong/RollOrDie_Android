@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class stageManager : MonoBehaviour
 {
+    public event System.Action<int> NewStageAction; 
 
     Stage CurrentStage;
     Stage NextStage;
@@ -18,7 +19,7 @@ public class stageManager : MonoBehaviour
     public Sprite[] BlobSprites;
 
     private const float BG_ALPHA = 0.8f;
-    private Color BG_BLUE = new Color(0.721f, 0.760f, 0.835f);
+    private Color BG_BLUE = new Color(0.568f, 0.686f, 0.792f);
     private Color BG_PURPLE = new Color(0.874f, 0.807f, 0.890f);
     private Color BG_RED = new Color(0.901f, 0.776f, 0.756f);
     private Color BG_ORANGE = new Color(0.921f, 0.831f, 0.756f);
@@ -122,6 +123,7 @@ public class stageManager : MonoBehaviour
             this.NextStage = null;
         }
         this.CurrentStage = this.Stages[stageNumber];
+        this.NewStageAction.Invoke(stageNumber);
     }
 
 }
