@@ -13,15 +13,14 @@ public class itemManager : MonoBehaviour
 {
 
     public GameObject[] PrefabbedItems;
+    public GameObject ItemSpawner;
     private List<ItemOccurence> ItemOccurences;
 
     public void Start()
     {
         ItemOccurences = new List<ItemOccurence>();
 
-        ItemOccurences.Add(new ItemOccurence { iType = eItemType.weight, rowIndex = 10});
-
-        ItemOccurences.Add(new ItemOccurence { iType = eItemType.wrap, rowIndex = 30});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.wrap, rowIndex = 10});
         
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(11,20)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(20,40)});
@@ -35,17 +34,21 @@ public class itemManager : MonoBehaviour
     }
 
     public void SpawnItemsForRow(int rowNumber){
-        List<ItemOccurence> itemsToSpawn = ItemOccurences.FindAll(delegate(ItemOccurence io){return io.rowIndex == rowNumber;});
+        List<ItemOccurence> itemsToSpawn = ItemOccurences.FindAll(delegate(ItemOccurence io){return io.rowIndex <= rowNumber;});
 
         if(itemsToSpawn.Count > 0){
             foreach (ItemOccurence item in itemsToSpawn){
-                GameObject newItem = Instantiate(PrefabbedItems[(int) item.iType], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
+                //GameObject newItem = Instantiate(PrefabbedItems[(int) item.iType], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
+                GameObject newItemSpawner = Instantiate(this.ItemSpawner, new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
+                newItemSpawner.GetComponent<itemSpawner>().itemType = item.iType;
+
+                ItemOccurences.Remove(item);
             }
         }
     }
 
     //Quick debugging feature to spawn items whenever I want
-    public void SpawnItem(eItemType itype){
+    private void SpawnItem(eItemType itype){
         GameObject newItem = Instantiate(PrefabbedItems[(int) itype], new Vector3(Random.Range(-3.5f, 3.5f), -3.5f, 0), Quaternion.identity);
     }
 

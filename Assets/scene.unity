@@ -12567,6 +12567,8 @@ MonoBehaviour:
   - {fileID: 835890486710198743, guid: 0f482912a2372714887086b141cb27b0, type: 3}
   - {fileID: 1805613972633027661, guid: 865d061e78daaf948a91bd4d7986554f, type: 3}
   - {fileID: 3570607414300638529, guid: 74266fbeef5497844beb66fbacd88c4a, type: 3}
+  ItemSpawner: {fileID: 5937170565283316731, guid: 4e69644807a3a7e4c846c5598e281dc2,
+    type: 3}
 --- !u!4 &1509014792
 Transform:
   m_ObjectHideFlags: 0
