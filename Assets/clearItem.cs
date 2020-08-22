@@ -72,11 +72,13 @@ public class clearItem : itemMovement
 
         Animator ani = Camera.main.GetComponent<Animator>();
         ani.Play("CameraZoom");
-        
-        Time.timeScale = 0.2f;
-        this.needsToResetTime = true;
-        Invoke("ResetTime", 0.05f);
 
+        this.needsToResetTime = true;
+        myAnimator.Play("GetRed");
+        Time.timeScale = 0.1f;
+        ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+        ps.Play();
+        Invoke("ResetTime", 0.03f);
         //Change animation to exploding boom
 
         myEnemyManager.HandleAfterClear();
@@ -85,7 +87,7 @@ public class clearItem : itemMovement
 
     private void GetKilled(float angle = 0f)
     {
-        ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, angle + 40));
+        ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, angle));
         ps.Play();
         Destroy(gameObject);
     }
