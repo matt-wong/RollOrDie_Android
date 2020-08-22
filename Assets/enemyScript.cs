@@ -122,4 +122,12 @@ public class enemyScript : fallingObject
     {
         myIsDisabled = true;
     }
+
+    new void Update(){
+        base.Update();
+        if (myIsDisabled){
+            // Fade away...
+            mySpriteRenderer.color = new Color(mySpriteRenderer.color.r, mySpriteRenderer.color.g, mySpriteRenderer.color.b, mySpriteRenderer.color.a - (Time.deltaTime * 3));
+        }
+    }
 }

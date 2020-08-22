@@ -16,7 +16,7 @@ abstract public class fallingObject : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         Vector3 newPos= transform.position;
         newPos.z = 0;
