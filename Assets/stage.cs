@@ -5,4 +5,5 @@ public class Stage{
     public float EnemySpeed;
     public int numberOfObstacles;
     public Color BgColor;
+    public string Description;
 }

@@ -46,18 +46,18 @@ public class stageManager : MonoBehaviour
         }
 
         this.Stages = new List<Stage>();
-        this.Stages.Add(new Stage { StartingRow = 0, BgColor = BG_BLUE, numberOfObstacles = 0 }); //Normal
-        this.Stages.Add(new Stage { StartingRow = 5, BgColor = BG_PURPLE, numberOfObstacles = 0 }); //Faster
-        this.Stages.Add(new Stage { StartingRow = 10, BgColor = BG_RED, numberOfObstacles = 0 }); //Item / Faster - Red
-        this.Stages.Add(new Stage { StartingRow = 15, BgColor = BG_ORANGE, numberOfObstacles = 0 }); //Faster - Orange
-        this.Stages.Add(new Stage { StartingRow = 20, BgColor = BG_YELLOW, numberOfObstacles = 1 }); //1 Obstacle / row - Yellow 
-        this.Stages.Add(new Stage { StartingRow = 30, BgColor = BG_GREEN, numberOfObstacles = 2 }); //2 Obstacle / row -Green
-        this.Stages.Add(new Stage { StartingRow = 40, BgColor = BG_BLUE, numberOfObstacles = 3 }); //3 Obstacle / row -New Blob Sprite
-        this.Stages.Add(new Stage { StartingRow = 50, BgColor = BG_PURPLE, numberOfObstacles = 4 }); //4 Obstacles
-        this.Stages.Add(new Stage { StartingRow = 60, BgColor = BG_RED, numberOfObstacles = 5 }); // 5 Obstacles
-        this.Stages.Add(new Stage { StartingRow = 70, BgColor = BG_ORANGE, numberOfObstacles = 6 }); // 6 Obstacles
-        this.Stages.Add(new Stage { StartingRow = 80, BgColor = BG_YELLOW, numberOfObstacles = 7 }); // 7 Obstacles
-        this.Stages.Add(new Stage { StartingRow = 90, BgColor = BG_GREEN, numberOfObstacles = 8 }); // 8 Obs
+        this.Stages.Add(new Stage { StartingRow = 0, BgColor = BG_BLUE, numberOfObstacles = 0, }); //Normal
+        this.Stages.Add(new Stage { StartingRow = 5, BgColor = BG_PURPLE, numberOfObstacles = 0, Description = "SPEED UP!"}); //Faster
+        this.Stages.Add(new Stage { StartingRow = 10, BgColor = BG_RED, numberOfObstacles = 0, Description = "SPEED UP!"}); //Item / Faster - Red
+        this.Stages.Add(new Stage { StartingRow = 15, BgColor = BG_ORANGE, numberOfObstacles = 0, Description = "SPEED UP!"}); //Faster - Orange
+        this.Stages.Add(new Stage { StartingRow = 20, BgColor = BG_YELLOW, numberOfObstacles = 1, Description = "WATCH OUT FOR SPIKEY EYES!"}); //1 Obstacle / row - Yellow 
+        this.Stages.Add(new Stage { StartingRow = 30, BgColor = BG_GREEN, numberOfObstacles = 2, Description = "MORE SPIKEY EYES!"}); //2 Obstacle / row -Green
+        this.Stages.Add(new Stage { StartingRow = 40, BgColor = BG_BLUE, numberOfObstacles = 3, Description = "MORE SPIKEY GUYS!"}); //3 Obstacle / row -New Blob Sprite
+        this.Stages.Add(new Stage { StartingRow = 50, BgColor = BG_PURPLE, numberOfObstacles = 4, Description = "MORE SPIKEY GUYS!"}); //4 Obstacles
+        this.Stages.Add(new Stage { StartingRow = 60, BgColor = BG_RED, numberOfObstacles = 5, Description = "MORE SPIKEY GUYS!"}); // 5 Obstacles
+        this.Stages.Add(new Stage { StartingRow = 70, BgColor = BG_ORANGE, numberOfObstacles = 6, Description = "MORE SPIKEY GUYS!"}); // 6 Obstacles
+        this.Stages.Add(new Stage { StartingRow = 80, BgColor = BG_YELLOW, numberOfObstacles = 7, Description = "MORE SPIKEY GUYS!"}); // 7 Obstacles
+        this.Stages.Add(new Stage { StartingRow = 90, BgColor = BG_GREEN, numberOfObstacles = 8, Description = "MORE SPIKEY GUYS!"}); // 8 Obs
 
         foreach(Stage stg in this.Stages){
             stg.EnemySpeed = SpeedFromRowIndex(stg.StartingRow, gameManager.Instance.difficulty);
@@ -122,8 +122,10 @@ public class stageManager : MonoBehaviour
     private void HandleStageChange(int stageNumber)
     {
 
+        this.CurrentStage = this.Stages[stageNumber];
+
         stageText.fontSize = 150;
-        stageText.text = "Stage " + (stageNumber + 1);
+        stageText.text = "Stage " + (stageNumber + 1) + " " + this.CurrentStage.Description;
         //Opacity full
         stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
         stageText.rectTransform.localScale = new Vector3(1,1,1);
@@ -146,7 +148,7 @@ public class stageManager : MonoBehaviour
         }else{
             this.NextStage = null;
         }
-        this.CurrentStage = this.Stages[stageNumber];
+
         this.NewStageAction.Invoke(this.CurrentStage);
     }
 
