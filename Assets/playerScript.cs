@@ -155,12 +155,11 @@ public class playerScript : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            if (Time.timeScale == 0f){
-                Time.timeScale = 1f;
-            }else{
-                Time.timeScale = 0f;
-            }
-
+            Time.timeScale += 0.25f;
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            Time.timeScale = 1f;
         }
     }
 
