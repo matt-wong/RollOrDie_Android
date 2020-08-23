@@ -41,13 +41,13 @@ public class playerScript : MonoBehaviour
     {
         rb = GetComponentInChildren<Rigidbody2D>();
        
-        this.faces = new DiceFace[6];
-        for (int i = 0; i < 6; i++)
+        this.faces = new DiceFace[7];
+        for (int i = 0; i < 7; i++)
         {
-            this.faces[i] = new DiceFace(i + 1, faceSprites[i]);
+            this.faces[i] = new DiceFace(i, faceSprites[i]);
         }
 
-        this.currFace = this.faces[UnityEngine.Random.Range(0,6)];
+        this.currFace = this.faces[UnityEngine.Random.Range(1,7)];
         this.myValue = currFace.Value;
         spriteRend = GetComponent<SpriteRenderer>();
         spriteRend.sprite = this.currFace.sprite;
@@ -165,7 +165,8 @@ public class playerScript : MonoBehaviour
 
     public void DecrementValue(){
         this.Value -= 1;
-        this.spriteRend.sprite = faceSprites[this.myValue - 1];
+        Debug.Log(this.myValue);
+        this.spriteRend.sprite = faceSprites[this.myValue];
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -207,7 +208,7 @@ public class playerScript : MonoBehaviour
                 gotLosingRoll = true;
             }
 
-            this.currFace = faces[this.myValue - 1];
+            this.currFace = faces[this.myValue];
             this.spriteRend.sprite = this.currFace.sprite;
         }
     }

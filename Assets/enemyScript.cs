@@ -45,12 +45,13 @@ public class enemyScript : fallingObject
             {
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
-                if (playerHitScript.Value > this.currFace.Value && !playerHitScript.IsVulnerable)
+                if (playerHitScript.Value >= this.currFace.Value && !playerHitScript.IsVulnerable)
                 {
                     gm.IncreasePoints(1);
-                    GetKilled();
+
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.DecrementValue();
+                    GetKilled();
                 }
 
 
@@ -87,7 +88,7 @@ public class enemyScript : fallingObject
     {
         if (mySpriteRenderer == null){ return;}
 
-        if (this.currFace.Value >= playerValue){
+        if (this.currFace.Value > playerValue){
             this.mySpriteRenderer.color = new Color(1f,0.1f,0.2f); //Light Red
         }else{
             this.mySpriteRenderer.color = new Color(1f,1f,1f);
