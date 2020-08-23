@@ -14097,7 +14097,7 @@ PrefabInstance:
         type: 3}
       propertyPath: faceSprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300002, guid: 1428f549243d0e1449cf13fb7eac5581,
+      objectReference: {fileID: 21300000, guid: 365e63395b16a1842afdde18d3daafd7,
         type: 3}
     - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
         type: 3}
