@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class playerScript : MonoBehaviour
 {
 
@@ -24,6 +25,8 @@ public class playerScript : MonoBehaviour
     private SpriteRenderer spriteRend;
     private Rigidbody2D rb;
     public GameObject dustMaker;
+
+    public AudioClip[] DiceLandNoises;
 
     public event System.Action<int> NewValueAction;
 
@@ -173,6 +176,9 @@ public class playerScript : MonoBehaviour
     {
         if (col.tag == "Floor" && (Time.fixedTime - lastRollTime > 0.25f || lastRollTime == 0))
         {
+
+            AudioSource.PlayClipAtPoint(this.DiceLandNoises[UnityEngine.Random.Range(0, this.DiceLandNoises.Length)], this.transform.position);
+
             this.IsVulnerable = false;
             lastRollTime = Time.fixedTime;
             //Debug.Log("Floor Sound.");
