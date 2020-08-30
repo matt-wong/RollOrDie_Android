@@ -9,6 +9,8 @@ public class stageManager : MonoBehaviour
 {
     public event System.Action<Stage> NewStageAction; 
 
+    private AudioSource myAudSource;
+
     Stage CurrentStage;
     Stage NextStage;
     public int CurrentRow = 0;
@@ -28,6 +30,8 @@ public class stageManager : MonoBehaviour
     private Color BG_GREEN = new Color(0.756f, 0.921f, 0.8f);
 
     void Start(){
+
+        this.myAudSource  = GetComponent<AudioSource>();
 
         this.stageText = transform.Find("CenterText").GetComponent<TextMeshProUGUI>();
         this.bgFader = GameObject.Find("BackgroundFader").GetComponent<SpriteRenderer>();
@@ -122,6 +126,10 @@ public class stageManager : MonoBehaviour
 
     private void HandleStageChange(int stageNumber)
     {
+
+        if (this.myAudSource){
+            this.myAudSource.Play();
+        }
 
         this.CurrentStage = this.Stages[stageNumber];
 
