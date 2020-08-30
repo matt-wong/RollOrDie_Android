@@ -401,7 +401,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8637836366d3e85408a93feafbc0e8af, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.498
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14082,6 +14082,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: faceSprites.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: faceSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300012, guid: 4be567b9d732e604985deee75fbe6902,
+        type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: faceSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 365e63395b16a1842afdde18d3daafd7,
+        type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: faceSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300010, guid: 3db9966f6d983ed418fdb478f35d941d,
+        type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: faceSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300006, guid: 04003f4a1280eb54e9195f8286a6a33e,
+        type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: faceSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300008, guid: 0d86748617258834ca6eb16e73b23c21,
+        type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: faceSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300008, guid: 2aeb6381e1b051d45a3483b2d5ea0c30,
+        type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: faceSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300012, guid: 73a143475201af040a546374d077284c,
+        type: 3}
     - target: {fileID: 8450387248052911178, guid: 2fb614c83017cd64cb9f8aa90af45881,
         type: 3}
       propertyPath: m_LocalPosition.x

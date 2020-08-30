@@ -11,6 +11,8 @@ public class enemyScript : fallingObject
     public DiceFace currFace;
     DiceFace[] faces;
 
+    public AudioClip[] DeathSounds;
+
     public Sprite[] faceSprites;
     public ParticleSystem DeathParticles;
 
@@ -32,7 +34,6 @@ public class enemyScript : fallingObject
         mySpriteRenderer.sprite = this.currFace.sprite;
 
         Animator animator = GetComponent<Animator>();
-
         animator.Play("DiceEnemy" + this.currFace.Value.ToString(), -1, Random.Range(0f, 1f));
      }
 
@@ -45,12 +46,13 @@ public class enemyScript : fallingObject
             {
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
-                if (playerHitScript.Value > this.currFace.Value && !playerHitScript.IsVulnerable)
+                if (playerHitScript.Value >= this.currFace.Value && !playerHitScript.IsVulnerable)
                 {
                     gm.IncreasePoints(1);
-                    GetKilled();
+
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.DecrementValue();
+                    GetKilled();
                 }
 
 
@@ -87,7 +89,7 @@ public class enemyScript : fallingObject
     {
         if (mySpriteRenderer == null){ return;}
 
-        if (this.currFace.Value >= playerValue){
+        if (this.currFace.Value > playerValue){
             this.mySpriteRenderer.color = new Color(1f,0.1f,0.2f); //Light Red
         }else{
             this.mySpriteRenderer.color = new Color(1f,1f,1f);
@@ -108,14 +110,25 @@ public class enemyScript : fallingObject
         
         ParticleSystem.MainModule settings = ps.main;
         settings.startColor = new ParticleSystem.MinMaxGradient(this.mySpriteRenderer.color);
-
         ps.Play();
+
+        AudioSource audSource  = GetComponent<AudioSource>();
+        if (audSource){
+            audSource.clip = this.DeathSounds[Random.Range(0,this.DeathSounds.Length)];
+            Debug.Log(audSource.clip.ToString());
+            audSource.time = 0.2f;
+            audSource.Play();
+        }
 
         if (DiedAction != null){
             DiedAction.Invoke();
         }
 
-        Destroy(gameObject);
+        Invoke("DestroyMe", 1);
+    }
+
+    private void DestroyMe(){
+        Destroy(gameObject);        
     }
 
     internal void Disable()

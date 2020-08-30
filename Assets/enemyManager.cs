@@ -82,9 +82,9 @@ public class enemyManager : MonoBehaviour
     private void AdjustToNewStage(Stage stage){
         Debug.Log("Adjusting to NEW Stage at Row number: " + stage.StartingRow);
         Debug.Log("Speed: " + stage.EnemySpeed);
-        Debug.Log("Number Of Obs: " + stage.numberOfObstacles);
+        Debug.Log("Number Of Obs: " + stage.NumberOfObstacles);
         this.myEnemySpeed = stage.EnemySpeed;
-        this.myObstaclesPerRow = stage.numberOfObstacles;
+        this.myObstaclesPerRow = stage.NumberOfObstacles;
     }
 
     public void HandleAfterClear(){
