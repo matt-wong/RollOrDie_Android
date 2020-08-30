@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class enemyScript : fallingObject
 {
-
     
     public DiceFace currFace;
     DiceFace[] faces;
@@ -112,23 +112,18 @@ public class enemyScript : fallingObject
         settings.startColor = new ParticleSystem.MinMaxGradient(this.mySpriteRenderer.color);
         ps.Play();
 
-        AudioSource audSource  = GetComponent<AudioSource>();
-        if (audSource){
-            audSource.clip = this.DeathSounds[Random.Range(0,this.DeathSounds.Length)];
-            Debug.Log(audSource.clip.ToString());
-            audSource.time = 0.2f;
-            audSource.Play();
-        }
+        AudioSource.PlayClipAtPoint(this.DeathSounds[Random.Range(0, this.DeathSounds.Length)], this.transform.position);
 
         if (DiedAction != null){
             DiedAction.Invoke();
         }
 
-        Invoke("DestroyMe", 1);
+Destroy(gameObject);      
+        //Invoke("DestroyMe", 1);
     }
 
     private void DestroyMe(){
-        Destroy(gameObject);        
+          
     }
 
     internal void Disable()
