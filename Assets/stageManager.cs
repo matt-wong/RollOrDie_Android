@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class stageManager : MonoBehaviour
 {
     public event System.Action<Stage> NewStageAction; 
@@ -127,7 +128,7 @@ public class stageManager : MonoBehaviour
     private void HandleStageChange(int stageNumber)
     {
 
-        if (this.myAudSource){
+        if (this.myAudSource && stageNumber != 0){
             this.myAudSource.Play();
         }
 
