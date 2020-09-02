@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -107,24 +107,21 @@ public class enemyScript : fallingObject
 
         ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, angle + 40));
         //ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
-        
+
         ParticleSystem.MainModule settings = ps.main;
         settings.startColor = new ParticleSystem.MinMaxGradient(this.mySpriteRenderer.color);
         ps.Play();
 
         AudioSource.PlayClipAtPoint(this.DeathSounds[Random.Range(0, this.DeathSounds.Length)], this.transform.position);
 
-        if (DiedAction != null){
+        if (DiedAction != null)
+        {
             DiedAction.Invoke();
         }
 
-Destroy(gameObject);      
-        //Invoke("DestroyMe", 1);
+        Destroy(gameObject);
     }
 
-    private void DestroyMe(){
-          
-    }
 
     internal void Disable()
     {
