@@ -28,11 +28,15 @@ public class itemManager : MonoBehaviour
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(20,40)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(40,60)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(60,80)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(80,100)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(100,120)});
 
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(11,20)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(20,40)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(40,60)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(60,80)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(80,100)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(100,120)});
     }
 
     public void SpawnItemsForRow(int rowNumber){
