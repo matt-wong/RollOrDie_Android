@@ -14,6 +14,7 @@ public class enemyScript : fallingObject
     public AudioClip[] DeathSounds;
 
     public Sprite[] faceSprites;
+    public Sprite UnbeatableSprite;
     public ParticleSystem DeathParticles;
 
     public event System.Action DiedAction;
@@ -21,6 +22,8 @@ public class enemyScript : fallingObject
     private bool myIsDisabled = false;
 
     private SpriteRenderer mySpriteRenderer;
+
+    public int Value() { return this.currFace.Value;}
 
     void Awake(){
         this.faces = new DiceFace[6];
@@ -36,6 +39,15 @@ public class enemyScript : fallingObject
         Animator animator = GetComponent<Animator>();
         animator.Play("DiceEnemy" + this.currFace.Value.ToString(), -1, Random.Range(0f, 1f));
      }
+
+    public void SetAsUnbeatable(){
+        this.currFace = new DiceFace(7, UnbeatableSprite);
+        this.mySpriteRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRenderer.sprite = UnbeatableSprite;
+        //TEMP until we can get a new animation
+        Animator animator = GetComponent<Animator>();
+        Destroy(animator);
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {

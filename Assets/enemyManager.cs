@@ -12,13 +12,6 @@ public class enemyManager : MonoBehaviour
     stageManager stageManager;
     itemManager itemManager;
 
-    const int OBSTACLE_START_ROW_1 = 20;
-    const int OBSTACLE_START_ROW_2 = 30;
-    const int OBSTACLE_START_ROW_3 = 40;
-    const int OBSTACLE_START_ROW_4 = 50;
-    const int OBSTACLE_START_ROW_5 = 60;
-    const int OBSTACLE_START_ROW_6 = 70;
-
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
     List<enemyScript> myCurrentEnemies = new List<enemyScript>();
     List<obstacleScript> myQueuedObstacles = new List<obstacleScript>();
@@ -28,6 +21,7 @@ public class enemyManager : MonoBehaviour
     public playerScript myPlayerScript;
 
     private int myObstaclesPerRow = 0;
+    private int myBlockedDicePerRow = 0;
     private float myEnemySpeed;
 
     // Start is called before the first frame update
@@ -38,6 +32,7 @@ public class enemyManager : MonoBehaviour
         this.stageManager = canvas.GetComponent<stageManager>();
         if (this.stageManager){
             this.stageManager.NewStageAction += (value) => {this.AdjustToNewStage(value);};
+            AdjustToNewStage(this.stageManager.Stages[0]);
             myEnemySpeed = stageManager.GetFirstSpeed();
         }
 
@@ -77,6 +72,14 @@ public class enemyManager : MonoBehaviour
             myQueuedEnemies.Add(enemyScript1);
         }
 
+        //Make X number of dice have high values
+        for (int blockIdx = 0; blockIdx < myBlockedDicePerRow; blockIdx++){
+            int diceChoice = UnityEngine.Random.Range(0,8);
+            enemyScript choosenToBlock = this.myQueuedEnemies[diceChoice];
+            if (choosenToBlock.Value() < 7){
+                choosenToBlock.SetAsUnbeatable();
+            }else{}
+        }
     }
 
     private void AdjustToNewStage(Stage stage){
@@ -85,6 +88,7 @@ public class enemyManager : MonoBehaviour
         Debug.Log("Number Of Obs: " + stage.NumberOfObstacles);
         this.myEnemySpeed = stage.EnemySpeed;
         this.myObstaclesPerRow = stage.NumberOfObstacles;
+        this.myBlockedDicePerRow = stage.NumberBlockedDiced;
     }
 
     public void HandleAfterClear(){
@@ -132,6 +136,7 @@ public class enemyManager : MonoBehaviour
 
         //Keep track of the easiest enemy to beat so we can rig the players dice rolls to win sshhhhh...
         gameManager.Instance.weakestEnemyHP = Int16.MaxValue;
+
         foreach (enemyScript es in myQueuedEnemies)
         {
             gameManager.Instance.weakestEnemyHP = System.Math.Min(gameManager.Instance.weakestEnemyHP, es.currFace.Value);

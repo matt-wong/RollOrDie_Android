@@ -133,6 +133,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0e08bff47315ebc448abb4948ce06ef6, type: 3}
   - {fileID: 21300000, guid: 2d4bdc4ea68171c46a46548116f9a1f5, type: 3}
   - {fileID: 21300000, guid: 085d3d1660a6f7f40ab93c0c9495c19d, type: 3}
+  UnbeatableSprite: {fileID: 21300000, guid: 6ce335603d0ba2c438e88cf05a897231, type: 3}
   DeathParticles: {fileID: 779355819246580964, guid: 89cb2059e3aed734ab5c8478b9602aa6,
     type: 3}
 --- !u!50 &1248729294345172869

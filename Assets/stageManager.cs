@@ -30,28 +30,9 @@ public class stageManager : MonoBehaviour
     private Color BG_YELLOW = new Color(0.909f, 0.921f, 0.756f);
     private Color BG_GREEN = new Color(0.756f, 0.921f, 0.8f);
 
-    void Start(){
-
-        this.myAudSource  = GetComponent<AudioSource>();
-
-        this.stageText = transform.Find("CenterText").GetComponent<TextMeshProUGUI>();
-        this.bgFader = GameObject.Find("BackgroundFader").GetComponent<SpriteRenderer>();
-
-
-        this.bgFader.color = new Color(BG_BLUE.r, BG_BLUE.g, BG_BLUE.b, BG_ALPHA);
-        
-        bgParticleSystems = new List<ParticleSystem>();
-        ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
-        foreach (ParticleSystem ps in partSyses)
-        {
-            if (ps.tag != "EnemyDeathParticles") //CHANGE TO USE NEW TAG!
-            {
-                bgParticleSystems.Add(ps);
-            }
-        }
-
+    void Awake(){
         this.Stages = new List<Stage>();
-        this.Stages.Add(new Stage { StartingRow = 0, BgColor = BG_BLUE, NumberOfObstacles = 0, MusicSpeed = 1}); //Normal
+        this.Stages.Add(new Stage { StartingRow = 0, BgColor = BG_BLUE, NumberOfObstacles = 0, NumberBlockedDiced = 0, MusicSpeed = 1}); //Normal
         this.Stages.Add(new Stage { StartingRow = 5, BgColor = BG_PURPLE, NumberOfObstacles = 0, Description = "SPEED UP!", MusicSpeed = 1.0125f}); //Faster
         this.Stages.Add(new Stage { StartingRow = 10, BgColor = BG_RED, NumberOfObstacles = 0, Description = "SPEED UP!", MusicSpeed = 1.025f}); //Item / Faster - Red
         this.Stages.Add(new Stage { StartingRow = 15, BgColor = BG_ORANGE, NumberOfObstacles = 0, Description = "SPEED UP!", MusicSpeed = 1.0375f}); //Faster - Orange
@@ -72,6 +53,28 @@ public class stageManager : MonoBehaviour
         }
 
         this.NextStage = this.Stages[0];
+    }
+
+    void Start(){
+
+        this.myAudSource  = GetComponent<AudioSource>();
+
+        this.stageText = transform.Find("CenterText").GetComponent<TextMeshProUGUI>();
+        this.bgFader = GameObject.Find("BackgroundFader").GetComponent<SpriteRenderer>();
+
+
+        this.bgFader.color = new Color(BG_BLUE.r, BG_BLUE.g, BG_BLUE.b, BG_ALPHA);
+        
+        bgParticleSystems = new List<ParticleSystem>();
+        ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
+        foreach (ParticleSystem ps in partSyses)
+        {
+            if (ps.tag != "EnemyDeathParticles") //CHANGE TO USE NEW TAG!
+            {
+                bgParticleSystems.Add(ps);
+            }
+        }
+
         CheckForStageIncrease(0);
     }
 
