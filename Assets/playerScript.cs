@@ -27,6 +27,7 @@ public class playerScript : MonoBehaviour
     public GameObject dustMaker;
 
     public AudioClip[] DiceLandNoises;
+    public AudioClip[] DeathNoises;
 
     public event System.Action<int> NewValueAction;
 
@@ -164,6 +165,12 @@ public class playerScript : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+    }
+
+    internal void GetKilled()
+    {
+        AudioSource.PlayClipAtPoint(this.DeathNoises[UnityEngine.Random.Range(0, this.DeathNoises.Length)], this.transform.position);
+        Destroy(gameObject);
     }
 
     public void DecrementValue(){
