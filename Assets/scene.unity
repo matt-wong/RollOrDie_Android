@@ -401,13 +401,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8637836366d3e85408a93feafbc0e8af, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.106
+  m_Volume: 0.074
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 188
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -513,9 +513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Songs:
   - {fileID: 8300000, guid: 8637836366d3e85408a93feafbc0e8af, type: 3}
-  - {fileID: 8300000, guid: 469bc13acd2586e499752a6759371aba, type: 3}
-  - {fileID: 8300000, guid: 66d9f6728c315144db682bbe0b72111d, type: 3}
   - {fileID: 8300000, guid: 5c63a0971835183479873012d71f49df, type: 3}
+  - {fileID: 8300000, guid: 66d9f6728c315144db682bbe0b72111d, type: 3}
 --- !u!1 &109889508
 GameObject:
   m_ObjectHideFlags: 0
@@ -14179,6 +14178,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4790691503091623664, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: Priority
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
         type: 3}
       propertyPath: faceSprites.Array.size

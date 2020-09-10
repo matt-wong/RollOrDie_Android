@@ -124,8 +124,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.5
   DeathSounds:
-  - {fileID: 8300000, guid: dc05c0e7a5960d742b4e80a4a3849ded, type: 3}
-  - {fileID: 8300000, guid: 7754af71e441e334085d325c8b863819, type: 3}
+  - {fileID: 8300000, guid: e8fa0288b019c8d4583e1cd8016aaf2f, type: 3}
+  HeartDeathSounds:
+  - {fileID: 8300000, guid: 844e482fa515f4a408a4a116a661d9d6, type: 3}
+  - {fileID: 8300000, guid: 895abdaf158caed4e803e9d1b4a46b7f, type: 3}
   faceSprites:
   - {fileID: 21300000, guid: 3aa719f3ffe2c994687021b556149313, type: 3}
   - {fileID: 21300000, guid: 2b93dc174093d0645bf0288027855803, type: 3}
@@ -194,8 +196,8 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 18
-  DopplerLevel: 1
+  Priority: 0
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0

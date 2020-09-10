@@ -12,6 +12,7 @@ public class enemyScript : fallingObject
     DiceFace[] faces;
 
     public AudioClip[] DeathSounds;
+    public AudioClip[] HeartDeathSounds;
 
     public Sprite[] faceSprites;
     public Sprite UnbeatableSprite;
@@ -74,6 +75,7 @@ public class enemyScript : fallingObject
                     //Player collected a heart make this enemy die now
                     var effects = GameObject.FindObjectOfType<EffectsMaker>();
                     if (effects){
+                        AudioSource.PlayClipAtPoint(this.HeartDeathSounds[UnityEngine.Random.Range(0, this.HeartDeathSounds.Length)], this.transform.position);
                         effects.HeartEffect(this.transform.position);
                     }
 
