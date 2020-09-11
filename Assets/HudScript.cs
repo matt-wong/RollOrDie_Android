@@ -7,7 +7,6 @@ public class HudScript : MonoBehaviour
 {
 
     Text myPointKeeper;
-    Text myDebugData;
     Text myFinalScoreText;
     Text myHighScoreText;
     playerScript myPlayer;
@@ -20,10 +19,8 @@ public class HudScript : MonoBehaviour
     void Start()
     {
      
-        this.myPointKeeper = transform.Find("scoreText").GetComponent<Text>();
-        this.myDebugData = transform.Find("debugData").GetComponent<Text>();
-        myDebugData.text = "";
-
+        this.myPointKeeper = GameObject.Find("scoreText").GetComponent<Text>();
+        
         this.myPlayer = GameObject.FindObjectOfType<playerScript>();
 
         myRestartPanel = transform.Find("RestartPanel").GetComponent<Transform>();

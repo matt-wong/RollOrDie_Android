@@ -22,6 +22,13 @@ public class stageManager : MonoBehaviour
 
     public Sprite[] BlobSprites;
 
+    private Button leftButton;
+    private Button rightButton;
+    private Button rollButton;
+    private Image dPadBacking;
+    private Image scoreTextPanel;
+    private Image itemInventoryPanel;
+
     private const float BG_ALPHA = 0.8f;
     private Color BG_BLUE = new Color(0.568f, 0.686f, 0.792f);
     private Color BG_PURPLE = new Color(0.874f, 0.807f, 0.890f);
@@ -58,6 +65,13 @@ public class stageManager : MonoBehaviour
     void Start(){
 
         this.myAudSource  = GetComponent<AudioSource>();
+
+        this.leftButton  = GameObject.Find("leftButton").GetComponent<Button>();
+        this.rightButton  = GameObject.Find("rightButton").GetComponent<Button>();
+        this.rollButton  = GameObject.Find("rollButton").GetComponent<Button>();
+        // this.dPadBacking  = GameObject.Find("dPadBacking").GetComponent<Image>();
+        // this.scoreTextPanel = GameObject.Find("scoreTextPanel").GetComponent<Image>();
+        // this.itemInventoryPanel = GameObject.Find("ItemInventoryDisplay").GetComponent<Image>();
 
         this.stageText = transform.Find("CenterText").GetComponent<TextMeshProUGUI>();
         this.bgFader = GameObject.Find("BackgroundFader").GetComponent<SpriteRenderer>();
@@ -127,6 +141,14 @@ public class stageManager : MonoBehaviour
         if (this.bgFader.color != this.CurrentStage.BgColor){
             Color gbTransparent = new Color(this.CurrentStage.BgColor.r, this.CurrentStage.BgColor.g, this.CurrentStage.BgColor.b, 0.8f);
             this.bgFader.color = Color.Lerp( this.bgFader.color, gbTransparent, Time.deltaTime);
+            
+            Color uiLerpColor = Color.Lerp(leftButton.image.color, this.CurrentStage.BgColor, Time.deltaTime);
+            leftButton.image.color = uiLerpColor;
+            rightButton.image.color = uiLerpColor;
+            rollButton.image.color = uiLerpColor;
+            // dPadBacking.color = uiLerpColor;
+            // scoreTextPanel.color = uiLerpColor;
+            // itemInventoryPanel.color = uiLerpColor;
         }
     }
 
