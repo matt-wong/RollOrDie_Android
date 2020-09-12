@@ -42,6 +42,11 @@ public class obstacleScript : fallingObject
         }
     }
 
+    void Awake(){
+        Animator animator = GetComponent<Animator>();
+        animator.Play("ObstacleAnim", -1, UnityEngine.Random.Range(0f, 1f));
+     }
+
     private void GetKilled()
     {
         Animator ani = Camera.main.GetComponent<Animator>();
