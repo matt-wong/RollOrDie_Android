@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7727199586390884267}
   - component: {fileID: 1518712082062889959}
   - component: {fileID: 1518712082062889956}
+  - component: {fileID: 95400863444605162}
   m_Layer: 0
   m_Name: WeightItem 1
   m_TagString: Untagged
@@ -164,3 +165,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.2799999
+--- !u!95 &95400863444605162
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199622947597898789}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2f2bb1ffd3d4b64abdbd87072c49643, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -26,7 +26,16 @@ public class weightItem : itemMovement
         playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
         playerHitScript.HasExtraWeight = true;
         playerRB.mass += 0.3f;
+
+        Animator animator = GetComponent<Animator>();
+        animator.Play("upgradeCollect");
+        Invoke("DestroyMe", 0.3f);
+
+    }
+
+    private void DestroyMe(){
         Destroy(gameObject);
     }
+        
 
 }
