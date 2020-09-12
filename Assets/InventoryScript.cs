@@ -18,6 +18,8 @@ public class InventoryScript : MonoBehaviour
     void Start()
     {
         this.myPlayer = GameObject.FindObjectOfType<playerScript>();
+        myPlayer.GotUpgradeAction += (value) => {CheckForPlayerUpgrades();};
+
         this.myAdditionalLivesText = transform.Find("livesText").GetComponent<TextMeshProUGUI>();
         this.myLivesIcon = transform.Find("livesIcon").GetComponent<Image>();
         this.myWeightIcon = transform.Find("weightIcon").GetComponent<Image>();
@@ -25,6 +27,26 @@ public class InventoryScript : MonoBehaviour
         gm = gameManager.Instance;
     }
 
+    void CheckForPlayerUpgrades()
+    {
+        //Got Weight Upgrade
+        if (myPlayer.HasExtraWeight)
+        {
+            myWeightIcon.color = Color.white; //Show (permanent)
+
+            Text maybeText = GameObject.Find("rollText").GetComponent<Text>();
+            if (maybeText)
+            {
+                maybeText.text = "QUICK ROLL!";
+            }
+        }
+
+        //Got Wrap Upgrade
+        if (myPlayer.CanWrap)
+        {
+            myWrapIcon.color = Color.white; //Show (permanent)
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,17 +59,6 @@ public class InventoryScript : MonoBehaviour
             myLivesIcon.color = Color.white; //Show
             myAdditionalLivesText.text = "X" + myPlayer.ExtraLives.ToString();
         }
-
-        //Got Weight Upgrade
-        if (myPlayer.HasExtraWeight){
-            myWeightIcon.color = Color.white; //Show (permanent)
-        }
-
-        //Got Wrap Upgrade
-        if (myPlayer.CanWrap){
-            myWrapIcon.color = Color.white; //Show (permanent)
-        }
-
 
     }
 }

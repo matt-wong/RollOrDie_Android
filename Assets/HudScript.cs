@@ -38,6 +38,8 @@ public class HudScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //TODO: Use events for this instead of every update!
         myPointKeeper.text = "Points: " + gm.Points.ToString();
         //myDebugData.text = "Player Lives:" + myPlayer.ExtraLives;
         if (gm.GameOver){

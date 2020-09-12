@@ -12,16 +12,19 @@ public class warpPipeScript : MonoBehaviour
     void Start()
     {
         this.myPlayer = GameObject.FindObjectOfType<playerScript>();
+        myPlayer.GotUpgradeAction += (value) => {ShowWarpIndicators();};
         this.myLeftPipe = transform.Find("WarpPipeL").GetComponent<SpriteRenderer>();
         this.myRightPipe = transform.Find("WarpPipeR").GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void ShowWarpIndicators(){
         if (myPlayer.CanWrap){
             myLeftPipe.color = Color.green;
             myRightPipe.color = Color.green;
+        }else{
+            myLeftPipe.color = Color.clear;
+            myRightPipe.color = Color.clear;
         }
     }
+
 }
