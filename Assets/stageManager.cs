@@ -162,7 +162,7 @@ public class stageManager : MonoBehaviour
         this.CurrentStage = this.Stages[stageNumber];
 
         stageText.fontSize = 150;
-        stageText.text = "Stage " + (stageNumber + 1) + " " + this.CurrentStage.Description;
+        stageText.text = "Stage " + (stageNumber + 1) + "\n " + this.CurrentStage.Description;
         //Opacity full
         stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
         stageText.rectTransform.localScale = new Vector3(1,1,1);
