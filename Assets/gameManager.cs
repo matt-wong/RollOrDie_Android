@@ -18,6 +18,8 @@ public class gameManager
 
     public int Points;
     public int HighScore;
+    public bool MuteMusic = false;
+    public bool MuteSounds = false;
     public bool IsPaused = false;
 
     public eDifficulty difficulty = eDifficulty.spicy;
