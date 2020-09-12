@@ -28,6 +28,7 @@ public class weightItem : itemMovement
         playerRB.mass += 0.3f;
 
         Animator animator = GetComponent<Animator>();
+        this.isMoving = false; //Stop moving, spin and shrink
         animator.Play("upgradeCollect");
         Invoke("DestroyMe", 0.3f);
 

@@ -7,6 +7,7 @@ public abstract class itemMovement : MonoBehaviour
     public float CenterY = -3.5f;
     public float Amplitude = 1f;
     
+    protected bool isMoving = true; 
     public float horizSpeed = 1f;
     //private Rigidbody2D rb;
 
@@ -30,11 +31,14 @@ public abstract class itemMovement : MonoBehaviour
     void Update()
     {
 
-         Vector3 newPos= transform.position;
-        newPos.z = 0;
-        newPos.y = Amplitude*Mathf.Cos(Time.time - myStartingTime) + CenterY;
-        newPos.x += horizSpeed * Time.deltaTime;
-        transform.position = newPos;
+        if (this.isMoving)
+        {
+            Vector3 newPos = transform.position;
+            newPos.z = 0;
+            newPos.y = Amplitude * Mathf.Cos(Time.time - myStartingTime) + CenterY;
+            newPos.x += horizSpeed * Time.deltaTime;
+            transform.position = newPos;
+        }
 
         if (this.timeToLive > 0f && Time.time - myStartingTime > this.timeToLive)
         {
