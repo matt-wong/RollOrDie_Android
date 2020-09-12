@@ -80,13 +80,10 @@ public class stageManager : MonoBehaviour
         this.bgFader.color = new Color(BG_BLUE.r, BG_BLUE.g, BG_BLUE.b, BG_ALPHA);
         
         bgParticleSystems = new List<ParticleSystem>();
-        ParticleSystem[] partSyses = GameObject.FindObjectsOfType<ParticleSystem>();
+        ParticleSystem[] partSyses = GameObject.Find("BackgroundParticles").GetComponentsInChildren<ParticleSystem>();
         foreach (ParticleSystem ps in partSyses)
         {
-            if (ps.tag != "EnemyDeathParticles") //CHANGE TO USE NEW TAG!
-            {
                 bgParticleSystems.Add(ps);
-            }
         }
 
         CheckForStageIncrease(0);
