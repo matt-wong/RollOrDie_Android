@@ -24,7 +24,15 @@ public class heartItem : itemMovement
     {
         playerScript playerScr = col.gameObject.GetComponent<playerScript>();
         playerScr.ExtraLives += 1;
-        Destroy(gameObject);
+
+        Animator animator = GetComponent<Animator>();
+        animator.Play("heartCollected");
+        Invoke("DestroyMe", 0.3f);
+
     }
 
+    private void DestroyMe(){
+        Destroy(gameObject);
+    }
+        
 }
