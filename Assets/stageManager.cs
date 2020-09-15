@@ -128,14 +128,14 @@ public class stageManager : MonoBehaviour
             stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, stageText.color.a - (Time.deltaTime * 0.5f)); 
         }
 
-        // if (Camera.main.backgroundColor != this.CurrentStage.BgColor){
-        //     Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, this.CurrentStage.BgColor, Time.deltaTime);
-        //     foreach(ParticleSystem ps in this.bgParticleSystems){
-        //         ps.startColor = Color.Lerp(Camera.main.backgroundColor, this.CurrentStage.BgColor, Time.deltaTime);
-        //     }
-        // }
+        if(gameManager.Instance.IsPaused){
+            Color softWhite = new Color(1f, 1f, 1f, 0.8f);
+            leftButton.image.color = softWhite;
+            rightButton.image.color = softWhite;
+            rollButton.image.color = softWhite;
+            this.bgFader.color = softWhite;
 
-        if (this.bgFader.color != this.CurrentStage.BgColor){
+        }else if (this.bgFader.color != this.CurrentStage.BgColor){
             Color gbTransparent = new Color(this.CurrentStage.BgColor.r, this.CurrentStage.BgColor.g, this.CurrentStage.BgColor.b, 0.8f);
             this.bgFader.color = Color.Lerp( this.bgFader.color, gbTransparent, Time.deltaTime);
             
@@ -143,9 +143,6 @@ public class stageManager : MonoBehaviour
             leftButton.image.color = uiLerpColor;
             rightButton.image.color = uiLerpColor;
             rollButton.image.color = uiLerpColor;
-            // dPadBacking.color = uiLerpColor;
-            // scoreTextPanel.color = uiLerpColor;
-            // itemInventoryPanel.color = uiLerpColor;
         }
     }
 
