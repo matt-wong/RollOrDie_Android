@@ -43,14 +43,17 @@ SpriteAtlas:
     packables:
     - {fileID: 21300000, guid: 6ce335603d0ba2c438e88cf05a897231, type: 3}
     - {fileID: 21300000, guid: 59e2f05c30da746498b2c46b109385b8, type: 3}
-    totalSpriteSurfaceArea: 5045
+    - {fileID: 21300018, guid: ab14a8d75d40faf43b90873175f32bb8, type: 3}
+    totalSpriteSurfaceArea: 20421
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 6ce335603d0ba2c438e88cf05a897231, type: 3}
+  - {fileID: 21300018, guid: ab14a8d75d40faf43b90873175f32bb8, type: 3}
   - {fileID: 21300000, guid: 59e2f05c30da746498b2c46b109385b8, type: 3}
   m_PackedSpriteNamesToIndex:
   - ObstacleSpriteSheet_0
+  - ClearSprite_9
   - heartSpriteSheet_0
   m_Tag: MenuParticles
   m_IsVariant: 0

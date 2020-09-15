@@ -217,7 +217,6 @@ public class playerScript : MonoBehaviour
     public void DecrementValue()
     {
         this.Value -= 1;
-        Debug.Log(this.myValue);
         this.spriteRend.sprite = faceSprites[this.myValue];
     }
 
