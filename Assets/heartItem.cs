@@ -22,8 +22,11 @@ public class heartItem : itemMovement
 
     protected override void TouchedPlayer(Collider2D col)
     {
+        if (!this.isMoving) return;
+
         playerScript playerScr = col.gameObject.GetComponent<playerScript>();
         playerScr.ExtraLives += 1;
+        this.isMoving = false;
 
         Animator animator = GetComponent<Animator>();
         animator.Play("heartCollected");
