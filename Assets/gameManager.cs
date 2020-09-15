@@ -12,14 +12,17 @@ public enum eDifficulty{
     spicy
 }
 
+[Serializable] public class SaveFile{
+    public int HighScore;
+    public bool MuteMusic; 
+}
 
 public class gameManager
 {
 
     public int Points;
     public int HighScore;
-    public bool MuteMusic = false;
-    public bool MuteSounds = false;
+    private bool myMuteAudio = false;
     public bool IsPaused = false;
 
     public eDifficulty difficulty = eDifficulty.spicy;
@@ -66,7 +69,6 @@ public class gameManager
         get{
             return myGameOver;
         }
-
         set
         {
             myGameOver = value;
@@ -74,7 +76,21 @@ public class gameManager
                 Save();
             }
         }
+    }
 
+    public bool MuteAudio{
+        get{
+            return myMuteAudio;
+        }
+
+        set{
+            if (myMuteAudio != value){
+                myMuteAudio = value;
+                AudioListener.volume = value ? 0 : 1;
+                Debug.Log("SAVING");
+                Save();
+            }
+        }
     }
 
     public void Save()
@@ -83,7 +99,11 @@ public class gameManager
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
 
-            bf.Serialize(file, HighScore);
+            SaveFile sf = new SaveFile();
+            sf.HighScore = this.HighScore;
+            sf.MuteMusic= this.MuteAudio;
+
+            bf.Serialize(file, sf);
             file.Close();
         }catch(Exception e){
             Debug.Log(e);
@@ -97,14 +117,19 @@ public class gameManager
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
-            int highscoreLoad = (int)bf.Deserialize(file);
+            SaveFile loadedFile = (SaveFile)bf.Deserialize(file);
             file.Close();
 
-            HighScore = highscoreLoad;
+            HighScore = loadedFile.HighScore;
+            MuteAudio = loadedFile.MuteMusic;
+
+            Debug.Log("Loaded Save file");
 
         }
         }catch(Exception e){
             HighScore = 0;
+            MuteAudio = false;
+            Debug.Log("Failed to load");
         }
 
     }

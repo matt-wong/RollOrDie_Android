@@ -15,23 +15,13 @@ public class optionsScript : MonoBehaviour
     {
         musicButtonText = GameObject.Find("MusicButtonText").GetComponent<Text>();
         soundButtonText = GameObject.Find("SoundButtonText").GetComponent<Text>();
-        this.RefreshSettingsText();
+      //  this.RefreshSettingsText();
     }
 
-    private void RefreshSettingsText()
-    {
-        musicButtonText.text = "Music is " + (gameManager.Instance.MuteMusic ? "OFF" : "ON");
-        soundButtonText.text = "Sound is " + (gameManager.Instance.MuteSounds ? "OFF" : "ON");        
-    }
-
-    public void PressMusicButton(){
-        gameManager.Instance.MuteMusic = !gameManager.Instance.MuteMusic;
-        RefreshSettingsText();
-    }
-
-    public void PressSoundButton(){
-        gameManager.Instance.MuteSounds = !gameManager.Instance.MuteSounds;
-        RefreshSettingsText();
-    }
+    // private void RefreshSettingsText()
+    // {
+    //     musicButtonText.text = "Music is " + (gameManager.Instance.MuteAudio ? "OFF" : "ON");
+    //     soundButtonText.text = "Sound is " + (gameManager.Instance.MuteSounds ? "OFF" : "ON");        
+    // }
 
 }

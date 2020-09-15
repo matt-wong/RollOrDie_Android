@@ -10,15 +10,10 @@ public class MuteButton : MonoBehaviour
 
     void Start()
     {
-      myButtonText = transform.GetComponentInChildren<TextMeshProUGUI>();
-      Debug.Log(myButtonText);
-    }
+        myButtonText = transform.GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Log(myButtonText);
 
-    public void ToggleSound()
-    {
-        gameManager.Instance.MuteMusic = !gameManager.Instance.MuteMusic;
-        Debug.Log("Mute is " + gameManager.Instance.MuteMusic);
-        if (gameManager.Instance.MuteMusic)
+        if (gameManager.Instance.MuteAudio)
         {
             AudioListener.volume = 0;
             myButtonText.text = "Sound is OFF";
@@ -26,6 +21,20 @@ public class MuteButton : MonoBehaviour
         else
         {
             AudioListener.volume = 1;
+            myButtonText.text = "Sound is ON";
+        }
+    }
+
+    public void ToggleSound()
+    {
+        gameManager.Instance.MuteAudio = !gameManager.Instance.MuteAudio;
+        Debug.Log("Mute is " + gameManager.Instance.MuteAudio);
+        if (gameManager.Instance.MuteAudio)
+        {
+            myButtonText.text = "Sound is OFF";
+        }
+        else
+        {
             myButtonText.text = "Sound is ON";
         }
     }
