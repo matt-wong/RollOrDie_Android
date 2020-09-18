@@ -10,6 +10,14 @@ TextureImporter:
     21300010: Enemy3Dice (1) (3)_5
     21300012: Enemy3Dice (1) (3)_6
     21300014: Enemy3Dice (1) (3)_7
+    21300016: EnemyBlockedDice_0
+    21300018: EnemyBlockedDice_1
+    21300020: EnemyBlockedDice_2
+    21300022: EnemyBlockedDice_3
+    21300024: EnemyBlockedDice_4
+    21300026: EnemyBlockedDice_5
+    21300028: EnemyBlockedDice_6
+    21300030: EnemyBlockedDice_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -81,7 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy3Dice (1) (3)_0
+      name: EnemyBlockedDice_0
       rect:
         serializedVersion: 2
         x: 4
@@ -95,13 +103,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a7de5c0c8d98364fb4a8442e226c231
+      spriteID: 1bd792f0532e8f0449c0b462144f7013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy3Dice (1) (3)_1
+      name: EnemyBlockedDice_1
       rect:
         serializedVersion: 2
         x: 263
@@ -115,13 +123,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8432fcb06a167924ba6e038c3b454fa8
+      spriteID: 2feb704f33f9bcf498cdf7e561a083f4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy3Dice (1) (3)_2
+      name: EnemyBlockedDice_2
       rect:
         serializedVersion: 2
         x: 524
@@ -135,13 +143,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2013ba37900abd44a18320223ccd5b4
+      spriteID: 3e06a71b787cb9a47a4dc81ea3a6120d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy3Dice (1) (3)_3
+      name: EnemyBlockedDice_3
       rect:
         serializedVersion: 2
         x: 12
@@ -155,13 +163,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a61b9c7263b758d4c9c2750689223eee
+      spriteID: 82a4ba420ad8e664b9373c9b09266dd3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy3Dice (1) (3)_4
+      name: EnemyBlockedDice_4
       rect:
         serializedVersion: 2
         x: 262
@@ -175,13 +183,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f40faaad5650005448bd408744d93bb9
+      spriteID: 742e468df83650947a38e62e537a0138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy3Dice (1) (3)_5
+      name: EnemyBlockedDice_5
       rect:
         serializedVersion: 2
         x: 519
@@ -195,13 +203,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d376d8aaf48b7e94f959f4a9e231756c
+      spriteID: 9b6a25f3ffddf824cb685e6f5a6b7a64
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy3Dice (1) (3)_6
+      name: EnemyBlockedDice_6
       rect:
         serializedVersion: 2
         x: 7
@@ -215,13 +223,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83e997498b305974d8e096afcd8dd9b3
+      spriteID: 2d058a87d6717474db9531fce08c0889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy3Dice (1) (3)_7
+      name: EnemyBlockedDice_7
       rect:
         serializedVersion: 2
         x: 263
@@ -235,7 +243,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f8cc2353c73b6e4a8f455964ba994b8
+      spriteID: 64dccac9de7d1da4ba74419e6822b3fd
       vertices: []
       indices: 
       edges: []

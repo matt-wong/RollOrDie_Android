@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas 2
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 21300000, guid: 3db9966f6d983ed418fdb478f35d941d, type: 3}
+    - {fileID: 21300000, guid: 04003f4a1280eb54e9195f8286a6a33e, type: 3}
+    - {fileID: 21300000, guid: 0d86748617258834ca6eb16e73b23c21, type: 3}
+    - {fileID: 21300000, guid: 2aeb6381e1b051d45a3483b2d5ea0c30, type: 3}
+    - {fileID: 21300000, guid: 73a143475201af040a546374d077284c, type: 3}
+    - {fileID: 21300000, guid: 4be567b9d732e604985deee75fbe6902, type: 3}
+    - {fileID: 21300016, guid: 9f73a3d2c6a6fef40b0619fcc3fc5286, type: 3}
+    totalSpriteSurfaceArea: 441000
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 2aeb6381e1b051d45a3483b2d5ea0c30, type: 3}
+  - {fileID: 21300016, guid: 9f73a3d2c6a6fef40b0619fcc3fc5286, type: 3}
+  - {fileID: 21300000, guid: 0d86748617258834ca6eb16e73b23c21, type: 3}
+  - {fileID: 21300000, guid: 73a143475201af040a546374d077284c, type: 3}
+  - {fileID: 21300000, guid: 4be567b9d732e604985deee75fbe6902, type: 3}
+  - {fileID: 21300000, guid: 04003f4a1280eb54e9195f8286a6a33e, type: 3}
+  - {fileID: 21300000, guid: 3db9966f6d983ed418fdb478f35d941d, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Enemy4Dice 1_0
+  - EnemyBlockedDice_0
+  - Enemy3Dice (1)_0
+  - Enemy5Dice 1_0
+  - Enemy6_0
+  - Enemy2_0
+  - Enemy1Dice 1_0
+  m_Tag: New Sprite Atlas 2
+  m_IsVariant: 0
