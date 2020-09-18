@@ -73,12 +73,16 @@ public class enemyManager : MonoBehaviour
         }
 
         //Make X number of dice have high values
-        for (int blockIdx = 0; blockIdx < myBlockedDicePerRow; blockIdx++){
+        int iterations = Math.Min(myBlockedDicePerRow, 7); // Cannot have more than 7 blocked!
+
+        for (int blockIdx = 0; blockIdx < iterations; blockIdx++){
             int diceChoice = UnityEngine.Random.Range(0,8);
             enemyScript choosenToBlock = this.myQueuedEnemies[diceChoice];
             if (choosenToBlock.Value() < 7){
                 choosenToBlock.SetAsUnbeatable();
-            }else{}
+            }else{
+                iterations += 1; //This was already selected to be unbeatable try again
+            }
         }
     }
 

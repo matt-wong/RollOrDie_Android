@@ -43,11 +43,12 @@ public class enemyScript : fallingObject
 
     public void SetAsUnbeatable(){
         this.currFace = new DiceFace(7, UnbeatableSprite);
-        this.mySpriteRenderer = GetComponent<SpriteRenderer>();
-        mySpriteRenderer.sprite = UnbeatableSprite;
+
+        this.CheckColor(0); // Doesn't matter what the player has...
+
         //TEMP until we can get a new animation
         Animator animator = GetComponent<Animator>();
-        Destroy(animator);
+        animator.Play("DiceEnemyBlocked", -1, Random.Range(0f, 1f));
     }
 
     void OnTriggerEnter2D(Collider2D col)
