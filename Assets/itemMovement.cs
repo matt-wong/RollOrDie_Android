@@ -10,7 +10,7 @@ public abstract class itemMovement : MonoBehaviour
     public GameObject TextDescriptor;
     public string TextDescription;
 
-    protected bool isMoving = true; 
+    protected bool hasBeenCollected = false; 
     public float horizSpeed = 1f;
     //private Rigidbody2D rb;
 
@@ -34,7 +34,7 @@ public abstract class itemMovement : MonoBehaviour
     void Update()
     {
 
-        if (this.isMoving)
+        if (!this.hasBeenCollected)
         {
             Vector3 newPos = transform.position;
             newPos.z = 0;
@@ -68,7 +68,7 @@ public abstract class itemMovement : MonoBehaviour
             lastBump = Time.time;
             horizSpeed = horizSpeed * -1;
         }
-        else if(col.tag == "Player"){
+        else if(col.tag == "Player" && !this.hasBeenCollected){
             this.TouchedPlayer(col);
             this.ShowTextDescription();
         }

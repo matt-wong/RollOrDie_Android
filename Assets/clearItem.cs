@@ -76,6 +76,7 @@ public class clearItem : itemMovement
         this.needsToResetTime = true;
         myAnimator.Play("GetRed");
         Time.timeScale = 0.1f;
+        this.hasBeenCollected = true;
         ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
         ps.Play();
         Invoke("ResetTime", 0.03f);

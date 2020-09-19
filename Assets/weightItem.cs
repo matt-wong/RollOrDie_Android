@@ -24,16 +24,14 @@ public class weightItem : itemMovement
     }
 
     protected override void TouchedPlayer(Collider2D col)
-    {
-        if (!isMoving) return; //Don't give the player more weight
-
+    {      
         Rigidbody2D playerRB = col.gameObject.GetComponent<Rigidbody2D>();
         playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
         playerHitScript.HasExtraWeight = true;
         playerRB.mass += 0.3f;
 
         Animator animator = GetComponent<Animator>();
-        this.isMoving = false; //Stop moving, spin and shrink
+        this.hasBeenCollected = true; //Stop moving, spin and shrink
         animator.Play("upgradeCollect");
         Invoke("DestroyMe", 0.3f);
 

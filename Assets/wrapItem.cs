@@ -24,6 +24,7 @@ public class wrapItem : itemMovement
     {
         playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
         playerHitScript.CanWrap = true;
+        this.hasBeenCollected = true;
         Destroy(gameObject);
     }
 
