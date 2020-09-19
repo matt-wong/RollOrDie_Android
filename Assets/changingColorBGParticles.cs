@@ -29,7 +29,7 @@ public class changingColorBGParticles : MonoBehaviour
     void Update()
     {
 
-        Color lerpColor = Color.Lerp(bgParticles[0].startColor, colorSequence[this.colorCurrentIndex], Time.deltaTime * 3f);
+        Color lerpColor = Color.Lerp(bgParticles[0].startColor, colorSequence[this.colorCurrentIndex], Time.deltaTime * 15f);
 
         foreach(ParticleSystem ps in bgParticles){
             ps.startColor = lerpColor;

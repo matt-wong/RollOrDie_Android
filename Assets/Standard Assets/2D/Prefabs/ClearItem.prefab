@@ -137,6 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CenterY: -3
   Amplitude: 1
+  TextDescriptor: {fileID: 3743153769040199516, guid: 99ee9b3c29ea4d042b2be895cb536239,
+    type: 3}
+  TextDescription: BOOM!
   horizSpeed: 1
   timeToLive: 10
   fadeTime: 5

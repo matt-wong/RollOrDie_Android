@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public abstract class itemMovement : MonoBehaviour
 {
     public float CenterY = -3.5f;
     public float Amplitude = 1f;
-    
+    public GameObject TextDescriptor;
+    public string TextDescription;
+
     protected bool isMoving = true; 
     public float horizSpeed = 1f;
     //private Rigidbody2D rb;
@@ -67,6 +70,17 @@ public abstract class itemMovement : MonoBehaviour
         }
         else if(col.tag == "Player"){
             this.TouchedPlayer(col);
+            this.ShowTextDescription();
+        }
+    }
+
+    protected void ShowTextDescription(){
+
+        Canvas canv = GameObject.Find("ItemsDescriptionCanvas").GetComponent<Canvas>();
+        if (canv != null){
+            GameObject newItemSpawner = Instantiate(this.TextDescriptor, this.transform.position, Quaternion.identity, canv.transform); 
+            TextMeshProUGUI text = newItemSpawner.GetComponent<TextMeshProUGUI>();
+            text.text = this.TextDescription;
         }
     }
 
