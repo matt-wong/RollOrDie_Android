@@ -78,7 +78,8 @@ public abstract class itemMovement : MonoBehaviour
 
         Canvas canv = GameObject.Find("ItemsDescriptionCanvas").GetComponent<Canvas>();
         if (canv != null){
-            GameObject newItemSpawner = Instantiate(this.TextDescriptor, this.transform.position, Quaternion.identity, canv.transform); 
+            Vector3 descPosition = new Vector3(System.Math.Max(System.Math.Min(this.transform.position.x, 1.8f),-1.8f), this.transform.position.y, this.transform.position.z);
+            GameObject newItemSpawner = Instantiate(this.TextDescriptor, descPosition, Quaternion.identity, canv.transform); 
             TextMeshProUGUI text = newItemSpawner.GetComponent<TextMeshProUGUI>();
             text.text = this.TextDescription;
         }
