@@ -98,8 +98,6 @@ MonoBehaviour:
   IsVulnerable: 1
   invincible: 0
   ExtraLives: 0
-  HasExtraWeight: 0
-  CanWrap: 0
   faceSprites:
   - {fileID: 21300006, guid: 3db9966f6d983ed418fdb478f35d941d, type: 3}
   - {fileID: 21300006, guid: 04003f4a1280eb54e9195f8286a6a33e, type: 3}
@@ -112,6 +110,7 @@ MonoBehaviour:
   DiceLandNoises:
   - {fileID: 8300000, guid: e1c2bd09e086df247b9678d07ca004fd, type: 3}
   - {fileID: 8300000, guid: fd41ea1c3168629499777d9b681a41af, type: 3}
+  DeathNoises: []
 --- !u!61 &8450387248052911176
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -177,7 +176,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 8
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
