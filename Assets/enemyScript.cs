@@ -124,7 +124,7 @@ public class enemyScript : fallingObject
         //ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
 
         ParticleSystem.MainModule settings = ps.main;
-        settings.startColor = new ParticleSystem.MinMaxGradient(this.mySpriteRenderer.color);
+        //settings.startColor = new ParticleSystem.MinMaxGradient(this.mySpriteRenderer.color);
         ps.Play();
 
         AudioSource.PlayClipAtPoint(this.DeathSounds[Random.Range(0, this.DeathSounds.Length)], this.transform.position);
