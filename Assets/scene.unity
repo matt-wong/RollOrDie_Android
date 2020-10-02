@@ -5322,6 +5322,12 @@ PrefabInstance:
       propertyPath: DeathNoises.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 3e733daa9e5930745957a93a668e7d2f, type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: DeathParticles
+      value: 
+      objectReference: {fileID: 779355819246580964, guid: 89cb2059e3aed734ab5c8478b9602aa6,
+        type: 3}
     - target: {fileID: 8450387248052911178, guid: 2fb614c83017cd64cb9f8aa90af45881,
         type: 3}
       propertyPath: m_LocalPosition.x

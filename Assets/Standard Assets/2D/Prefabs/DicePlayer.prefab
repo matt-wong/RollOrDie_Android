@@ -95,8 +95,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc320ab171ebd249b25b69fbcec5c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
   invincible: 0
+  ExtraLives: 0
+  faceSprites: []
+  vulnerableSprite: {fileID: 0}
+  dustMaker: {fileID: 0}
+  DiceLandNoises: []
+  DeathNoises: []
+  DeathParticles: {fileID: 779355819246580964, guid: 89cb2059e3aed734ab5c8478b9602aa6,
+    type: 3}
 --- !u!61 &2819970119867266277
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class playerScript : MonoBehaviour
 
     private int myValue = 0;
 
-    public bool IsVulnerable = true;
+    private bool myIsVulnerable = true;
     public bool invincible = false;
     public int ExtraLives = 0;
     private bool myHasExtraWeight = false;
@@ -21,6 +21,7 @@ public class playerScript : MonoBehaviour
     DiceFace[] faces;
     private DiceFace currFace;
     public Sprite[] faceSprites;
+    public Sprite vulnerableSprite;
 
     private SpriteRenderer spriteRend;
     private Rigidbody2D rb;
@@ -28,6 +29,7 @@ public class playerScript : MonoBehaviour
 
     public AudioClip[] DiceLandNoises;
     public AudioClip[] DeathNoises;
+    public ParticleSystem DeathParticles;
 
     public event System.Action<int> NewValueAction;
     public event System.Action<bool> GotUpgradeAction;
@@ -39,6 +41,17 @@ public class playerScript : MonoBehaviour
         {
             myValue = value;
             NewValueAction.Invoke(value);
+        }
+    }
+
+    public bool IsVulnerable
+    {
+        get{ return myIsVulnerable;}
+        set{
+            if (value){
+                spriteRend.sprite = vulnerableSprite;
+            }
+            myIsVulnerable = value;
         }
     }
 
@@ -210,6 +223,20 @@ public class playerScript : MonoBehaviour
 
     internal void GetKilled()
     {
+
+        Animator ani = Camera.main.GetComponent<Animator>();
+        if (!ani.GetCurrentAnimatorStateInfo(0).IsName("CameraZoom"))
+        {
+            ani.Play("CameraShake");
+        }
+
+        ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.Euler(0f, 0f, 220));
+        //ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
+
+        ParticleSystem.MainModule settings = ps.main;
+        //settings.startColor = new ParticleSystem.MinMaxGradient(this.mySpriteRenderer.color);
+        ps.Play();
+
         AudioSource.PlayClipAtPoint(this.DeathNoises[UnityEngine.Random.Range(0, this.DeathNoises.Length)], this.transform.position);
         Destroy(gameObject);
     }
