@@ -30,28 +30,31 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 21300000, guid: 3aa719f3ffe2c994687021b556149313, type: 3}
-    - {fileID: 21300000, guid: 2b93dc174093d0645bf0288027855803, type: 3}
-    - {fileID: 21300000, guid: 1b72ac8de5ee2d4449a601e8a63800fe, type: 3}
-    - {fileID: 2800000, guid: 0e08bff47315ebc448abb4948ce06ef6, type: 3}
-    - {fileID: 2800000, guid: 2d4bdc4ea68171c46a46548116f9a1f5, type: 3}
-    - {fileID: 21300000, guid: 085d3d1660a6f7f40ab93c0c9495c19d, type: 3}
-    totalSpriteSurfaceArea: 393216
+    - {fileID: 21300000, guid: 3db9966f6d983ed418fdb478f35d941d, type: 3}
+    - {fileID: 21300000, guid: 04003f4a1280eb54e9195f8286a6a33e, type: 3}
+    - {fileID: 21300000, guid: 0d86748617258834ca6eb16e73b23c21, type: 3}
+    - {fileID: 21300000, guid: 2aeb6381e1b051d45a3483b2d5ea0c30, type: 3}
+    - {fileID: 21300000, guid: 73a143475201af040a546374d077284c, type: 3}
+    - {fileID: 21300016, guid: 9f73a3d2c6a6fef40b0619fcc3fc5286, type: 3}
+    - {fileID: 21300000, guid: 4be567b9d732e604985deee75fbe6902, type: 3}
+    totalSpriteSurfaceArea: 441000
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 3aa719f3ffe2c994687021b556149313, type: 3}
-  - {fileID: 21300000, guid: 0e08bff47315ebc448abb4948ce06ef6, type: 3}
-  - {fileID: 21300000, guid: 085d3d1660a6f7f40ab93c0c9495c19d, type: 3}
-  - {fileID: 21300000, guid: 2b93dc174093d0645bf0288027855803, type: 3}
-  - {fileID: 21300000, guid: 1b72ac8de5ee2d4449a601e8a63800fe, type: 3}
-  - {fileID: 21300000, guid: 2d4bdc4ea68171c46a46548116f9a1f5, type: 3}
+  - {fileID: 21300000, guid: 2aeb6381e1b051d45a3483b2d5ea0c30, type: 3}
+  - {fileID: 21300016, guid: 9f73a3d2c6a6fef40b0619fcc3fc5286, type: 3}
+  - {fileID: 21300000, guid: 0d86748617258834ca6eb16e73b23c21, type: 3}
+  - {fileID: 21300000, guid: 73a143475201af040a546374d077284c, type: 3}
+  - {fileID: 21300000, guid: 4be567b9d732e604985deee75fbe6902, type: 3}
+  - {fileID: 21300000, guid: 04003f4a1280eb54e9195f8286a6a33e, type: 3}
+  - {fileID: 21300000, guid: 3db9966f6d983ed418fdb478f35d941d, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Enemy1Dice
-  - Enemy4Dice
-  - Enemy6Dice
-  - Enemy2Dice
-  - Enemy3Dice
-  - Enemy5Dice
+  - Enemy4Dice 1_0
+  - EnemyBlockedDice_0
+  - Enemy3Dice (1)_0
+  - Enemy5Dice 1_0
+  - Enemy6_0
+  - Enemy2_0
+  - Enemy1Dice 1_0
   m_Tag: DiceSprites
   m_IsVariant: 0
