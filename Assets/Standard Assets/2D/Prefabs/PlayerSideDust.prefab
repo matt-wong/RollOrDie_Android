@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6972729701468535456}
   - component: {fileID: 9047544034105442954}
   - component: {fileID: 3634019793726492840}
+  - component: {fileID: 114009835001462598}
   m_Layer: 0
   m_Name: PlayerSideDust
   m_TagString: Untagged
@@ -4756,3 +4757,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &114009835001462598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708434438818367328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050a6c9fee7094846b7a0cdb36922201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
