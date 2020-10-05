@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DifficultyMenu.unity
     guid: 0d9b8fc5a44562a46a1ba76ab0e69dab
+  - enabled: 1
+    path: Assets/HowToPlay.unity
+    guid: ad6f7ee4aa7120e408b6a13eff817f20
   m_configObjects: {}
