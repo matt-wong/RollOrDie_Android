@@ -19,12 +19,17 @@ public class warpPipeScript : MonoBehaviour
 
     private void ShowWarpIndicators(){
         if (myPlayer.CanWrap){
-            myLeftPipe.color = Color.green;
-            myRightPipe.color = Color.green;
+            myLeftPipe.color = Color.white;
+            myRightPipe.color = Color.white;
         }else{
             myLeftPipe.color = Color.clear;
             myRightPipe.color = Color.clear;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("TOUCHING");
     }
 
 }

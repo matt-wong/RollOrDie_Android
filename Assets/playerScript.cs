@@ -137,7 +137,6 @@ public class playerScript : MonoBehaviour
         {
             transform.position = new Vector3(System.Math.Min(transform.position.x + 1, 3.5f), transform.position.y, 0);
         }
-        Debug.Log("HJEY");
         ParticleSystem ps = Instantiate(SideParticles, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z), Quaternion.Euler(0f, 0f, 100f));
 
     }
