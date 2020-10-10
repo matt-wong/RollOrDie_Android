@@ -8,6 +8,8 @@ public class warpPipeScript : MonoBehaviour
     SpriteRenderer myLeftPipe;
     SpriteRenderer myRightPipe;
 
+    bool isTouchingPlayer = false; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +29,36 @@ public class warpPipeScript : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (isTouchingPlayer)
+        {
+            float nextX = Mathf.Lerp(myLeftPipe.transform.localScale.x, 1.5f, Time.deltaTime * 3);
+            float nextY = Mathf.Lerp(myLeftPipe.transform.localScale.y, 1.7f, Time.deltaTime * 3);
+            myLeftPipe.transform.localScale = new Vector3(nextX, nextY, 1);
+            myRightPipe.transform.localScale = new Vector3(nextX, nextY, 1);
+        }
+        else
+        {
+            float nextX = Mathf.Lerp(myLeftPipe.transform.localScale.x, 1f, Time.deltaTime * 3);
+            float nextY = Mathf.Lerp(myLeftPipe.transform.localScale.y, 1.2f, Time.deltaTime * 3);
+            myLeftPipe.transform.localScale = new Vector3(nextX, nextY, 1);
+            myRightPipe.transform.localScale = new Vector3(nextX, nextY, 1);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("TOUCHING");
+        if (col.tag == "Player"){
+            isTouchingPlayer = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Player"){
+            isTouchingPlayer = false;
+        }
     }
 
 }

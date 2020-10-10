@@ -835,6 +835,8 @@ GameObject:
   m_Component:
   - component: {fileID: 266679102}
   - component: {fileID: 266679103}
+  - component: {fileID: 266679104}
+  - component: {fileID: 266679105}
   m_Layer: 0
   m_Name: WarpPipes
   m_TagString: Untagged
@@ -870,6 +872,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12b9c1ea1af9a0498865a2b173618f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &266679104
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266679101}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07002342, y: 3.4836676}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3501179, y: 1.5951991}
+  m_EdgeRadius: 0
+--- !u!61 &266679105
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266679101}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -8.2277565, y: 3.4836676}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2100492, y: 1.5951991}
+  m_EdgeRadius: 0
 --- !u!1 &299594603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1726,6 @@ GameObject:
   - component: {fileID: 413603808}
   - component: {fileID: 413603809}
   - component: {fileID: 413603810}
-  - component: {fileID: 413603811}
   m_Layer: 0
   m_Name: WarpPipeL
   m_TagString: Untagged
@@ -1761,32 +1814,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &413603811
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413603807}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 1.23}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.66, y: 1.23}
-  m_EdgeRadius: 0
 --- !u!1 &521262204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3181,7 +3208,6 @@ GameObject:
   - component: {fileID: 1254804579}
   - component: {fileID: 1254804578}
   - component: {fileID: 1254804580}
-  - component: {fileID: 1254804581}
   m_Layer: 0
   m_Name: WarpPipeR
   m_TagString: Untagged
@@ -3270,32 +3296,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &1254804581
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254804577}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 1.23}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.66, y: 1.23}
-  m_EdgeRadius: 0
 --- !u!1 &1424608969
 GameObject:
   m_ObjectHideFlags: 0
