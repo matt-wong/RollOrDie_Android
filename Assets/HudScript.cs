@@ -42,21 +42,34 @@ public class HudScript : MonoBehaviour
         //TODO: Use events for this instead of every update!
         myPointKeeper.text = "Points: " + gm.Points.ToString();
         //myDebugData.text = "Player Lives:" + myPlayer.ExtraLives;
-        if (gm.GameOver){
+        if (gm.GameOver)
+        {
             myRestartPanel.gameObject.SetActive(true);
             myPauseButton.gameObject.SetActive(false);
             myFinalScoreText.text = "Points: " + gm.Points.ToString();
             myHighScoreText.text = "High Score: " + gm.HighScore.ToString();
         }
 
-    }
 
-    public void PauseGame(){
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 0f;
-            myPausePanel.gameObject.SetActive(true);
-            gameManager.Instance.IsPaused = true;
+            PauseGame();
         }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        myPausePanel.gameObject.SetActive(true);
+        gameManager.Instance.IsPaused = true;
 
     }
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (myPausePanel){
+            PauseGame();
+        }
+    }
+
 }
