@@ -14,7 +14,7 @@ public class restart : MonoBehaviour
     }
 
     public void ResumeAction(){
-        Time.timeScale = 0.05f;
+        Time.timeScale = 0.01f;
         Invoke("ResumeFullSpeed", 2 / (1/ Time.timeScale)); // 2 real seconds
 
         TextMeshProUGUI stageText = GameObject.Find("CenterText").GetComponent<TextMeshProUGUI>();
