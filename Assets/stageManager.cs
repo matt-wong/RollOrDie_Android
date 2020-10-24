@@ -21,6 +21,7 @@ public class stageManager : MonoBehaviour
     TextMeshProUGUI stageText;
 
     public Sprite[] BlobSprites;
+    private int bgSpriteIdx = 0;
 
     private Button leftButton;
     private Button rightButton;
@@ -51,8 +52,13 @@ public class stageManager : MonoBehaviour
         this.Stages.Add(new Stage { StartingRow = 70, BgColor = BG_ORANGE, NumberOfObstacles = 5, NumberBlockedDiced = 1, Description = "MORE SPIKEY GUYS!"}); // 6 Obstacles
         this.Stages.Add(new Stage { StartingRow = 80, BgColor = BG_YELLOW, NumberOfObstacles = 6, NumberBlockedDiced = 2, Description = "+1 BLOCKED + 1 SPIKE!"}); // 7 Obstacles
         this.Stages.Add(new Stage { StartingRow = 90, BgColor = BG_GREEN, NumberOfObstacles = 7, NumberBlockedDiced = 2, Description = "MORE SPIKEY GUYS!"}); // 8 Obs
-        this.Stages.Add(new Stage { StartingRow = 100, BgColor = BG_GREEN, NumberOfObstacles = 8, NumberBlockedDiced = 2, Description = "MORE SPIKEY GUYS!"}); // 8 Obs
-        this.Stages.Add(new Stage { StartingRow = 110, BgColor = BG_GREEN, NumberOfObstacles = 8, NumberBlockedDiced = 3, Description = "ANOTHER BLOCKED DICE!"}); // 8 Obs
+        this.Stages.Add(new Stage { StartingRow = 100, BgColor = BG_BLUE, NumberOfObstacles = 8, NumberBlockedDiced = 2, Description = "MORE SPIKEY GUYS!"}); 
+        this.Stages.Add(new Stage { StartingRow = 110, BgColor = BG_PURPLE, NumberOfObstacles = 8, NumberBlockedDiced = 3, Description = "ANOTHER BLOCKED DICE!"}); 
+        this.Stages.Add(new Stage { StartingRow = 120, BgColor = BG_RED, NumberOfObstacles = 8, NumberBlockedDiced = 4, Description = "ANOTHER BLOCKED DICE!"}); 
+        this.Stages.Add(new Stage { StartingRow = 130, BgColor = BG_ORANGE, NumberOfObstacles = 8, NumberBlockedDiced = 5, Description = "ANOTHER BLOCKED DICE!"});
+        this.Stages.Add(new Stage { StartingRow = 140, BgColor = BG_YELLOW, NumberOfObstacles = 9, NumberBlockedDiced = 5, Description = "ANOTHER SPIKEY GUY!"});
+        this.Stages.Add(new Stage { StartingRow = 150, BgColor = BG_GREEN, NumberOfObstacles = 10, NumberBlockedDiced = 5, Description = "Please avoid them!"});
+        this.Stages.Add(new Stage { StartingRow = 160, BgColor = BG_BLUE, NumberOfObstacles = 11, NumberBlockedDiced = 5, Description = "Please! avoid them!"});
 
         foreach(Stage stg in this.Stages){
             stg.EnemySpeed = SpeedFromRowIndex(stg.StartingRow, gameManager.Instance.difficulty);
@@ -75,7 +81,6 @@ public class stageManager : MonoBehaviour
 
         this.stageText = transform.Find("CenterText").GetComponent<TextMeshProUGUI>();
         this.bgFader = GameObject.Find("BackgroundFader").GetComponent<SpriteRenderer>();
-
 
         this.bgFader.color = new Color(BG_BLUE.r, BG_BLUE.g, BG_BLUE.b, BG_ALPHA);
         
@@ -161,16 +166,11 @@ public class stageManager : MonoBehaviour
         stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, 1);
         stageText.rectTransform.localScale = new Vector3(1,1,1);
 
-        int bgSpriteIdx = 0;
-
-        if (stageNumber > 5)
-        { //Change the background sprites when past a certain stage.
-            bgSpriteIdx = 1;
-        }
-
+        int bgSpriteIdx = stageNumber / 6;
+       
         foreach (ParticleSystem ps in this.bgParticleSystems)
         {
-            ps.textureSheetAnimation.SetSprite(0, this.BlobSprites[bgSpriteIdx]);
+            ps.textureSheetAnimation.SetSprite(0, this.BlobSprites[Math.Min(bgSpriteIdx, this.BlobSprites.Length - 1)]);
         }
 
 
