@@ -7,6 +7,7 @@ public class HudScript : MonoBehaviour
 {
 
     Text myPointKeeper;
+    Image mySpicyIcon;
     Text myFinalScoreText;
     Text myHighScoreText;
     playerScript myPlayer;
@@ -18,9 +19,15 @@ public class HudScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        gm = gameManager.Instance;
+
         this.myPointKeeper = GameObject.Find("scoreText").GetComponent<Text>();
+        this.mySpicyIcon = GameObject.Find("spicyIcon").GetComponent<Image>();
         
+        if (mySpicyIcon){
+            this.mySpicyIcon.color = gm.difficulty == eDifficulty.spicy ? Color.white : Color.clear;
+        }
+
         this.myPlayer = GameObject.FindObjectOfType<playerScript>();
 
         myRestartPanel = transform.Find("RestartPanel").GetComponent<Transform>();
@@ -31,7 +38,6 @@ public class HudScript : MonoBehaviour
         myPausePanel = transform.Find("PausePanel").GetComponent<Transform>();
         myPauseButton = transform.Find("PauseButton").GetComponent<Transform>();
 
-        gm = gameManager.Instance;
     }
 
 
