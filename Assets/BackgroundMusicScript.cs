@@ -8,13 +8,16 @@ public class BackgroundMusicScript : MonoBehaviour
 
     private AudioSource myAudioSource;
     public AudioClip[] Songs;
+    public AudioClip[] SongLoops;
     private stageManager stageManager;
+    private int mySongIndex = 0; 
 
     // Start is called before the first frame update
     void Start()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
-        myAudioSource.clip = Songs[UnityEngine.Random.Range(0,this.Songs.Length)];
+        mySongIndex = UnityEngine.Random.Range(0,this.Songs.Length);
+        myAudioSource.clip = Songs[mySongIndex];
         myAudioSource.Play();
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
@@ -34,6 +37,11 @@ public class BackgroundMusicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!myAudioSource.isPlaying)
+        {
+            myAudioSource.clip = SongLoops[mySongIndex];
+            myAudioSource.Play();
+            myAudioSource.loop = true;
+        }
     }
 }

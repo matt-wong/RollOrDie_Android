@@ -399,11 +399,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8637836366d3e85408a93feafbc0e8af, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bc011085072856548bdcec9e7e4d46ad, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.074
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -512,9 +512,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Songs:
-  - {fileID: 8300000, guid: 8637836366d3e85408a93feafbc0e8af, type: 3}
-  - {fileID: 8300000, guid: 5c63a0971835183479873012d71f49df, type: 3}
-  - {fileID: 8300000, guid: 66d9f6728c315144db682bbe0b72111d, type: 3}
+  - {fileID: 8300000, guid: bc011085072856548bdcec9e7e4d46ad, type: 3}
+  - {fileID: 8300000, guid: 843ae5d07990ff748b15b4c40cb698eb, type: 3}
+  - {fileID: 8300000, guid: fc6be85e7736e1d4f97e849748d3a4f8, type: 3}
+  SongLoops:
+  - {fileID: 8300000, guid: 95037fed2202d9b42bf2b9fa9b45505a, type: 3}
+  - {fileID: 8300000, guid: 4a06e818c5e98b449ad001be94b66be7, type: 3}
+  - {fileID: 8300000, guid: 9b284ad23dd7a524c9d6ba7adb24a032, type: 3}
 --- !u!1 &109889508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,7 +1621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentRow: 0
   BlobSprites:
-  - {fileID: 21300000, guid: 116eefaac117e7148901635ddcd2e7cf, type: 3}
+  - {fileID: 21300000, guid: faedff610c302df4b97af1e0ea1c2b85, type: 3}
   - {fileID: 21300000, guid: 3d55b678d50e8844fbda7a17b990e4bd, type: 3}
   - {fileID: 21300000, guid: a5309fe8d1f2ab247b7419e8b606bf3f, type: 3}
   - {fileID: 21300018, guid: ab14a8d75d40faf43b90873175f32bb8, type: 3}
@@ -5473,6 +5477,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9139753994793750379, guid: a60b298eb1fbea547937b92b4f195d3a,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: faedff610c302df4b97af1e0ea1c2b85,
+        type: 3}
+    - target: {fileID: 9139753994949430440, guid: a60b298eb1fbea547937b92b4f195d3a,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: faedff610c302df4b97af1e0ea1c2b85,
+        type: 3}
     - target: {fileID: 9139753995008838934, guid: a60b298eb1fbea547937b92b4f195d3a,
         type: 3}
       propertyPath: m_LocalPosition.x
