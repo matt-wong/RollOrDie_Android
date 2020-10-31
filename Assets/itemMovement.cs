@@ -23,12 +23,23 @@ public abstract class itemMovement : MonoBehaviour
 
     protected Animator myAnimator;
     public AudioClip[] PickUpNoises;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         this.myAnimator = GetComponent<Animator>();
         myStartingTime = Time.time;
+
+        // Half the time, reverse the direction 
+        if (Random.Range(0, 2) == 0)
+        {
+            horizSpeed = -horizSpeed;
+        }
+
+         SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
+        //Stagger the sortingOrder so touching obstacles don't flicker
+         spriteRend.sortingOrder = UnityEngine.Random.Range(0, 100);
+        
     }
 
     // Update is called once per frame
