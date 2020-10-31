@@ -29,6 +29,7 @@ public class playerScript : MonoBehaviour
 
     public AudioClip[] DiceLandNoises;
     public AudioClip[] DeathNoises;
+    public AudioClip[] TeleportNoises;
     public ParticleSystem DeathParticles;
     public ParticleSystem SideParticles;
 
@@ -131,7 +132,9 @@ public class playerScript : MonoBehaviour
         }
         if (CanWrap && transform.position.x > 3.4f)
         {
+            //Teleport! Right side to left
             transform.position = new Vector3(-3.5f, transform.position.y, 0);
+            AudioSource.PlayClipAtPoint(this.TeleportNoises[UnityEngine.Random.Range(0, this.TeleportNoises.Length)], this.transform.position);
         }
         else
         {
@@ -149,7 +152,10 @@ public class playerScript : MonoBehaviour
         }
         if (CanWrap && transform.position.x < -3.4f)
         {
+            //Teleport! Left side to right
             transform.position = new Vector3(3.5f, transform.position.y, 0);
+            AudioSource.PlayClipAtPoint(this.TeleportNoises[UnityEngine.Random.Range(0, this.TeleportNoises.Length)], this.transform.position);
+
         }
         else
         {

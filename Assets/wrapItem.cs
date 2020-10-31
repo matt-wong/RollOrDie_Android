@@ -24,6 +24,8 @@ public class wrapItem : itemMovement
     {
         playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
         playerHitScript.CanWrap = true;
+
+        AudioSource.PlayClipAtPoint(this.PickUpNoises[UnityEngine.Random.Range(0, this.PickUpNoises.Length)], this.transform.position);
         this.hasBeenCollected = true;
         Destroy(gameObject);
     }

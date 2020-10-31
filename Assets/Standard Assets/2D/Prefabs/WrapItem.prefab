@@ -168,6 +168,12 @@ MonoBehaviour:
   timeToLive: -1
   fadeTime: 5
   fadeAnimationName: 
+  PickUpNoises:
+  - {fileID: 8300000, guid: ec6a56150bc14e849ae5624a9b4d7ace, type: 3}
+  - {fileID: 8300000, guid: 4a90931673f499441ab65acc6f1669a1, type: 3}
+  - {fileID: 8300000, guid: 01eae7841d150804e927e7bfa001de5a, type: 3}
+  - {fileID: 8300000, guid: 7a572b3c3de4fe24687e8fdc66cfd637, type: 3}
+  - {fileID: 8300000, guid: dca6c12551e55434b9fbed921808b7c5, type: 3}
 --- !u!95 &8363909111424827713
 Animator:
   serializedVersion: 3
