@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class weightItem : itemMovement
 //Item for increase mass of player dice. This should make the rolling take less time
 {

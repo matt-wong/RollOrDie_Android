@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class heartItem : itemMovement
 //Item for increase lives of player dice.
 {
