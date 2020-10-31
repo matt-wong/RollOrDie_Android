@@ -249,7 +249,10 @@ public class playerScript : MonoBehaviour
         ps.Play();
 
         AudioSource.PlayClipAtPoint(this.DeathNoises[UnityEngine.Random.Range(0, this.DeathNoises.Length)], this.transform.position);
+        gameManager.Instance.GameOver = true;
+
         Destroy(gameObject);
+
     }
 
     public void DecrementValue()

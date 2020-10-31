@@ -31,8 +31,7 @@ public class obstacleScript : fallingObject
 
                 else if (!playerHitScript.invincible)
                 {
-                    Destroy(col.gameObject);
-                    gm.GameOver = true;
+                    playerHitScript.GetKilled();
                 }
             }
         }

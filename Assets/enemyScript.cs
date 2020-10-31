@@ -90,7 +90,6 @@ public class enemyScript : fallingObject
                 else if (!playerHitScript.invincible)
                 {
                     playerHitScript.GetKilled();
-                    gm.GameOver = true;
                 }
             }
         }
