@@ -108,8 +108,11 @@ MonoBehaviour:
   dustMaker: {fileID: 2708434438818367328, guid: 1e5259a3a03cbfb40b05ce4186741acf,
     type: 3}
   DiceLandNoises:
+  - {fileID: 8300000, guid: 95872d513eaffe245b27f75cdcf59a0a, type: 3}
   - {fileID: 8300000, guid: e1c2bd09e086df247b9678d07ca004fd, type: 3}
-  - {fileID: 8300000, guid: fd41ea1c3168629499777d9b681a41af, type: 3}
+  - {fileID: 8300000, guid: 88da9fa157ab8264ca10eea67c598ec3, type: 3}
+  - {fileID: 8300000, guid: 83fcb33b45feb62439b03f8ec86b4f81, type: 3}
+  - {fileID: 8300000, guid: e5822ff08e5334447aca744ccef09db9, type: 3}
   DeathNoises: []
   TeleportNoises:
   - {fileID: 8300000, guid: ec6a56150bc14e849ae5624a9b4d7ace, type: 3}

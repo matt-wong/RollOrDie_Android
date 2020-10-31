@@ -5370,6 +5370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
         type: 3}
+      propertyPath: DiceLandNoises.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
       propertyPath: faceSprites.Array.data[6]
       value: 
       objectReference: {fileID: 21300012, guid: 4be567b9d732e604985deee75fbe6902,
@@ -5421,6 +5426,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 779355819246580964, guid: 89cb2059e3aed734ab5c8478b9602aa6,
         type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: DiceLandNoises.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 95872d513eaffe245b27f75cdcf59a0a, type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: DiceLandNoises.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 88da9fa157ab8264ca10eea67c598ec3, type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: DiceLandNoises.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 83fcb33b45feb62439b03f8ec86b4f81, type: 3}
+    - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: DiceLandNoises.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: e5822ff08e5334447aca744ccef09db9, type: 3}
     - target: {fileID: 8450387248052911178, guid: 2fb614c83017cd64cb9f8aa90af45881,
         type: 3}
       propertyPath: m_LocalPosition.x
