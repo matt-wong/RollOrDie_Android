@@ -22,7 +22,8 @@ public abstract class itemMovement : MonoBehaviour
     private bool isFading = false;
 
     protected Animator myAnimator;
-
+    public AudioClip[] PickUpNoises;
+    
     // Start is called before the first frame update
     void Start()
     {

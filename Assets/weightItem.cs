@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class weightItem : itemMovement
 //Item for increase mass of player dice. This should make the rolling take less time
 {
@@ -29,6 +30,8 @@ public class weightItem : itemMovement
         playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
         playerHitScript.HasExtraWeight = true;
         playerRB.mass += 0.3f;
+
+        AudioSource.PlayClipAtPoint(this.PickUpNoises[UnityEngine.Random.Range(0, this.PickUpNoises.Length)], this.transform.position);
 
         Animator animator = GetComponent<Animator>();
         this.hasBeenCollected = true; //Stop moving, spin and shrink

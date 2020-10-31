@@ -125,6 +125,7 @@ MonoBehaviour:
   speed: 3.5
   DeathSounds:
   - {fileID: 8300000, guid: e8fa0288b019c8d4583e1cd8016aaf2f, type: 3}
+  - {fileID: 8300000, guid: 4119dd7fe57155441b630c8c8874b597, type: 3}
   HeartDeathSounds:
   - {fileID: 8300000, guid: 844e482fa515f4a408a4a116a661d9d6, type: 3}
   - {fileID: 8300000, guid: 895abdaf158caed4e803e9d1b4a46b7f, type: 3}
@@ -202,9 +203,9 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:

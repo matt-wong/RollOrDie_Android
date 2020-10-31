@@ -413,9 +413,9 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -5338,6 +5338,21 @@ PrefabInstance:
     - target: {fileID: 4790691503091623664, guid: 2fb614c83017cd64cb9f8aa90af45881,
         type: 3}
       propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790691503091623664, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790691503091623664, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: BypassListenerEffects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790691503091623664, guid: 2fb614c83017cd64cb9f8aa90af45881,
+        type: 3}
+      propertyPath: BypassReverbZones
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8450387248052911177, guid: 2fb614c83017cd64cb9f8aa90af45881,

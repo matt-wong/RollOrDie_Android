@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class heartItem : itemMovement
-//Item for increase mass of player dice. This should make the rolling take less time
+//Item for increase lives of player dice.
 {
+
     public override bool Equals(object other)
     {
         return base.Equals(other);
@@ -26,6 +28,7 @@ public class heartItem : itemMovement
         playerScript playerScr = col.gameObject.GetComponent<playerScript>();
         playerScr.ExtraLives += 1;
         this.hasBeenCollected = true;
+        AudioSource.PlayClipAtPoint(this.PickUpNoises[UnityEngine.Random.Range(0, this.PickUpNoises.Length)], this.transform.position);
 
         Animator animator = GetComponent<Animator>();
         animator.Play("heartCollected");
