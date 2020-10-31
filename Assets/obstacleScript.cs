@@ -8,7 +8,7 @@ public class obstacleScript : fallingObject
 {
 
     public ParticleSystem DeathParticles;
-
+    
     void OnTriggerEnter2D(Collider2D col)
     {
 
@@ -45,6 +45,10 @@ public class obstacleScript : fallingObject
     void Awake(){
         Animator animator = GetComponent<Animator>();
         animator.Play("ObstacleAnim", -1, UnityEngine.Random.Range(0f, 1f));
+
+         SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
+        //Stagger the sortingOrder so touching obstacles don't flicker
+         spriteRend.sortingOrder = UnityEngine.Random.Range(0, 100);
      }
 
     private void GetKilled()
