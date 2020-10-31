@@ -959,6 +959,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeartParticles: {fileID: 7629430132842005394, guid: 8b88e923161d2dd41a9054b0728f1190,
     type: 3}
+  HeartDeathSounds:
+  - {fileID: 8300000, guid: 844e482fa515f4a408a4a116a661d9d6, type: 3}
+  - {fileID: 8300000, guid: 895abdaf158caed4e803e9d1b4a46b7f, type: 3}
 --- !u!4 &299594605
 Transform:
   m_ObjectHideFlags: 0
