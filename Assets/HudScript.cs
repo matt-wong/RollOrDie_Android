@@ -6,22 +6,30 @@ using UnityEngine.UI;
 public class HudScript : MonoBehaviour
 {
 
-    Text myPointKeeper;
+    Text myScoreText;
+    Image myMultiBadge;
+    Text myMultiText;
     Image mySpicyIcon;
     Text myFinalScoreText;
     Text myHighScoreText;
-    playerScript myPlayer;
+
     Transform myRestartPanel;
     Transform myPausePanel;
     Transform myPauseButton;
+    
+    pointKeeper myPointKeeper;
+    playerScript myPlayer;
     gameManager gm;
 
+    private static Color MATCH_GREEN = new Color(0.756f, 0.921f, 0.8f);
     // Start is called before the first frame update
     void Start()
     {
         gm = gameManager.Instance;
 
-        this.myPointKeeper = GameObject.Find("scoreText").GetComponent<Text>();
+        this.myScoreText = GameObject.Find("scoreText").GetComponent<Text>();
+        this.myMultiBadge = GameObject.Find("multiplierBadge").GetComponent<Image>();
+        this.myMultiText = GameObject.Find("scoreMultiplier").GetComponent<Text>();
         this.mySpicyIcon = GameObject.Find("spicyIcon").GetComponent<Image>();
         
         if (mySpicyIcon){
@@ -29,6 +37,9 @@ public class HudScript : MonoBehaviour
         }
 
         this.myPlayer = GameObject.FindObjectOfType<playerScript>();
+
+        this.myPointKeeper = GameObject.FindObjectOfType<pointKeeper>();
+        myPointKeeper.UpdateAction += (value) => {UpdateFromPointKeeper(value);};
 
         myRestartPanel = transform.Find("RestartPanel").GetComponent<Transform>();
         this.myFinalScoreText = myRestartPanel.Find("FinalScoreText").GetComponent<Text>();
@@ -45,9 +56,7 @@ public class HudScript : MonoBehaviour
     void Update()
     {
 
-        //TODO: Use events for this instead of every update!
-        myPointKeeper.text = "Points: " + gm.Points.ToString();
-        //myDebugData.text = "Player Lives:" + myPlayer.ExtraLives;
+        //TODO: Hook to gameover event.
         if (gm.GameOver)
         {
             myRestartPanel.gameObject.SetActive(true);
@@ -60,6 +69,22 @@ public class HudScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
+        }
+    }
+
+    void UpdateFromPointKeeper(int value){
+        myScoreText.text = "Points: " + value.ToString();
+
+        // Show/Hide multiplier badge
+        if (myPointKeeper.pointMultiplier > 1)
+        {
+            myMultiBadge.color = MATCH_GREEN;
+            myMultiText.text = "x" + myPointKeeper.pointMultiplier.ToString();
+        }
+        else
+        {
+            myMultiBadge.color = Color.clear;
+            myMultiText.text = "";
         }
     }
 

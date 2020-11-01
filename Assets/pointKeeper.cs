@@ -9,7 +9,7 @@ public class pointKeeper : MonoBehaviour
     const int MATCHES_FOR_MULTIPLER_BONUS = 4;
     const float PITCH_INCREASE_RATE = 0.5f;
 
-    private int pointMultiplyer = 1;
+    public int pointMultiplier = 1;
     private int matchCounter = 0;    
     public AudioClip MatchNoise;
     public AudioClip ResetNoise;
@@ -17,6 +17,8 @@ public class pointKeeper : MonoBehaviour
     private AudioSource audSource;
     private Canvas canv;
     public GameObject TextDescriptor;
+
+    public event System.Action<int> UpdateAction;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,22 +27,17 @@ public class pointKeeper : MonoBehaviour
         canv = GameObject.Find("ItemsDescriptionCanvas").GetComponent<Canvas>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     internal void IncreasePoints(int baseValue)
     {
-        gameManager.Instance.IncreasePoints(baseValue * this.pointMultiplyer);
+        gameManager.Instance.IncreasePoints(baseValue * this.pointMultiplier);
+        UpdateAction.Invoke(gameManager.Instance.Points);
     }
     
     internal void IncreaseMatchCounter()
     {
         // TODO: Show mult bonus in game
         this.matchCounter += 1;
-        this.pointMultiplyer = Math.Max((matchCounter / MATCHES_FOR_MULTIPLER_BONUS) + 1, 1);
+        this.pointMultiplier = Math.Max((matchCounter / MATCHES_FOR_MULTIPLER_BONUS) + 1, 1);
 
         if (this.GetMatchDescription() != "" && canv != null){
             Vector3 descPosition = new Vector3(System.Math.Max(System.Math.Min(this.transform.position.x, 1.8f),-1.8f), this.transform.position.y, this.transform.position.z);
@@ -51,11 +48,13 @@ public class pointKeeper : MonoBehaviour
 
         Debug.Log("MATCH BONUS:");
         Debug.Log(this.matchCounter);
-        Debug.Log(this.pointMultiplyer);
+        Debug.Log(this.pointMultiplier);
 
         // As the match count goes up, the sound gets higher! BA-DING!
         audSource.pitch = 1 + PITCH_INCREASE_RATE * (float)matchCounter / (float)MATCHES_FOR_MULTIPLER_BONUS;
         audSource.PlayOneShot(this.MatchNoise);
+
+        UpdateAction.Invoke(gameManager.Instance.Points);
     }
 
     private string GetMatchDescription()
@@ -67,7 +66,7 @@ public class pointKeeper : MonoBehaviour
         }else if (matchCounter == 3){
             return "Triple Match!";
         }else if (matchCounter > 3 && matchCounter % MATCHES_FOR_MULTIPLER_BONUS == 0){
-            return "Match Bonus X" + pointMultiplyer;
+            return "Match Bonus X" + pointMultiplier;
         }else {
             return "";
         }
@@ -77,9 +76,10 @@ public class pointKeeper : MonoBehaviour
     internal void ResetMatchMultiplier()
     {
         // TODO: Indication of lost of multiplyer
-        if (this.matchCounter > 0 && this.pointMultiplyer > 1)
+        if (this.matchCounter > 0 && this.pointMultiplier > 1)
         {
             //Multiplier lost...
+            audSource.pitch = 1;
             audSource.PlayOneShot(this.ResetNoise);
             if (canv != null)
             {
@@ -91,12 +91,9 @@ public class pointKeeper : MonoBehaviour
         }
 
         this.matchCounter = 0;
-        this.pointMultiplyer = Math.Max(matchCounter / MATCHES_FOR_MULTIPLER_BONUS, 1);
-        Debug.Log("LOST MATCH BONUS:");
-        Debug.Log(this.matchCounter);
-        Debug.Log(this.pointMultiplyer);
+        this.pointMultiplier = 1;
 
-        audSource.pitch = 1;
+        UpdateAction.Invoke(gameManager.Instance.Points);
 
     }
 }
