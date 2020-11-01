@@ -65,7 +65,7 @@ public class pointKeeper : MonoBehaviour
             return "Double Match!";
         }else if (matchCounter == 3){
             return "Triple Match!";
-        }else if (matchCounter > 3 && matchCounter % MATCHES_FOR_MULTIPLER_BONUS == 0){
+        }else if (matchCounter > 3){
             return "Match Bonus X" + pointMultiplier;
         }else {
             return "";
