@@ -4733,7 +4733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926938495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.017041225, y: -1.043284, z: 77722.17}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4753,6 +4753,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MatchNoise: {fileID: 8300000, guid: 8de644b89c8ddde4f937f2fec4aebc82, type: 3}
   ResetNoise: {fileID: 8300000, guid: 3fdf731085884454196a13e940c43240, type: 3}
+  TextDescriptor: {fileID: 3743153769040199516, guid: 99ee9b3c29ea4d042b2be895cb536239,
+    type: 3}
 --- !u!1 &1948214879
 GameObject:
   m_ObjectHideFlags: 0

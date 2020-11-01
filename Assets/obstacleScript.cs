@@ -28,6 +28,9 @@ public class obstacleScript : fallingObject
                     }
                     playerHitScript.ExtraLives -= 1;
                     GetKilled();
+                    
+                    myPointKeeper.ResetMatchMultiplier();
+ 
                 }
 
                 else if (!playerHitScript.invincible)
@@ -35,7 +38,6 @@ public class obstacleScript : fallingObject
                     playerHitScript.GetKilled();
                 }
 
-                myPointKeeper.ResetMatchMultiplier();
             }
         }
         else if(col.tag == "EnemyManager"){
