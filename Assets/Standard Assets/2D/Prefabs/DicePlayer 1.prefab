@@ -120,6 +120,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 01eae7841d150804e927e7bfa001de5a, type: 3}
   - {fileID: 8300000, guid: 7a572b3c3de4fe24687e8fdc66cfd637, type: 3}
   - {fileID: 8300000, guid: dca6c12551e55434b9fbed921808b7c5, type: 3}
+  MatchNoise: {fileID: 8300000, guid: 8de644b89c8ddde4f937f2fec4aebc82, type: 3}
   DeathParticles: {fileID: 779355819246580964, guid: 89cb2059e3aed734ab5c8478b9602aa6,
     type: 3}
   SideParticles: {fileID: 9047544034105442954, guid: 18ddbc7e8658ff448a985a854234308c,

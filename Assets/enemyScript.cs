@@ -61,11 +61,20 @@ public class enemyScript : fallingObject
 
                 if (playerHitScript.Value >= this.currFace.Value && !playerHitScript.IsVulnerable)
                 {
-                    gm.IncreasePoints(1);
-
+                    if (playerHitScript.Value == this.currFace.Value)
+                    {
+                        playerHitScript.GetPoints(1);
+                        playerHitScript.IncreaseMatchCounter();
+                    }
+                    else
+                    {
+                        playerHitScript.ResetMatchMultiplier();
+                        playerHitScript.GetPoints(1);
+                    }
+                    
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.DecrementValue();
-                    GetKilled();
+                    this.GetKilled();
                 }
 
 
@@ -79,15 +88,18 @@ public class enemyScript : fallingObject
                     }
 
                     playerHitScript.ExtraLives -= 1;
-                    gm.IncreasePoints(1);
+                    playerHitScript.GetPoints(1);
+                    playerHitScript.ResetMatchMultiplier();
                     GetKilled();
                 }
                 else if(playerHitScript.invincible){
-                    gm.IncreasePoints(1);
+                    playerHitScript.GetPoints(1);
+                    playerHitScript.ResetMatchMultiplier();
                 }
                 else if (!playerHitScript.invincible)
                 {
                     playerHitScript.GetKilled();
+                    playerHitScript.ResetMatchMultiplier();
                 }
             }
         }

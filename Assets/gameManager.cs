@@ -50,6 +50,7 @@ public class gameManager
 
     public void IncreasePoints(int value){
         this.Points += value;
+
         if (Points > HighScore){
             HighScore = Points;
         }

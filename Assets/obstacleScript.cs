@@ -33,6 +33,8 @@ public class obstacleScript : fallingObject
                 {
                     playerHitScript.GetKilled();
                 }
+
+                playerHitScript.ResetMatchMultiplier();
             }
         }
         else if(col.tag == "EnemyManager"){
