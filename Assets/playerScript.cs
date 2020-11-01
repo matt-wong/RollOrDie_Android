@@ -6,8 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class playerScript : MonoBehaviour
 {
-    const int MATCHES_FOR_MULTIPLER_BONUS = 3;
-
     private int myValue = 0;
 
     private bool myIsVulnerable = true;
@@ -31,11 +29,9 @@ public class playerScript : MonoBehaviour
     public AudioClip[] DiceLandNoises;
     public AudioClip[] DeathNoises;
     public AudioClip[] TeleportNoises;
-    public AudioClip MatchNoise;
+    
     public ParticleSystem DeathParticles;
     public ParticleSystem SideParticles;
-    private int pointMultiplyer = 1;
-    private int matchCounter = 0;
 
     public event System.Action<int> NewValueAction;
     public event System.Action<bool> GotUpgradeAction;
@@ -99,26 +95,6 @@ public class playerScript : MonoBehaviour
         spriteRend.sprite = this.currFace.sprite;
     }
 
-    internal void IncreaseMatchCounter()
-    {
-        // TODO: Show mult bonus in game
-        this.matchCounter += 1;
-        this.pointMultiplyer = Math.Max((matchCounter / MATCHES_FOR_MULTIPLER_BONUS) + 1, 1);
-        Debug.Log("MATCH BONUS:");
-        Debug.Log(this.matchCounter);
-        Debug.Log(this.pointMultiplyer);
-        AudioSource.PlayClipAtPoint(this.MatchNoise, this.transform.position);
-    }
-
-    internal void ResetMatchMultiplier(){
-        // TODO: Indication of lost of multiplyer
-        this.matchCounter = 0;
-        this.pointMultiplyer = Math.Max(matchCounter / MATCHES_FOR_MULTIPLER_BONUS, 1);
-        Debug.Log("LOST MATCH BONUS:");
-        Debug.Log(this.matchCounter);
-        Debug.Log(this.pointMultiplyer);
-    }
-
     // Update is called once per frame
     void HandleTouch(Vector3 vector3)
     {
@@ -147,12 +123,6 @@ public class playerScript : MonoBehaviour
         }
 
     }
-
-    internal void GetPoints(int baseValue)
-    {
-        gameManager.Instance.IncreasePoints(baseValue * this.pointMultiplyer);
-    }
-
 
 
     void moveRight()

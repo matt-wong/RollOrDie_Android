@@ -8,7 +8,8 @@ public class obstacleScript : fallingObject
 {
 
     public ParticleSystem DeathParticles;
-    
+    private pointKeeper myPointKeeper;
+
     void OnTriggerEnter2D(Collider2D col)
     {
 
@@ -34,7 +35,7 @@ public class obstacleScript : fallingObject
                     playerHitScript.GetKilled();
                 }
 
-                playerHitScript.ResetMatchMultiplier();
+                myPointKeeper.ResetMatchMultiplier();
             }
         }
         else if(col.tag == "EnemyManager"){
@@ -43,14 +44,17 @@ public class obstacleScript : fallingObject
         }
     }
 
-    void Awake(){
+    void Awake()
+    {
         Animator animator = GetComponent<Animator>();
         animator.Play("ObstacleAnim", -1, UnityEngine.Random.Range(0f, 1f));
 
-         SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
         //Stagger the sortingOrder so touching obstacles don't flicker
-         spriteRend.sortingOrder = UnityEngine.Random.Range(0, 100);
-     }
+        spriteRend.sortingOrder = UnityEngine.Random.Range(0, 100);
+
+        myPointKeeper = GameObject.FindObjectOfType<pointKeeper>();
+    }
 
     private void GetKilled()
     {

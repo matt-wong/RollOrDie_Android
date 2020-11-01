@@ -22,6 +22,7 @@ public class enemyScript : fallingObject
     private bool myIsDisabled = false;
 
     private SpriteRenderer mySpriteRenderer;
+    private pointKeeper myPointKeeper;
 
     public int Value() { return this.currFace.Value;}
 
@@ -38,6 +39,8 @@ public class enemyScript : fallingObject
 
         Animator animator = GetComponent<Animator>();
         animator.Play("DiceEnemy" + this.currFace.Value.ToString(), -1, Random.Range(0f, 1f));
+
+        myPointKeeper = GameObject.FindObjectOfType<pointKeeper>();
      }
 
     public void SetAsUnbeatable(){
@@ -63,15 +66,15 @@ public class enemyScript : fallingObject
                 {
                     if (playerHitScript.Value == this.currFace.Value)
                     {
-                        playerHitScript.GetPoints(1);
-                        playerHitScript.IncreaseMatchCounter();
+                        myPointKeeper.IncreasePoints(1);
+                        myPointKeeper.IncreaseMatchCounter();
                     }
                     else
                     {
-                        playerHitScript.ResetMatchMultiplier();
-                        playerHitScript.GetPoints(1);
+                        myPointKeeper.ResetMatchMultiplier();
+                        myPointKeeper.IncreasePoints(1);
                     }
-                    
+
                     //Decrease the players HP so they cannot stay still all day
                     playerHitScript.DecrementValue();
                     this.GetKilled();
@@ -88,18 +91,18 @@ public class enemyScript : fallingObject
                     }
 
                     playerHitScript.ExtraLives -= 1;
-                    playerHitScript.GetPoints(1);
-                    playerHitScript.ResetMatchMultiplier();
+                    myPointKeeper.IncreasePoints(1);
+                    myPointKeeper.ResetMatchMultiplier();
                     GetKilled();
                 }
                 else if(playerHitScript.invincible){
-                    playerHitScript.GetPoints(1);
-                    playerHitScript.ResetMatchMultiplier();
+                    myPointKeeper.IncreasePoints(1);
+                    myPointKeeper.ResetMatchMultiplier();
                 }
                 else if (!playerHitScript.invincible)
                 {
                     playerHitScript.GetKilled();
-                    playerHitScript.ResetMatchMultiplier();
+                    myPointKeeper.ResetMatchMultiplier();
                 }
             }
         }

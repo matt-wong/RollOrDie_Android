@@ -34,7 +34,8 @@ public class clearItem : itemMovement
     protected override void TouchedPlayer(Collider2D col)
     {
 
-        gameManager.Instance.IncreasePoints(2);
+        pointKeeper pointKeeper = GameObject.FindObjectOfType<pointKeeper>();
+        pointKeeper.IncreasePoints(2);
  
         if (myEnemyManager.waitForClearReset){
             if (!this.needsToResetTime){
