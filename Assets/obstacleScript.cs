@@ -50,6 +50,7 @@ public class obstacleScript : fallingObject
     {
         Animator animator = GetComponent<Animator>();
         animator.Play("ObstacleAnim", -1, UnityEngine.Random.Range(0f, 1f));
+        animator.speed = 0.5f;
 
         SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
         //Stagger the sortingOrder so touching obstacles don't flicker
