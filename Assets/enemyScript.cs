@@ -19,10 +19,13 @@ public class enemyScript : fallingObject
 
     public event System.Action DiedAction;
 
-    private bool myIsDisabled = false;
+    public bool IsDisabled = false;
 
     private SpriteRenderer mySpriteRenderer;
+    private SpriteRenderer myMatchGlowRenderer;
     private pointKeeper myPointKeeper;
+
+    private Color MATCH_GLOW_COLOR = new Color(0.3019608f, 0.8588235f, 0.4588235f, 1); 
 
     public int Value() { return this.currFace.Value;}
 
@@ -36,6 +39,11 @@ public class enemyScript : fallingObject
         this.currFace = this.faces[Random.Range(0,6)];
         this.mySpriteRenderer = GetComponent<SpriteRenderer>();
         mySpriteRenderer.sprite = this.currFace.sprite;
+
+        Transform matchIndicator = transform.Find("MatchGlow");
+        if (matchIndicator){
+            myMatchGlowRenderer = matchIndicator.GetComponent<SpriteRenderer>();
+        }
 
         Animator animator = GetComponent<Animator>();
         animator.Play("DiceEnemy" + this.currFace.Value.ToString(), -1, Random.Range(0f, 1f));
@@ -56,7 +64,7 @@ public class enemyScript : fallingObject
     void OnTriggerEnter2D(Collider2D col)
     {
 
-        if (col.tag == "Player" && !myIsDisabled)
+        if (col.tag == "Player" && !IsDisabled)
         {
             if (!col.gameObject.GetComponent(typeof(playerScript)).Equals(null))
             {
@@ -76,8 +84,8 @@ public class enemyScript : fallingObject
                     }
 
                     //Decrease the players HP so they cannot stay still all day
-                    playerHitScript.DecrementValue();
                     this.GetKilled();
+                    playerHitScript.DecrementValue();
                 }
 
 
@@ -111,13 +119,17 @@ public class enemyScript : fallingObject
         }
     }
 
-    internal void CheckColor(int playerValue)
+    internal void CheckColor(int playerValue, bool doMatchHint = false)
     {
         if (mySpriteRenderer == null){ return;}
 
         if (this.currFace.Value > playerValue){
             this.mySpriteRenderer.color = new Color(1f,0.1f,0.2f); //Light Red
         }else{
+            if (doMatchHint && this.currFace.Value == playerValue && this.speed > 0){
+                // Flash match indicator
+                myMatchGlowRenderer.color = MATCH_GLOW_COLOR;
+            }
             this.mySpriteRenderer.color = new Color(1f,1f,1f);
         }
     }
@@ -151,14 +163,15 @@ public class enemyScript : fallingObject
 
     internal void Disable()
     {
-        myIsDisabled = true;
+        IsDisabled = true;
     }
 
     new void Update(){
         base.Update();
-        if (myIsDisabled){
+        if (IsDisabled){
             // Fade away...
-            mySpriteRenderer.color = new Color(mySpriteRenderer.color.r, mySpriteRenderer.color.g, mySpriteRenderer.color.b, mySpriteRenderer.color.a - (Time.deltaTime * 3));
+            mySpriteRenderer.color = new Color(mySpriteRenderer.color.r, mySpriteRenderer.color.g, mySpriteRenderer.color.b, mySpriteRenderer.color.a - (Time.deltaTime * 5));
         }
+        myMatchGlowRenderer.color = new Color(myMatchGlowRenderer.color.r, myMatchGlowRenderer.color.g, myMatchGlowRenderer.color.b, myMatchGlowRenderer.color.a - (Time.deltaTime * 3));
     }
 }
