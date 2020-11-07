@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class stageManager : MonoBehaviour
 {
     public event System.Action<Stage> NewStageAction; 
+    public const int LAST_SECTION_START_INDEX = 160;
 
     private AudioSource myAudSource;
 

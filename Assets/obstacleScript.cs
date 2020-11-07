@@ -49,14 +49,24 @@ public class obstacleScript : fallingObject
     void Awake()
     {
         Animator animator = GetComponent<Animator>();
-        animator.Play("ObstacleAnim", -1, UnityEngine.Random.Range(0f, 1f));
-        animator.speed = 0.5f;
+        if (gameManager.Instance.Points < stageManager.LAST_SECTION_START_INDEX)
+        { // Normal - do not spin
+            animator.Play("ObstacleAnim", -1, UnityEngine.Random.Range(0f, 1f));
+            animator.speed = 0.5f;
+        }
+        else
+        { // Its Geting CRaZY - spin away boys!
+            animator.Play("ObstacleSpinAnim", -1, UnityEngine.Random.Range(0f, 1f));
+            animator.speed = 1f;
+        }
+
 
         SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
         //Stagger the sortingOrder so touching obstacles don't flicker
         spriteRend.sortingOrder = UnityEngine.Random.Range(0, 100);
 
         myPointKeeper = GameObject.FindObjectOfType<pointKeeper>();
+
     }
 
     private void GetKilled()
