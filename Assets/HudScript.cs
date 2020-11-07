@@ -9,6 +9,8 @@ public class HudScript : MonoBehaviour
     Text myScoreText;
     Image myMultiBadge;
     Text myMultiText;
+
+    Image[] myMultiProgess;
     Image mySpicyIcon;
     Text myFinalScoreText;
     Text myHighScoreText;
@@ -30,7 +32,15 @@ public class HudScript : MonoBehaviour
         this.myScoreText = GameObject.Find("scoreText").GetComponent<Text>();
         this.myMultiBadge = GameObject.Find("multiplierBadge").GetComponent<Image>();
         this.myMultiText = GameObject.Find("scoreMultiplier").GetComponent<Text>();
+
+        this.myMultiProgess = new Image[3];
+        this.myMultiProgess[0] = GameObject.Find("MultiplierProgress_0").GetComponent<Image>();
+        this.myMultiProgess[1] = GameObject.Find("MultiplierProgress_1").GetComponent<Image>();
+        this.myMultiProgess[2] = GameObject.Find("MultiplierProgress_2").GetComponent<Image>();
+
         this.mySpicyIcon = GameObject.Find("spicyIcon").GetComponent<Image>();
+
+        
         
         if (mySpicyIcon){
             this.mySpicyIcon.color = gm.difficulty == eDifficulty.spicy ? Color.white : Color.clear;
@@ -76,15 +86,26 @@ public class HudScript : MonoBehaviour
         myScoreText.text = "Points: " + value.ToString();
 
         // Show/Hide multiplier badge
-        if (myPointKeeper.pointMultiplier > 1)
+        if (myPointKeeper.PointMultiplier > 1)
         {
             myMultiBadge.color = MATCH_GREEN;
-            myMultiText.text = "x" + myPointKeeper.pointMultiplier.ToString();
+            myMultiText.text = "x" + myPointKeeper.PointMultiplier.ToString();
         }
         else
         {
             myMultiBadge.color = Color.clear;
             myMultiText.text = "";
+        }
+
+        int progressBarsVisible = myPointKeeper.MatchCounter % pointKeeper.MATCHES_FOR_MULTIPLER_BONUS;
+        foreach(Image img in myMultiProgess){
+            img.color = Color.clear;
+        }
+
+        for (int i= 0; i < progressBarsVisible; i ++){
+            if (!!myMultiProgess[i]){
+                myMultiProgess[i].color = Color.red;
+            }
         }
     }
 
