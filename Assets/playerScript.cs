@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class playerScript : MonoBehaviour
 {
-
     private int myValue = 0;
 
     private bool myIsVulnerable = true;
@@ -30,6 +29,7 @@ public class playerScript : MonoBehaviour
     public AudioClip[] DiceLandNoises;
     public AudioClip[] DeathNoises;
     public AudioClip[] TeleportNoises;
+    
     public ParticleSystem DeathParticles;
     public ParticleSystem SideParticles;
 
@@ -123,6 +123,7 @@ public class playerScript : MonoBehaviour
         }
 
     }
+
 
     void moveRight()
     {

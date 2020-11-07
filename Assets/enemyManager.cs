@@ -9,8 +9,10 @@ public class enemyManager : MonoBehaviour
 
     float lastSpawnTime = 0;
     public bool waitForClearReset = false;
+
     stageManager stageManager;
     itemManager itemManager;
+    pointKeeper pointKeeper;
 
     List<enemyScript> myQueuedEnemies = new List<enemyScript>();
     List<enemyScript> myCurrentEnemies = new List<enemyScript>();
@@ -37,6 +39,7 @@ public class enemyManager : MonoBehaviour
         }
 
         this.itemManager = FindObjectOfType<itemManager>();
+        this.pointKeeper = FindObjectOfType<pointKeeper>();
         this.myPlayerScript = FindObjectOfType<playerScript>();
         this.myPlayerScript.NewValueAction += (value) => {this.UpdateEnemyColors(value);};
 
@@ -53,7 +56,9 @@ public class enemyManager : MonoBehaviour
         }
 
         foreach (enemyScript es in myCurrentEnemies){
-            es.CheckColor(value);
+            if (!es.IsDisabled){
+                es.CheckColor(value, pointKeeper.PointMultiplier > 1);
+            }
         }
 
     }
@@ -67,8 +72,8 @@ public class enemyManager : MonoBehaviour
         {
             GameObject newEnemy = Instantiate(myEnemyPrefab, new Vector3(i, 7, 0), Quaternion.identity);
             enemyScript enemyScript1 = newEnemy.GetComponentInChildren<enemyScript>();
-            enemyScript1.CheckColor(myPlayerScript.Value);
             enemyScript1.speed = 0f;
+            enemyScript1.CheckColor(myPlayerScript.Value);
             myQueuedEnemies.Add(enemyScript1);
         }
 

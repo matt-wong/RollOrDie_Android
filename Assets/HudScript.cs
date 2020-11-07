@@ -5,30 +5,52 @@ using UnityEngine.UI;
 
 public class HudScript : MonoBehaviour
 {
+    private Color PROGRESS_BAR_COLOR = new Color(0.3019608f, 0.8588235f, 0.4588235f, 1); 
 
-    Text myPointKeeper;
+    Text myScoreText;
+    Image myMultiBadge;
+    Text myMultiText;
+
+    Image[] myMultiProgess;
     Image mySpicyIcon;
     Text myFinalScoreText;
     Text myHighScoreText;
-    playerScript myPlayer;
+
     Transform myRestartPanel;
     Transform myPausePanel;
     Transform myPauseButton;
+    
+    pointKeeper myPointKeeper;
+    playerScript myPlayer;
     gameManager gm;
 
+    private static Color MATCH_GREEN = new Color(0.756f, 0.921f, 0.8f);
     // Start is called before the first frame update
     void Start()
     {
         gm = gameManager.Instance;
 
-        this.myPointKeeper = GameObject.Find("scoreText").GetComponent<Text>();
+        this.myScoreText = GameObject.Find("scoreText").GetComponent<Text>();
+        this.myMultiBadge = GameObject.Find("multiplierBadge").GetComponent<Image>();
+        this.myMultiText = GameObject.Find("scoreMultiplier").GetComponent<Text>();
+
+        this.myMultiProgess = new Image[3];
+        this.myMultiProgess[0] = GameObject.Find("MultiplierProgress_0").GetComponent<Image>();
+        this.myMultiProgess[1] = GameObject.Find("MultiplierProgress_1").GetComponent<Image>();
+        this.myMultiProgess[2] = GameObject.Find("MultiplierProgress_2").GetComponent<Image>();
+
         this.mySpicyIcon = GameObject.Find("spicyIcon").GetComponent<Image>();
+
+        
         
         if (mySpicyIcon){
             this.mySpicyIcon.color = gm.difficulty == eDifficulty.spicy ? Color.white : Color.clear;
         }
 
         this.myPlayer = GameObject.FindObjectOfType<playerScript>();
+
+        this.myPointKeeper = GameObject.FindObjectOfType<pointKeeper>();
+        myPointKeeper.UpdateAction += (value) => {UpdateFromPointKeeper(value);};
 
         myRestartPanel = transform.Find("RestartPanel").GetComponent<Transform>();
         this.myFinalScoreText = myRestartPanel.Find("FinalScoreText").GetComponent<Text>();
@@ -45,9 +67,7 @@ public class HudScript : MonoBehaviour
     void Update()
     {
 
-        //TODO: Use events for this instead of every update!
-        myPointKeeper.text = "Points: " + gm.Points.ToString();
-        //myDebugData.text = "Player Lives:" + myPlayer.ExtraLives;
+        //TODO: Hook to gameover event.
         if (gm.GameOver)
         {
             myRestartPanel.gameObject.SetActive(true);
@@ -60,6 +80,33 @@ public class HudScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
+        }
+    }
+
+    void UpdateFromPointKeeper(int value){
+        myScoreText.text = "Points: " + value.ToString();
+
+        // Show/Hide multiplier badge
+        if (myPointKeeper.PointMultiplier > 1)
+        {
+            myMultiBadge.color = MATCH_GREEN;
+            myMultiText.text = "x" + myPointKeeper.PointMultiplier.ToString();
+        }
+        else
+        {
+            myMultiBadge.color = Color.clear;
+            myMultiText.text = "";
+        }
+
+        int progressBarsVisible = myPointKeeper.MatchCounter % pointKeeper.MATCHES_FOR_MULTIPLER_BONUS;
+        foreach(Image img in myMultiProgess){
+            img.color = Color.clear;
+        }
+
+        for (int i= 0; i < progressBarsVisible; i ++){
+            if (!!myMultiProgess[i]){
+                myMultiProgess[i].color = PROGRESS_BAR_COLOR;
+            }
         }
     }
 
