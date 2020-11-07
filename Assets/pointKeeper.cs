@@ -8,7 +8,7 @@ public class pointKeeper : MonoBehaviour
 {
     public const int MATCHES_FOR_MULTIPLER_BONUS = 4;
     const float PITCH_INCREASE_RATE = 0.5f;
-
+    const int MAX_MULTIPLIER = 5;
     public int PointMultiplier = 1;
     public int MatchCounter = 0;    
     public AudioClip MatchNoise;
@@ -35,8 +35,8 @@ public class pointKeeper : MonoBehaviour
     
     internal void IncreaseMatchCounter()
     {
-        // TODO: Show mult bonus in game
-        this.MatchCounter += 1;
+        // Multiplier only goes up to 5x
+        this.MatchCounter = Math.Min(this.MatchCounter + 1, (MAX_MULTIPLIER - 1) * MATCHES_FOR_MULTIPLER_BONUS);
         this.PointMultiplier = Math.Max((MatchCounter / MATCHES_FOR_MULTIPLER_BONUS) + 1, 1);
 
         if (this.GetMatchDescription() != "" && canv != null){
