@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HudScript : MonoBehaviour
 {
+    private Color PROGRESS_BAR_COLOR = new Color(0.3019608f, 0.8588235f, 0.4588235f, 1); 
 
     Text myScoreText;
     Image myMultiBadge;
@@ -104,7 +105,7 @@ public class HudScript : MonoBehaviour
 
         for (int i= 0; i < progressBarsVisible; i ++){
             if (!!myMultiProgess[i]){
-                myMultiProgess[i].color = Color.red;
+                myMultiProgess[i].color = PROGRESS_BAR_COLOR;
             }
         }
     }
