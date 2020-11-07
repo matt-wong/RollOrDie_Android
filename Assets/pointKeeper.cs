@@ -81,17 +81,18 @@ public class pointKeeper : MonoBehaviour
             // Multiplier lost...
             audSource.pitch = 1;
             audSource.PlayOneShot(this.ResetNoise);
-            if (canv != null)
-            {
-                Vector3 descPosition = new Vector3(System.Math.Max(System.Math.Min(this.transform.position.x, 1.8f), -1.8f), this.transform.position.y, this.transform.position.z);
-                GameObject newItemDesc = Instantiate(this.TextDescriptor, descPosition, Quaternion.identity, canv.transform);
-                TextMeshProUGUI text = newItemDesc.GetComponent<TextMeshProUGUI>();
-                text.text = "Match Bonus Lost :(";
-            }
         }
 
         this.PointMultiplier = Math.Max(this.PointMultiplier - 1, 1);
         this.MatchCounter = MATCHES_FOR_MULTIPLER_BONUS * (this.PointMultiplier - 1);
+
+        if (canv != null && this.PointMultiplier > 1) // Don't bother showing anything if the multipiler was reduce to 1
+        {
+            Vector3 descPosition = new Vector3(System.Math.Max(System.Math.Min(this.transform.position.x, 1.8f), -1.8f), this.transform.position.y, this.transform.position.z);
+            GameObject newItemDesc = Instantiate(this.TextDescriptor, descPosition, Quaternion.identity, canv.transform);
+            TextMeshProUGUI text = newItemDesc.GetComponent<TextMeshProUGUI>();
+            text.text = "Match Bonus X" + PointMultiplier; ;
+        }
 
         UpdateAction.Invoke(gameManager.Instance.Points);
 
