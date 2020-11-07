@@ -71,7 +71,7 @@ public class enemyScript : fallingObject
                     }
                     else
                     {
-                        myPointKeeper.ResetMatchMultiplier();
+                        myPointKeeper.DecreaseMatchMultiplier();
                         myPointKeeper.IncreasePoints(1);
                     }
 
@@ -92,12 +92,12 @@ public class enemyScript : fallingObject
 
                     playerHitScript.ExtraLives -= 1;
                     myPointKeeper.IncreasePoints(1);
-                    myPointKeeper.ResetMatchMultiplier();
+                    myPointKeeper.DecreaseMatchMultiplier();
                     GetKilled();
                 }
                 else if(playerHitScript.invincible){
                     myPointKeeper.IncreasePoints(1);
-                    myPointKeeper.ResetMatchMultiplier();
+                    myPointKeeper.DecreaseMatchMultiplier();
                 }
                 else if (!playerHitScript.invincible)
                 {

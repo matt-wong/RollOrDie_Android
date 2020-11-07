@@ -29,7 +29,7 @@ public class obstacleScript : fallingObject
                     playerHitScript.ExtraLives -= 1;
                     GetKilled();
                     
-                    myPointKeeper.ResetMatchMultiplier();
+                    myPointKeeper.DecreaseMatchMultiplier();
  
                 }
 

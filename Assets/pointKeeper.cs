@@ -73,12 +73,12 @@ public class pointKeeper : MonoBehaviour
 
     }
 
-    internal void ResetMatchMultiplier()
+    internal void DecreaseMatchMultiplier()
     {
-        // TODO: Indication of lost of multiplyer
+        // Indication of lost of multiplier
         if (this.MatchCounter > 0 && this.PointMultiplier > 1)
         {
-            //Multiplier lost...
+            // Multiplier lost...
             audSource.pitch = 1;
             audSource.PlayOneShot(this.ResetNoise);
             if (canv != null)
@@ -90,8 +90,8 @@ public class pointKeeper : MonoBehaviour
             }
         }
 
-        this.MatchCounter = 0;
-        this.PointMultiplier = 1;
+        this.PointMultiplier = Math.Max(this.PointMultiplier - 1, 1);
+        this.MatchCounter = MATCHES_FOR_MULTIPLER_BONUS * (this.PointMultiplier - 1);
 
         UpdateAction.Invoke(gameManager.Instance.Points);
 
