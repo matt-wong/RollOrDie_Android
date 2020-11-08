@@ -29,14 +29,47 @@ public class itemManager : MonoBehaviour
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(40,60)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(60,80)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(80,100)});
-        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(100,120)});
+
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(100,110)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(110,120)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(120,130)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(130,140)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(140,150)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(150,160)});
+
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(150,165)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(150,165)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(160,165)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(160,165)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(170,175)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(170,175)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(180,185)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(180,185)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(190,195)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(190,195)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(200,205)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(200,205)});
+
 
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(11,20)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(20,40)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(40,60)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(60,80)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(80,100)});
-        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(100,120)});
+        
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(100,110)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(110,120)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(120,130)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(130,140)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(140,150)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(150,160)});
+
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(150,165)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(160,165)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(170,175)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(180,185)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(190,195)});
+        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(200,205)});
     }
 
     public void SpawnItemsForRow(int rowNumber){
