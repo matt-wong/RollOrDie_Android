@@ -70,7 +70,12 @@ public class enemyScript : fallingObject
             {
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
-                if (playerHitScript.Value >= this.currFace.Value && !playerHitScript.IsVulnerable)
+                if (playerHitScript.Invincible)
+                {
+                    myPointKeeper.IncreasePoints(1);
+                    this.GetKilled();
+                }
+                else if (playerHitScript.Value >= this.currFace.Value && !playerHitScript.IsVulnerable)
                 {
                     if (playerHitScript.Value == this.currFace.Value)
                     {
@@ -88,26 +93,23 @@ public class enemyScript : fallingObject
                     playerHitScript.DecrementValue();
                 }
 
-
                 else if (playerHitScript.ExtraLives > 0)
                 {
 
                     //Player collected a heart make this enemy die now
                     var effects = GameObject.FindObjectOfType<EffectsMaker>();
-                    if (effects){
+                    if (effects)
+                    {
                         effects.HeartEffect(this.transform.position);
                     }
 
-                    playerHitScript.ExtraLives -= 1;
+                    playerHitScript.TakeDamage();
                     myPointKeeper.IncreasePoints(1);
                     myPointKeeper.DecreaseMatchMultiplier();
                     GetKilled();
                 }
-                else if(playerHitScript.invincible){
-                    myPointKeeper.IncreasePoints(1);
-                    myPointKeeper.DecreaseMatchMultiplier();
-                }
-                else if (!playerHitScript.invincible)
+
+                else
                 {
                     playerHitScript.GetKilled();
                 }

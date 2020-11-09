@@ -19,22 +19,26 @@ public class obstacleScript : fallingObject
             {
                 playerScript playerHitScript = (playerScript)col.gameObject.GetComponent(typeof(playerScript));
 
-                if (playerHitScript.ExtraLives > 0)
+                if (playerHitScript.Invincible){
+                    GetKilled();
+                    return;
+                }
+
+                else if (playerHitScript.ExtraLives > 0)
                 {
                     //Player collected a heart make this enemy die now
                     var effects = GameObject.FindObjectOfType<EffectsMaker>();
                     if (effects){
                         effects.HeartEffect(this.transform.position);
                     }
-                    playerHitScript.ExtraLives -= 1;
+                    playerHitScript.TakeDamage();
                     GetKilled();
                     
                     myPointKeeper.DecreaseMatchMultiplier();
  
                 }
 
-                else if (!playerHitScript.invincible)
-                {
+                else{
                     playerHitScript.GetKilled();
                 }
 

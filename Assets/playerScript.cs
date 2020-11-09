@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Animator))]
 public class playerScript : MonoBehaviour
 {
     private int myValue = 0;
 
-    private bool myIsVulnerable = true;
-    public bool invincible = false;
+    public bool Invincible = false;
     public int ExtraLives = 0;
+
+    private bool myIsVulnerable = true; // Dice is up in the air - "0 value" 
     private bool myHasExtraWeight = false;
-    private bool gotLosingRoll = false;
-    private float lastRollTime;
+    private bool myGotLosingRoll = false;
+    private float myLastRollTime;
 
     private bool myCanWrap = false;
 
@@ -25,6 +27,7 @@ public class playerScript : MonoBehaviour
     private SpriteRenderer spriteRend;
     private Rigidbody2D rb;
     public GameObject dustMaker;
+    public Animator animator;
 
     public AudioClip[] DiceLandNoises;
     public AudioClip[] DeathNoises;
@@ -93,6 +96,8 @@ public class playerScript : MonoBehaviour
         this.myValue = currFace.Value;
         spriteRend = GetComponent<SpriteRenderer>();
         spriteRend.sprite = this.currFace.sprite;
+
+        this.animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -220,8 +225,8 @@ public class playerScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Z))
         {
 
-            this.invincible = !this.invincible;
-            Debug.Log("Player is Invincible: " + this.invincible);
+            this.Invincible = !this.Invincible;
+            Debug.Log("Player is Invincible: " + this.Invincible);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
@@ -256,6 +261,20 @@ public class playerScript : MonoBehaviour
 
     }
 
+    public void TakeDamage(){
+        // Lose a life and start Iframing
+        this.ExtraLives -= 1;
+        this.Invincible = true;
+        this.animator.Play("IFramePlayer");
+
+        Invoke("OutOfIFrames", 1);
+    }
+
+    public void OutOfIFrames(){
+        this.Invincible = false;
+        this.animator.Play("Default");
+    }
+
     public void DecrementValue()
     {
         this.Value -= 1;
@@ -264,13 +283,13 @@ public class playerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Floor" && (Time.fixedTime - lastRollTime > 0.25f || lastRollTime == 0))
+        if (col.tag == "Floor" && (Time.fixedTime - myLastRollTime > 0.25f || myLastRollTime == 0))
         {
 
             AudioSource.PlayClipAtPoint(this.DiceLandNoises[UnityEngine.Random.Range(0, this.DiceLandNoises.Length)], this.transform.position);
 
             this.IsVulnerable = false;
-            lastRollTime = Time.fixedTime;
+            myLastRollTime = Time.fixedTime;
             //Debug.Log("Floor Sound.");
             //Effects
             rb.freezeRotation = true;
@@ -288,10 +307,10 @@ public class playerScript : MonoBehaviour
             //Don't allow player to roll losing roll twice in a row
             int lowerRange = 1;
 
-            if (gotLosingRoll)
+            if (myGotLosingRoll)
             {
                 lowerRange = gameManager.Instance.weakestEnemyHP + 1;
-                gotLosingRoll = false;
+                myGotLosingRoll = false;
             }
             else if (myValue <= 1)
             {
@@ -303,7 +322,7 @@ public class playerScript : MonoBehaviour
             if (this.myValue <= gameManager.Instance.weakestEnemyHP)
             {
                 //take note that we gave them a losing roll
-                gotLosingRoll = true;
+                myGotLosingRoll = true;
             }
 
             this.currFace = faces[this.myValue];
