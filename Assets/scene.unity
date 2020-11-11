@@ -475,7 +475,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.291
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -584,13 +584,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Songs:
-  - {fileID: 8300000, guid: bc011085072856548bdcec9e7e4d46ad, type: 3}
-  - {fileID: 8300000, guid: 843ae5d07990ff748b15b4c40cb698eb, type: 3}
-  - {fileID: 8300000, guid: fc6be85e7736e1d4f97e849748d3a4f8, type: 3}
-  SongLoops:
-  - {fileID: 8300000, guid: 95037fed2202d9b42bf2b9fa9b45505a, type: 3}
-  - {fileID: 8300000, guid: 4a06e818c5e98b449ad001be94b66be7, type: 3}
-  - {fileID: 8300000, guid: 9b284ad23dd7a524c9d6ba7adb24a032, type: 3}
+  - {fileID: 8300000, guid: 0c92cd6f731540f4b95de2dfebfa8ff0, type: 3}
+  - {fileID: 8300000, guid: 8405cf92059442145baf567eb9317182, type: 3}
 --- !u!1 &109889508
 GameObject:
   m_ObjectHideFlags: 0
