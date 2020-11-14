@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class stageManager : MonoBehaviour
 {
     public event System.Action<Stage> NewStageAction; 
+    public event System.Action GameWon; 
     public const int LAST_SECTION_START_INDEX = 160;
 
     private AudioSource myAudSource;
@@ -192,6 +193,7 @@ public class stageManager : MonoBehaviour
             Debug.Log("GAME WAS WOOOOONNN!");
             this.NextStage = null;
             gameManager.Instance.GameWasWon = true;
+            this.GameWon.Invoke();
         }
 
         this.NewStageAction.Invoke(this.CurrentStage);

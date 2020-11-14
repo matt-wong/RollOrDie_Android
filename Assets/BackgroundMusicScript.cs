@@ -8,11 +8,13 @@ public class BackgroundMusicScript : MonoBehaviour
 
     private AudioSource myAudioSource;
     public AudioClip[] Songs;
+    private float myDafaultMusicVol;
 
     // Start is called before the first frame update
     void Start()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
+        myDafaultMusicVol = myAudioSource.volume;
         myAudioSource.clip = Songs[UnityEngine.Random.Range(0,this.Songs.Length)];
         myAudioSource.Play();
 
@@ -20,6 +22,16 @@ public class BackgroundMusicScript : MonoBehaviour
         stageManager stageManager = canvas.GetComponent<stageManager>();
         if (stageManager){
             stageManager.NewStageAction += (value) => {this.AdjustToNewStage(value);};
+            stageManager.GameWon += () => {this.SoftenMusic();};
+        }
+    }
+
+    void Update(){
+        if (myAudioSource.volume < myDafaultMusicVol){
+            Debug.Log("volume");
+            Debug.Log(myAudioSource.volume);
+            myAudioSource.volume += Time.deltaTime * 0.1f;
+            Debug.Log(myAudioSource.volume);
         }
     }
 
@@ -28,5 +40,9 @@ public class BackgroundMusicScript : MonoBehaviour
         if (value.MusicSpeed > 0){ //Was set.
         this.myAudioSource.pitch = value.MusicSpeed;
         }
+    }
+
+    private void SoftenMusic(){
+        myAudioSource.volume = 0;
     }
 }
