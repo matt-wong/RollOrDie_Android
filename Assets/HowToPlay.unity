@@ -312,7 +312,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Use the buttons to move left and right. Hit the "Roll" button to randomly
-    roll you player dice.
+    roll your player dice.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 235528109}
-    characterCount: 95
+    characterCount: 96
     spriteCount: 0
     spaceCount: 17
     wordCount: 18
@@ -446,8 +446,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 158.5, y: -1297}
-  m_SizeDelta: {x: 763.0002, y: 152.9799}
+  m_AnchoredPosition: {x: 158.5, y: -1270.5}
+  m_SizeDelta: {x: 763.00006, y: 82.285355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &616109528
 MonoBehaviour:
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quick roll: faster rolling.'
+  m_text: 'Quick roll: faster rolling'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 616109528}
-    characterCount: 27
+    characterCount: 26
     spriteCount: 0
     spaceCount: 3
     wordCount: 4
@@ -601,7 +601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -343.50006, y: -989.02344}
+  m_AnchoredPosition: {x: -341, y: -1012.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &645722836
@@ -694,7 +694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'How to play:'
+  m_text: How to play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 661258924}
-    characterCount: 12
+    characterCount: 11
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -828,8 +828,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 158.49991, y: -748.9219}
-  m_SizeDelta: {x: 763.0002, y: 152.9799}
+  m_AnchoredPosition: {x: 158.49991, y: -722.42993}
+  m_SizeDelta: {x: 763.0002, y: 72.811554}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786913414
 MonoBehaviour:
@@ -983,7 +983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -350, y: -732.96094}
+  m_AnchoredPosition: {x: -350, y: -722.43}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870649362
@@ -1139,8 +1139,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 162, y: -1039}
-  m_SizeDelta: {x: 763.0002, y: 152.9799}
+  m_AnchoredPosition: {x: 161.76, y: -1012.5}
+  m_SizeDelta: {x: 762.5245, y: 87.206314}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &977670526
 MonoBehaviour:
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Heart: Extra Lives'
+  m_text: 'Heart: extra lives'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1449,8 +1449,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 158.5, y: -1161.5}
-  m_SizeDelta: {x: 763.0002, y: 152.9799}
+  m_AnchoredPosition: {x: 163.51, y: -1135}
+  m_SizeDelta: {x: 766.0223, y: 78.99727}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165400332
 MonoBehaviour:
@@ -2059,7 +2059,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Avoid:'
+  m_text: Avoid
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2128,7 +2128,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1623814898}
-    characterCount: 6
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -2193,7 +2193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -343.50006, y: -1135.0234}
+  m_AnchoredPosition: {x: -343.50006, y: -1135}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1654565132
@@ -2420,8 +2420,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 118.64, y: -1430}
-  m_SizeDelta: {x: 678.27545, y: 152.96992}
+  m_AnchoredPosition: {x: 118.64, y: -1403.5}
+  m_SizeDelta: {x: 678.27313, y: 134.88533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1939278311
 MonoBehaviour:
@@ -2441,7 +2441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Portals: Teleport from one side to the other.'
+  m_text: 'Portals: teleport from one side to the other'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2486,7 +2486,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 27
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2510,7 +2510,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1939278311}
-    characterCount: 45
+    characterCount: 44
     spriteCount: 0
     spaceCount: 7
     wordCount: 8
