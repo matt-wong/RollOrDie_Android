@@ -16,10 +16,10 @@ public class sceneCurtain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (myImage.color.a > 0){
-            this.myImage.color = Color.Lerp( this.myImage.color, Color.clear, Time.deltaTime);
+        if (myImage.color.a > 0.05){
+            this.myImage.color = Color.Lerp( this.myImage.color, Color.clear, Time.deltaTime * 2);
         }else{
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }

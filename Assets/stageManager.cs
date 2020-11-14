@@ -133,8 +133,12 @@ public class stageManager : MonoBehaviour
 
     private void Update(){
         //Fade Stage # text away over time.
-        if (stageText.color.a > 0){
-            stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, stageText.color.a - (Time.deltaTime * 0.5f)); 
+        if (stageText.color.a > 0 ){
+            float fadeRate = 0.5f;
+            if (gameManager.Instance.GameWasWon){
+                fadeRate = 0.2f;
+            }
+            stageText.color = new Color(stageText.color.r, stageText.color.g, stageText.color.b, stageText.color.a - (Time.deltaTime * fadeRate)); 
         }
 
         if(gameManager.Instance.IsPaused){
