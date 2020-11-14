@@ -12,6 +12,7 @@ public class stageManager : MonoBehaviour
     public const int LAST_SECTION_START_INDEX = 160;
 
     private AudioSource myAudSource;
+    public AudioClip myWinNoise;
 
     Stage CurrentStage;
     Stage NextStage;
@@ -157,7 +158,7 @@ public class stageManager : MonoBehaviour
     private void HandleStageChange(int stageNumber)
     {
 
-        if (this.myAudSource && stageNumber != 0){
+        if (this.myAudSource && stageNumber != 0 && stageNumber + 1 < this.Stages.Count){
             this.myAudSource.Play();
         }
 
@@ -179,6 +180,10 @@ public class stageManager : MonoBehaviour
         if (this.Stages.Count > stageNumber + 1){
             this.NextStage = this.Stages[stageNumber + 1];
         }else{ 
+
+            this.myAudSource.clip = myWinNoise;
+            this.myAudSource.Play();
+
             //This was the last Stage - You WIN!
             Debug.Log("GAME WAS WOOOOONNN!");
             this.NextStage = null;

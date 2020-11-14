@@ -1690,6 +1690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c0a08191c99bb43aba6e83de797d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myWinNoise: {fileID: 8300000, guid: 85a344cdeaa6bd548b77763b594ac91b, type: 3}
   CurrentRow: 0
   BlobSprites:
   - {fileID: 21300000, guid: faedff610c302df4b97af1e0ea1c2b85, type: 3}
