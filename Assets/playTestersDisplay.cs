@@ -13,7 +13,7 @@ public class playTestersDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myText = Transform.FindObjectOfType<Text>();
+        myText = gameObject.GetComponent<Text>();
         InvokeRepeating("ChangeName", 0f, 2f);
     }
 
