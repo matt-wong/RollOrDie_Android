@@ -28,6 +28,7 @@ public class gameManager
     public eDifficulty difficulty = eDifficulty.spicy;
 
     private bool myGameOver;
+    public bool GameWasWon;
     public int weakestEnemyHP;
 
     //0 (0 - 20 points) - No items, playter rigged to never roll losing value twice in a row.

@@ -38,6 +38,7 @@ public class playerScript : MonoBehaviour
 
     public event System.Action<int> NewValueAction;
     public event System.Action<bool> GotUpgradeAction;
+    public event System.Action PlayerDied;
 
     public int Value
     {
@@ -256,6 +257,7 @@ public class playerScript : MonoBehaviour
 
         AudioSource.PlayClipAtPoint(this.DeathNoises[UnityEngine.Random.Range(0, this.DeathNoises.Length)], this.transform.position);
         gameManager.Instance.GameOver = true;
+        this.PlayerDied.Invoke();
 
         Destroy(gameObject);
 

@@ -48,6 +48,7 @@ public class HudScript : MonoBehaviour
         }
 
         this.myPlayer = GameObject.FindObjectOfType<playerScript>();
+        this.myPlayer.PlayerDied += () => {ShowGameOverMenu();};
 
         this.myPointKeeper = GameObject.FindObjectOfType<pointKeeper>();
         myPointKeeper.UpdateAction += (value) => {UpdateFromPointKeeper(value);};
@@ -62,21 +63,19 @@ public class HudScript : MonoBehaviour
 
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        //TODO: Hook to gameover event.
-        if (gm.GameOver)
+    void ShowGameOverMenu(){
+          if (gm.GameOver)
         {
             myRestartPanel.gameObject.SetActive(true);
             myPauseButton.gameObject.SetActive(false);
             myFinalScoreText.text = "Points: " + gm.Points.ToString();
             myHighScoreText.text = "High Score: " + gm.HighScore.ToString();
         }
+    }
 
-
+    // Update is called once per frame
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
