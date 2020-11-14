@@ -14,7 +14,7 @@ public class playTestersDisplay : MonoBehaviour
     void Start()
     {
         myText = gameObject.GetComponent<Text>();
-        InvokeRepeating("ChangeName", 0f, 2f);
+        InvokeRepeating("ChangeName", 1f, 2f);
     }
 
     void ChangeName(){
