@@ -61,6 +61,7 @@ public class gameManager
     internal void Restart()
     {
         GameOver = false;
+        GameWasWon = false;
         Points = 0;
         SceneManager.LoadScene("scene");
     }
