@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HudScript : MonoBehaviour
@@ -64,7 +65,11 @@ public class HudScript : MonoBehaviour
     }
 
     void ShowGameOverMenu(){
-          if (gm.GameOver)
+        if (gm.GameWasWon){
+            SceneManager.LoadScene("Credits");
+        }
+        
+        else if (gm.GameOver)
         {
             myRestartPanel.gameObject.SetActive(true);
             myPauseButton.gameObject.SetActive(false);

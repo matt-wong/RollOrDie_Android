@@ -9,6 +9,7 @@ public class mainMenuScript : MonoBehaviour
     const int GAME_SCENE = 1;
     const int DIFF_SCENE = 2;
     const int HOW_TO_PLAY_SCENE = 3;
+    const int CREDITS_SCENE = 4;
 
     private void PlayGame(eDifficulty difficulty){
         Debug.Log("PLAY GAME");
