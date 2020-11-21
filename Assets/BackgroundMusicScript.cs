@@ -28,10 +28,7 @@ public class BackgroundMusicScript : MonoBehaviour
 
     void Update(){
         if (myAudioSource.volume < myDafaultMusicVol){
-            Debug.Log("volume");
-            Debug.Log(myAudioSource.volume);
             myAudioSource.volume += Time.deltaTime * 0.1f;
-            Debug.Log(myAudioSource.volume);
         }
     }
 
