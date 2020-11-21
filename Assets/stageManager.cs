@@ -45,30 +45,30 @@ public class stageManager : MonoBehaviour
         this.Stages = new List<Stage>();
         this.Stages.Add(new Stage { StartingRow = 0, BgColor = BG_BLUE, NumberOfObstacles = 0, NumberBlockedDiced = 0, MusicSpeed = 1}); //Normal
         this.Stages.Add(new Stage { StartingRow = 5, BgColor = BG_PURPLE, NumberOfObstacles = 0, Description = "SPEED UP!", MusicSpeed = 1.0125f}); //Faster
-        this.Stages.Add(new Stage { StartingRow = 10, BgColor = BG_RED, NumberOfObstacles = 0, Description = "SPEED UP!", MusicSpeed = 1.025f}); //Item / Faster - Red
-        this.Stages.Add(new Stage { StartingRow = 15, BgColor = BG_ORANGE, NumberOfObstacles = 0, Description = "SPEED UP!", MusicSpeed = 1.0375f}); //Faster - Orange
-        this.Stages.Add(new Stage { StartingRow = 20, BgColor = BG_YELLOW, NumberOfObstacles = 1, Description = "AVOID SPIKEYS!", MusicSpeed = 1.05f}); //1 Obstacle / row - Yellow 
-        this.Stages.Add(new Stage { StartingRow = 30, BgColor = BG_GREEN, NumberOfObstacles = 2, Description = "AVOID MORE SPIKEYS!"}); //2 Obstacle / row -Green
+        // this.Stages.Add(new Stage { StartingRow = 10, BgColor = BG_RED, NumberOfObstacles = 0, Description = "SPEED UP!", MusicSpeed = 1.025f}); //Item / Faster - Red
+        // this.Stages.Add(new Stage { StartingRow = 15, BgColor = BG_ORANGE, NumberOfObstacles = 0, Description = "SPEED UP!", MusicSpeed = 1.0375f}); //Faster - Orange
+        // this.Stages.Add(new Stage { StartingRow = 20, BgColor = BG_YELLOW, NumberOfObstacles = 1, Description = "AVOID SPIKEYS!", MusicSpeed = 1.05f}); //1 Obstacle / row - Yellow 
+        // this.Stages.Add(new Stage { StartingRow = 30, BgColor = BG_GREEN, NumberOfObstacles = 2, Description = "AVOID MORE SPIKEYS!"}); //2 Obstacle / row -Green
         
-        this.Stages.Add(new Stage { StartingRow = 40, BgColor = BG_BLUE, NumberOfObstacles = 3, Description = "MORE SPIKEY GUYS!"}); //3 Obstacle / row -New Blob Sprite
-        this.Stages.Add(new Stage { StartingRow = 50, BgColor = BG_PURPLE, NumberOfObstacles = 4, Description = "CONTINUE AVOIDING!"}); //4 Obstacles
-        this.Stages.Add(new Stage { StartingRow = 60, BgColor = BG_RED, NumberOfObstacles = 4, NumberBlockedDiced = 1, Description = "BLOCKED DICE!"}); // 5 Obstacles
-        this.Stages.Add(new Stage { StartingRow = 70, BgColor = BG_ORANGE, NumberOfObstacles = 5, NumberBlockedDiced = 1, Description = "MORE SPIKEY GUYS!"}); // 6 Obstacles
-        this.Stages.Add(new Stage { StartingRow = 80, BgColor = BG_YELLOW, NumberOfObstacles = 6, NumberBlockedDiced = 1, Description = "+1 SPIKEY GUY!"}); // 7 Obstacles
-        this.Stages.Add(new Stage { StartingRow = 90, BgColor = BG_GREEN, NumberOfObstacles = 6, NumberBlockedDiced = 2, Description = "+1 BLOCKED DICE!"}); // 8 Obs
+        // this.Stages.Add(new Stage { StartingRow = 40, BgColor = BG_BLUE, NumberOfObstacles = 3, Description = "MORE SPIKEY GUYS!"}); //3 Obstacle / row -New Blob Sprite
+        // this.Stages.Add(new Stage { StartingRow = 50, BgColor = BG_PURPLE, NumberOfObstacles = 4, Description = "CONTINUE AVOIDING!"}); //4 Obstacles
+        // this.Stages.Add(new Stage { StartingRow = 60, BgColor = BG_RED, NumberOfObstacles = 4, NumberBlockedDiced = 1, Description = "BLOCKED DICE!"}); // 5 Obstacles
+        // this.Stages.Add(new Stage { StartingRow = 70, BgColor = BG_ORANGE, NumberOfObstacles = 5, NumberBlockedDiced = 1, Description = "MORE SPIKEY GUYS!"}); // 6 Obstacles
+        // this.Stages.Add(new Stage { StartingRow = 80, BgColor = BG_YELLOW, NumberOfObstacles = 6, NumberBlockedDiced = 1, Description = "+1 SPIKEY GUY!"}); // 7 Obstacles
+        // this.Stages.Add(new Stage { StartingRow = 90, BgColor = BG_GREEN, NumberOfObstacles = 6, NumberBlockedDiced = 2, Description = "+1 BLOCKED DICE!"}); // 8 Obs
         
-        this.Stages.Add(new Stage { StartingRow = 100, BgColor = BG_BLUE, NumberOfObstacles = 7, NumberBlockedDiced = 2, Description = "MORE SPIKEY GUYS!"}); 
-        this.Stages.Add(new Stage { StartingRow = 110, BgColor = BG_PURPLE, NumberOfObstacles = 8, NumberBlockedDiced = 2, Description = "MORE!"}); 
-        this.Stages.Add(new Stage { StartingRow = 120, BgColor = BG_RED, NumberOfObstacles = 8, NumberBlockedDiced = 3, Description = "YET ANOTHER BLOCKED DICE!"}); 
-        this.Stages.Add(new Stage { StartingRow = 130, BgColor = BG_ORANGE, NumberOfObstacles = 9, NumberBlockedDiced = 3, Description = "Guess what?!"});
-        this.Stages.Add(new Stage { StartingRow = 140, BgColor = BG_YELLOW, NumberOfObstacles = 10, NumberBlockedDiced = 3, Description = "ANOTHER SPIKEY GUY!"});
-        this.Stages.Add(new Stage { StartingRow = 150, BgColor = BG_GREEN, NumberOfObstacles = 10, NumberBlockedDiced = 4, Description = "Please avoid them."});
+        // this.Stages.Add(new Stage { StartingRow = 100, BgColor = BG_BLUE, NumberOfObstacles = 7, NumberBlockedDiced = 2, Description = "MORE SPIKEY GUYS!"}); 
+        // this.Stages.Add(new Stage { StartingRow = 110, BgColor = BG_PURPLE, NumberOfObstacles = 8, NumberBlockedDiced = 2, Description = "MORE!"}); 
+        // this.Stages.Add(new Stage { StartingRow = 120, BgColor = BG_RED, NumberOfObstacles = 8, NumberBlockedDiced = 3, Description = "YET ANOTHER BLOCKED DICE!"}); 
+        // this.Stages.Add(new Stage { StartingRow = 130, BgColor = BG_ORANGE, NumberOfObstacles = 9, NumberBlockedDiced = 3, Description = "Guess what?!"});
+        // this.Stages.Add(new Stage { StartingRow = 140, BgColor = BG_YELLOW, NumberOfObstacles = 10, NumberBlockedDiced = 3, Description = "ANOTHER SPIKEY GUY!"});
+        // this.Stages.Add(new Stage { StartingRow = 150, BgColor = BG_GREEN, NumberOfObstacles = 10, NumberBlockedDiced = 4, Description = "Please avoid them."});
         
-        this.Stages.Add(new Stage { StartingRow = 160, BgColor = BG_BLUE, NumberOfObstacles = 10, NumberBlockedDiced = 4, Description = "Please..."});
-        this.Stages.Add(new Stage { StartingRow = 170, BgColor = BG_PURPLE, NumberOfObstacles = 11, NumberBlockedDiced = 4, Description = "KEEP IT GOING!"});
-        this.Stages.Add(new Stage { StartingRow = 180, BgColor = BG_RED, NumberOfObstacles = 12, NumberBlockedDiced = 4, Description = "Almost there...!"});
-        this.Stages.Add(new Stage { StartingRow = 190, BgColor = BG_ORANGE, NumberOfObstacles = 13, NumberBlockedDiced = 5, Description = "!!!!AHH!!"});
-        this.Stages.Add(new Stage { StartingRow = 200, BgColor = BG_GREEN, NumberOfObstacles = 14, NumberBlockedDiced = 5, Description = "SUCCESS!! Thanks for playing!"});
+        // this.Stages.Add(new Stage { StartingRow = 160, BgColor = BG_BLUE, NumberOfObstacles = 10, NumberBlockedDiced = 4, Description = "Please..."});
+        // this.Stages.Add(new Stage { StartingRow = 170, BgColor = BG_PURPLE, NumberOfObstacles = 11, NumberBlockedDiced = 4, Description = "KEEP IT GOING!"});
+        // this.Stages.Add(new Stage { StartingRow = 180, BgColor = BG_RED, NumberOfObstacles = 12, NumberBlockedDiced = 4, Description = "Almost there...!"});
+        // this.Stages.Add(new Stage { StartingRow = 190, BgColor = BG_ORANGE, NumberOfObstacles = 13, NumberBlockedDiced = 5, Description = "!!!!AHH!!"});
+        // this.Stages.Add(new Stage { StartingRow = 200, BgColor = BG_GREEN, NumberOfObstacles = 14, NumberBlockedDiced = 5, Description = "SUCCESS!! Thanks for playing!"});
 
         foreach(Stage stg in this.Stages){
             stg.EnemySpeed = SpeedFromRowIndex(stg.StartingRow, gameManager.Instance.difficulty);
