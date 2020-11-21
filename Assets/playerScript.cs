@@ -255,7 +255,10 @@ public class playerScript : MonoBehaviour
         //settings.startColor = new ParticleSystem.MinMaxGradient(this.mySpriteRenderer.color);
         ps.Play();
 
-        AudioSource.PlayClipAtPoint(this.DeathNoises[UnityEngine.Random.Range(0, this.DeathNoises.Length)], this.transform.position);
+        if (!gameManager.Instance.GameWasWon){
+                AudioSource.PlayClipAtPoint(this.DeathNoises[UnityEngine.Random.Range(0, this.DeathNoises.Length)], this.transform.position);
+        }
+        
         gameManager.Instance.GameOver = true;
         this.PlayerDied.Invoke();
 

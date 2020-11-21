@@ -68,7 +68,7 @@ public class stageManager : MonoBehaviour
         this.Stages.Add(new Stage { StartingRow = 170, BgColor = BG_PURPLE, NumberOfObstacles = 11, NumberBlockedDiced = 4, Description = "KEEP IT GOING!"});
         this.Stages.Add(new Stage { StartingRow = 180, BgColor = BG_RED, NumberOfObstacles = 12, NumberBlockedDiced = 4, Description = "Almost there...!"});
         this.Stages.Add(new Stage { StartingRow = 190, BgColor = BG_ORANGE, NumberOfObstacles = 13, NumberBlockedDiced = 5, Description = "!!!!AHH!!"});
-        this.Stages.Add(new Stage { StartingRow = 200, BgColor = BG_GREEN, NumberOfObstacles = 14, NumberBlockedDiced = 5, Description = "SUCCESS!! Thanks for playing!"});
+        this.Stages.Add(new Stage { StartingRow = 200, BgColor = BG_GREEN, NumberOfObstacles = 14, NumberBlockedDiced = 5, Description = "YOU WIN!! Thanks for playing!"});
 
         foreach(Stage stg in this.Stages){
             stg.EnemySpeed = SpeedFromRowIndex(stg.StartingRow, gameManager.Instance.difficulty);
