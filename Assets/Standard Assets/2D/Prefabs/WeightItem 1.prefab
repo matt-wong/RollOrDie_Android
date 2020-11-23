@@ -132,7 +132,7 @@ MonoBehaviour:
   fadeTime: 5
   fadeAnimationName: 
   PickUpNoises:
-  - {fileID: 8300000, guid: 8faaf4965ca38c3439cdace9ddf27884, type: 3}
+  - {fileID: 8300000, guid: d5ebc7310cd6a274691e83d79c6fe40e, type: 3}
 --- !u!50 &1518712082062889959
 Rigidbody2D:
   serializedVersion: 4

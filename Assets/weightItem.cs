@@ -30,7 +30,11 @@ public class weightItem : itemMovement
         playerHitScript.HasExtraWeight = true;
         playerRB.mass += 0.3f;
 
-        AudioSource.PlayClipAtPoint(this.PickUpNoises[UnityEngine.Random.Range(0, this.PickUpNoises.Length)], this.transform.position);
+        for (int i = 0; i < 10; i++){
+            //Awful hack in increase the volume
+            AudioSource.PlayClipAtPoint(this.PickUpNoises[UnityEngine.Random.Range(0, this.PickUpNoises.Length)], this.transform.position);     
+        }
+
 
         Animator animator = GetComponent<Animator>();
         this.hasBeenCollected = true; //Stop moving, spin and shrink
