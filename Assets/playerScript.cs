@@ -248,7 +248,7 @@ public class playerScript : MonoBehaviour
             ani.Play("CameraShake");
         }
 
-        ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.Euler(0f, 0f, 220));
+        ParticleSystem ps = Instantiate(DeathParticles, new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z), Quaternion.Euler(0f, 0f, 220));
         //ps.textureSheetAnimation.SetSprite(0, this.currFace.sprite);
 
         ParticleSystem.MainModule settings = ps.main;

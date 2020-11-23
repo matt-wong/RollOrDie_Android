@@ -66,7 +66,7 @@ public class HudScript : MonoBehaviour
 
     void ShowGameOverMenu(){
         if (gm.GameWasWon){
-            SceneManager.LoadScene("Credits");
+            Invoke("LoadCredits", 1f);
         }
         
         else if (gm.GameOver)
@@ -76,6 +76,10 @@ public class HudScript : MonoBehaviour
             myFinalScoreText.text = "Points: " + gm.Points.ToString();
             myHighScoreText.text = "High Score: " + gm.HighScore.ToString();
         }
+    }
+
+    void LoadCredits(){
+        SceneManager.LoadScene("Credits");
     }
 
     // Update is called once per frame
