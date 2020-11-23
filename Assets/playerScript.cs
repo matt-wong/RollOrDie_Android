@@ -314,7 +314,7 @@ public class playerScript : MonoBehaviour
 
             if (myGotLosingRoll)
             {
-                lowerRange = gameManager.Instance.weakestEnemyHP + 1;
+                lowerRange = gameManager.Instance.weakestEnemyHP;
                 myGotLosingRoll = false;
             }
             else if (myValue <= 1)
@@ -324,7 +324,7 @@ public class playerScript : MonoBehaviour
 
             this.Value = UnityEngine.Random.Range(lowerRange, 7);
 
-            if (this.myValue <= gameManager.Instance.weakestEnemyHP)
+            if (this.myValue < gameManager.Instance.weakestEnemyHP)
             {
                 //take note that we gave them a losing roll
                 myGotLosingRoll = true;
