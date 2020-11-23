@@ -37,11 +37,13 @@ public class mainMenuScript : MonoBehaviour
 
     public void GoToHowToPlayScene(){
         Debug.Log("How to play");
+        Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene(HOW_TO_PLAY_SCENE);
     }
 
     public void GoToStartScene(){
         Debug.Log("Start Scene");
+        Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene(START_SCENE);
     }
 }
