@@ -31,7 +31,7 @@ public class mainMenuScript : MonoBehaviour
     }
 
     public void ChooseDifficulty(){
-        Debug.Log("PLAY GAME");
+        Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene(DIFF_SCENE);
     }
 
