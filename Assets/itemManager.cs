@@ -47,8 +47,6 @@ public class itemManager : MonoBehaviour
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(180,185)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(190,195)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(190,195)});
-        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(200,205)});
-        ItemOccurences.Add(new ItemOccurence { iType = eItemType.heart, rowIndex = Random.Range(200,205)});
 
 
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(11,20)});
@@ -69,7 +67,6 @@ public class itemManager : MonoBehaviour
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(170,175)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(180,185)});
         ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(190,195)});
-        ItemOccurences.Add(new ItemOccurence { iType = eItemType.clear, rowIndex = Random.Range(200,205)});
     }
 
     public void SpawnItemsForRow(int rowNumber){
